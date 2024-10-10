@@ -1,7 +1,9 @@
-Hello, and welcome to this course on Data Analytics with Python.
+Hello, and welcome to this course on Data Analytics with Python. My name is
+Jaidev Deshpande, and I'm an Associate Principal Data Scientist at Gramener,
+which is a data science company.
 
 We are collecting more and more data than ever before in history. And there's an
-entire industry around analyzing and interpreting that data. The objective of
+entire industry around analyzing and interpreting this data. The objective of
 this course is to not only make you comfortable with the practice of data
 analytics, but also to make you significantly competent within this industry.
 
@@ -14,7 +16,7 @@ going to learn in this course is how to take a structured approach towards
 analyzing data. You will see that having a structure, a process makes you
 significantly more effective. It brings more discipline and rigour to the
 practice, it helps you avoid wastage - wastage of analysis, wastage of energy and
-ultimately wastage of time. And since it's a well defined, well structured process,
+ultimately wastage of time and money. And since it's a well defined, well structured process,
 with some luck, you should also be able to automate this process.
 
 
@@ -27,15 +29,15 @@ purpose programming language that has a plethora of different easy to use
 libraries for data analysis. Note that data analysis is usually only one block
 in a larger pipeline which ultimately creates a product or a service. Having the
 whole pipeline in a single language is easier for most developers and
-practitioners.
+practitioners, rather than having a different software stack for each block.
 
 Having said that, also note that we will only be using Python as a vehicle for 
 analytics. In the analytics industry, the only thing as abundant as the data
 itself is opinions about which tool is the best. And I believe that the sooner
-you try to lay this question to rest, the better. My current boss is S Anand, who
-is the CEO of Gramener, and consistently ranked in the top ten data scientists
-in India. He says that tools do not matter, technique does. A good analyst is
-someone who is able to perform good analysis with any tool. The best tool you
+you try to lay this question to rest, the better. Tools do not matter, technique does.
+A good analyst is
+someone who is able to perform good analysis with any tool. The idea is not to
+overfit on one tool, but to be able to pick up different tools fairly quickly. The best tool you
 have is between your ears. So ultimately, my job here is to teach the process
 and methods of data analysis, with Python as a tool, a vehicle.
 You should be able to replicate this process with any other tool that you are

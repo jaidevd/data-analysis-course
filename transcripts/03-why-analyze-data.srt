@@ -1,0 +1,352 @@
+1
+00:00:00,000 --> 00:00:07,040
+In the last video we spoke about the genesis of data: what place the analysis
+
+2
+00:00:07,040 --> 00:00:10,960
+of data occupies in business intelligence and strategy and what it
+
+3
+00:00:10,960 --> 00:00:15,000
+means for practitioners. In this video we are going to take a deeper look at
+
+4
+00:00:15,000 --> 00:00:19,120
+the motivation behind some of the analytical practices that we are going
+
+5
+00:00:19,120 --> 00:00:27,840
+to learn in this course. As a quick recap remember that these four stages are the
+
+6
+00:00:27,840 --> 00:00:33,840
+stages of the data cycle: generation, acquisition, analysis and consumption. We
+
+7
+00:00:33,840 --> 00:00:38,880
+had spoken about how everybody consumes analysis but very inefficiently. Let's
+
+8
+00:00:38,880 --> 00:00:46,000
+take a deeper look at why that happens and what we can do to fix it. To
+
+9
+00:00:46,000 --> 00:00:50,040
+begin with first and foremost most analysts have a habit of simply
+
+10
+00:00:50,040 --> 00:00:55,440
+reporting their analysis as plain bare facts. We usually don't take the effort
+
+11
+00:00:55,440 --> 00:01:00,120
+of weaving these facts together in a story like narrative. Now why is this
+
+12
+00:01:00,120 --> 00:01:06,960
+important? Because stories are what people remember. Facts on the other hand
+
+13
+00:01:06,960 --> 00:01:11,880
+are bits of information that people are likely to forget. Of course we are not
+
+14
+00:01:11,880 --> 00:01:16,160
+suggesting that facts are not important, quite the opposite in fact, but they have
+
+15
+00:01:16,160 --> 00:01:20,920
+to be presented as stories. There is a very good reason why slogans, poems and
+
+16
+00:01:20,920 --> 00:01:26,000
+joomlas are more effective in, say, political rhetoric than plain bare facts.
+
+17
+00:01:26,000 --> 00:01:33,400
+As an example there is this website called significantobjects.com on which
+
+18
+00:01:33,400 --> 00:01:38,560
+Rob Walker and Joshua Glenn tried to sell a bunch of common objects. What they
+
+19
+00:01:38,560 --> 00:01:44,720
+did differently was that they paid a few writers to write short stories about
+
+20
+00:01:45,720 --> 00:01:51,640
+these objects. So for example this is an object called Thai hooks and you know
+
+21
+00:01:51,640 --> 00:01:56,840
+there is a fairly elaborate story written about that. And they found out
+
+22
+00:01:56,840 --> 00:02:01,560
+that objects which had stories behind them were likely to be sold at a much
+
+23
+00:02:01,560 --> 00:02:12,240
+higher rate than the ones that just had an item description. So if you were to
+
+24
+00:02:12,280 --> 00:02:16,200
+quantify the impact of stories on these sales, note that in this particular quick
+
+25
+00:02:16,200 --> 00:02:21,600
+case they had a return of more than 3000%. In summary, stories are what
+
+26
+00:02:21,600 --> 00:02:28,960
+people share and remember. But we as analysts have a very different problem.
+
+27
+00:02:28,960 --> 00:02:35,220
+At the outset let me acknowledge that data analysis is really hard. Not
+
+28
+00:02:35,220 --> 00:02:39,200
+everybody can do it effectively and because it is difficult we tend to
+
+29
+00:02:39,200 --> 00:02:44,640
+cling to every single piece of analysis we perform even if some of it may not
+
+30
+00:02:44,640 --> 00:02:49,360
+help the point we're trying to make. Even if some of it is not what the audience
+
+31
+00:02:49,360 --> 00:02:54,280
+asked for. Secondly remember that your audience will almost never be able to
+
+32
+00:02:54,280 --> 00:03:00,120
+replicate the nuances of data analysis. So it is not your analysis that is likely
+
+33
+00:03:00,120 --> 00:03:08,000
+to impress your audience but the story that you weave around it. Now analysis may
+
+34
+00:03:08,000 --> 00:03:15,000
+be hard but a lot of it is also a fairly mechanical process. What you do with one
+
+35
+00:03:15,000 --> 00:03:19,680
+data set you just have to sit down and do with another data set. What you do
+
+36
+00:03:19,680 --> 00:03:23,240
+with a particular column or a given set of numbers you just have to sit down
+
+37
+00:03:23,240 --> 00:03:27,320
+and do the same with another set of numbers. You draw charts and then you
+
+38
+00:03:27,320 --> 00:03:31,680
+replicate that chart for other data sets. That's what I mean when I say that
+
+39
+00:03:31,680 --> 00:03:36,240
+analytics can become somewhat mechanical. There's always an element of repetition
+
+40
+00:03:36,240 --> 00:03:40,960
+to it and it is for this reason that many self-service business intelligence
+
+41
+00:03:40,960 --> 00:03:46,880
+tools are trying to automate the most routine parts of data analysis. Excel,
+
+42
+00:03:46,880 --> 00:03:51,560
+Power BI and Tableau are all self-service business intelligence tools
+
+43
+00:03:51,560 --> 00:03:56,360
+which only ask the user to click and point, drag and drop elements onto the
+
+44
+00:03:56,360 --> 00:04:01,600
+dashboards which reflect your analytics. And since these tools are cheap the rate
+
+45
+00:04:01,600 --> 00:04:06,480
+at which companies build dashboards has grown exponentially. Building dashboards
+
+46
+00:04:06,480 --> 00:04:12,480
+is easier and cheaper than ever before. And it's easy to make the dashboard look
+
+47
+00:04:12,480 --> 00:04:16,360
+pretty even if it doesn't convey anything meaningful. That's why it's very
+
+48
+00:04:16,360 --> 00:04:19,680
+easy to lose track of how many dashboards we generate and what they do.
+
+49
+00:04:19,680 --> 00:04:25,320
+This is a major problem that troubles a lot of companies that use self-service
+
+50
+00:04:25,320 --> 00:04:32,920
+BI tools. But there are three major problems with most dashboards.
+
+51
+00:04:42,120 --> 00:04:50,600
+It is usually not clear what question a dashboard answers. In fact we don't even
+
+52
+00:04:50,600 --> 00:04:55,040
+know if there is a question that the dashboard is attempting to answer. To
+
+53
+00:04:55,040 --> 00:04:59,080
+figure it out you have to look at each individual chart or graphic on the
+
+54
+00:04:59,080 --> 00:05:05,560
+dashboard and interpret it. That is not easy. Secondly the answer is not obvious
+
+55
+00:05:05,560 --> 00:05:09,800
+from the dashboard. Very rarely do we find a dashboard that tells us exactly
+
+56
+00:05:09,800 --> 00:05:14,640
+what we need to know. In fact often the analyst who creates a dashboard has to
+
+57
+00:05:14,640 --> 00:05:19,840
+painstakingly, at length explain what the dashboard is trying to say. Interpreting
+
+58
+00:05:19,840 --> 00:05:23,680
+a dashboard without talking to the analyst who created it is often very
+
+59
+00:05:23,760 --> 00:05:28,600
+difficult. Actually if there is one thing you take away from this course let it be
+
+60
+00:05:28,600 --> 00:05:33,160
+this: Do not be that person who creates complicated dashboards and then becomes
+
+61
+00:05:33,160 --> 00:05:37,200
+a bottleneck when it comes to the interpretation of those dashboards. Let
+
+62
+00:05:37,200 --> 00:05:43,160
+your work speak for itself. Finally the biggest problem with dashboards is that
+
+63
+00:05:43,160 --> 00:05:47,000
+they don't make it very clear as to what action you should take based on the
+
+64
+00:05:47,000 --> 00:05:51,760
+inference you draw from the dashboard. That is often left as an exercise to the
+
+65
+00:05:51,760 --> 00:05:56,480
+reader. Which means that after spending a lot of time and money on analyzing
+
+66
+00:05:56,480 --> 00:06:00,840
+data the user still has to do their own data interpretation. In other words
+
+67
+00:06:00,840 --> 00:06:06,000
+dashboards tend to be descriptive rather than prescriptive. And what can be more
+
+68
+00:06:06,000 --> 00:06:10,560
+prescriptive than stories? After all every story has a moral and that moral
+
+69
+00:06:10,560 --> 00:06:19,560
+is what tells you what action the user should take. But this is not a new idea.
+
+70
+00:06:19,560 --> 00:06:24,720
+We have been telling stories with data for a very long time. What you see here
+
+71
+00:06:24,720 --> 00:06:30,480
+is called a Nightingale Rose chart. It is basically a circular bar chart which was
+
+72
+00:06:30,480 --> 00:06:35,560
+first created by Florence Nightingale, the lady with the lamp. In addition to
+
+73
+00:06:35,560 --> 00:06:40,480
+being a nurse she was also a statistician. As you can see the title here
+
+74
+00:06:40,480 --> 00:06:45,000
+it's the diagram of the causes of mortality. She started collecting data
+
+75
+00:06:45,000 --> 00:06:50,000
+on why and how soldiers died during the Crimean War. And if you look at the
+
+76
+00:06:50,000 --> 00:06:54,200
+description the pink area here represents the number of soldiers who
+
+77
+00:06:54,200 --> 00:06:59,400
+died because of battlefield wounds. And the gray area outside represent soldiers
+
+78
+00:06:59,400 --> 00:07:03,960
+who died because of infectious diseases. Infections that were
+
+79
+00:07:03,960 --> 00:07:08,480
+contracted not in the war but in the hospitals which were overflowing with
+
+80
+00:07:08,480 --> 00:07:13,880
+wounded soldiers. And we can see that nowadays we are seeing a fairly similar
+
+81
+00:07:13,880 --> 00:07:19,760
+trend with the COVID pandemic. We have hospitals overflowing with COVID patients
+
+82
+00:07:19,760 --> 00:07:24,280
+and that is where people who have non-COVID problems also are having a
+
+83
+00:07:24,280 --> 00:07:29,440
+difficult time getting admitted. So broadly what happened is that Florence
+
+84
+00:07:29,440 --> 00:07:34,040
+Nightingale demonstrated that more people were dying because of infections
+
+85
+00:07:34,040 --> 00:07:41,400
+rather than because of their battlefield wounds. She took this chart to the Queen
+
+86
+00:07:41,440 --> 00:07:45,040
+of England with a very clear message that you need to be spending more on
+
+87
+00:07:45,040 --> 00:07:49,880
+hospitals than military supplies. And she walked out with funding. Imagine what
+
+88
+00:07:49,880 --> 00:07:56,640
+would have happened if she had let the Queen interpret all this chart by herself.
+

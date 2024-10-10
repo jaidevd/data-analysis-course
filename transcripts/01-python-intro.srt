@@ -1,0 +1,196 @@
+1
+00:00:00,000 --> 00:00:05,200
+Hello and welcome to this course on data analytics with Python.
+
+2
+00:00:05,200 --> 00:00:10,460
+My name is Jaidev Deshpande and I am an Associate Principal Data Scientist at Gramenar, which
+
+3
+00:00:10,460 --> 00:00:12,880
+is a data science company.
+
+4
+00:00:12,880 --> 00:00:17,880
+We are collecting more and more data than ever before in history and there is an entire
+
+5
+00:00:17,880 --> 00:00:22,320
+industry around analyzing and interpreting this data.
+
+6
+00:00:22,320 --> 00:00:27,120
+The objective of this course is not only to make you comfortable within the practice of
+
+7
+00:00:27,120 --> 00:00:32,240
+data analytics, but also to make you significantly competent within this industry.
+
+8
+00:00:32,240 --> 00:00:36,480
+You see, so far we have mostly been grasping at straws.
+
+9
+00:00:36,480 --> 00:00:40,080
+Analysis has not been able to keep up with the volume of data.
+
+10
+00:00:40,080 --> 00:00:44,960
+It seems like no matter how much money or energy we invest in analyzing data, we cannot
+
+11
+00:00:44,960 --> 00:00:46,640
+keep up with the demand really.
+
+12
+00:00:46,640 --> 00:00:52,320
+One of the major reasons why this happens is because data analysis as an industrial
+
+13
+00:00:52,320 --> 00:00:57,880
+vocational discipline tends to be fairly ad hoc and in its approach to data.
+
+14
+00:00:57,880 --> 00:01:01,960
+One of the most important things you are going to learn in this course is how to take a structured
+
+15
+00:01:01,960 --> 00:01:06,040
+approach towards analyzing data.
+
+16
+00:01:06,040 --> 00:01:11,160
+You will see that having a structure, a process makes you significantly more effective.
+
+17
+00:01:11,160 --> 00:01:15,440
+It brings more discipline, more rigor to the practice and helps you avoid wastage, which
+
+18
+00:01:15,440 --> 00:01:21,920
+is a wastage of analysis, wastage of energy, ultimately that of time and money as well.
+
+19
+00:01:21,920 --> 00:01:25,160
+And since it is a well-defined, well-structured process, with some luck, you should be able
+
+20
+00:01:25,160 --> 00:01:27,720
+to automate this process also.
+
+21
+00:01:27,720 --> 00:01:33,480
+Now a major aspect of this course is the tool that we will use, which is Python and some
+
+22
+00:01:33,480 --> 00:01:34,480
+of its libraries.
+
+23
+00:01:34,480 --> 00:01:40,400
+Python is an old language, in fact, it is older than Java, but its use as a primary
+
+24
+00:01:40,400 --> 00:01:45,600
+language for data science has exploded in the last 5 to 10 years.
+
+25
+00:01:45,600 --> 00:01:51,160
+More and more practitioners are slowly moving away from domain specific tools like MATLAB
+
+26
+00:01:51,160 --> 00:01:54,280
+or even Excel towards Python.
+
+27
+00:01:54,280 --> 00:01:58,840
+And the reason is that Python is the only general purpose programming language that
+
+28
+00:01:58,840 --> 00:02:03,920
+has a plethora of different easy to use libraries for data analysis.
+
+29
+00:02:03,920 --> 00:02:08,600
+Note that data analysis is usually only one block in a larger pipeline, which ultimately
+
+30
+00:02:08,600 --> 00:02:10,960
+creates your product or your service.
+
+31
+00:02:10,960 --> 00:02:14,920
+And having the whole pipeline in a single language is easier for most developers and
+
+32
+00:02:14,920 --> 00:02:19,040
+practitioners rather than having a different software stack for each block.
+
+33
+00:02:19,600 --> 00:02:25,080
+Having said that, also note that we are only going to be using Python as a vehicle for
+
+34
+00:02:25,080 --> 00:02:26,080
+analytics.
+
+35
+00:02:26,080 --> 00:02:32,880
+In the industry, the only thing as abundant as data itself is opinions about which tool
+
+36
+00:02:32,880 --> 00:02:33,880
+is the best.
+
+37
+00:02:33,880 --> 00:02:38,880
+And I believe that the sooner you lay this question to rest, the better for everyone.
+
+38
+00:02:38,880 --> 00:02:41,600
+Tools do not matter, technique does.
+
+39
+00:02:41,600 --> 00:02:45,360
+A good analyst is somebody who is able to perform good analysis with any tool that is
+
+40
+00:02:45,360 --> 00:02:46,600
+available to them.
+
+41
+00:02:46,840 --> 00:02:51,640
+The idea is not basically overfitting on one tool, but being able to pick up and learn
+
+42
+00:02:51,640 --> 00:02:55,240
+new and new tools fairly quickly.
+
+43
+00:02:55,240 --> 00:02:59,040
+The best tool that you have, remember, is between your ears.
+
+44
+00:02:59,040 --> 00:03:03,440
+So ultimately, my job here is to teach you the process and methods of data analysis with
+
+45
+00:03:03,440 --> 00:03:05,320
+Python as a tool, as a vehicle.
+
+46
+00:03:05,320 --> 00:03:09,280
+You should be able to replicate this process with pretty much any other tool that you are
+
+47
+00:03:09,280 --> 00:03:10,280
+comfortable with.
+
+48
+00:03:10,280 --> 00:03:15,000
+In fact, that would be a good test of how well you have understood the material.
+
+49
+00:03:15,000 --> 00:03:16,360
+So with that, let us get started.
+

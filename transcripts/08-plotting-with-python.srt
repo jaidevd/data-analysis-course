@@ -1,0 +1,1188 @@
+1
+00:00:00,000 --> 00:00:06,880
+Welcome back. In this video we are going to focus a little bit more on the plotting capabilities
+
+2
+00:00:06,880 --> 00:00:13,960
+which are offered by Pandas. We are introducing a new library called C-BON which is specifically
+
+3
+00:00:13,960 --> 00:00:22,280
+suited towards visualization of statistical analysis. So as usual we have the default
+
+4
+00:00:22,280 --> 00:00:28,080
+plotting library which is Matplotlib. Note that Pandas and C-BON are both just wrappers
+
+5
+00:00:28,080 --> 00:00:32,600
+around Matplotlib. So essentially without Matplotlib these two libraries won't work.
+
+6
+00:00:32,600 --> 00:00:39,040
+In order to exploit the visualization capabilities of Pandas or of C-BON you still need Matplotlib.
+
+7
+00:00:39,040 --> 00:00:43,000
+Matplotlib is like a low-level library which allows you to play with every single element
+
+8
+00:00:43,000 --> 00:00:47,640
+of a chart whereas C-BON is something that works at a very high level in the sense that
+
+9
+00:00:47,640 --> 00:00:52,560
+it is very much aware of the kind of analysis and the kind of data that you're already giving
+
+10
+00:00:52,560 --> 00:00:59,160
+it and it creates a lot of assumptions on what sort of data you're giving it and therefore
+
+11
+00:00:59,160 --> 00:01:04,080
+draws a chart. Now the chart that C-BON creates you can use Matplotlib to sort of tweak it
+
+12
+00:01:04,080 --> 00:01:10,200
+and change some of its attributes. What those attributes are and how you essentially keep
+
+13
+00:01:10,200 --> 00:01:15,760
+on changing a chart, tweaking a chart to make it look better is what this particular video
+
+14
+00:01:15,760 --> 00:01:23,040
+is about. So as usual let's run the imports and there we are. Now in this particular notebook
+
+15
+00:01:23,040 --> 00:01:31,480
+we are going to look at a new data set which is a data set from a fictional supermarket
+
+16
+00:01:31,480 --> 00:01:37,920
+and it has the details of all the orders that have been placed with that store and a bunch
+
+17
+00:01:37,920 --> 00:01:43,160
+of other details related to each order. So we are going to as usual read the file with
+
+18
+00:01:43,160 --> 00:01:48,280
+the readCSV function. This is the location to the file and note that here we are using
+
+19
+00:01:48,280 --> 00:01:53,800
+a new parameter that is used in the readCSV function which is called parseDates. Essentially
+
+20
+00:01:53,800 --> 00:01:59,120
+what this means is that we have two columns in our data set which are called orderDate
+
+21
+00:01:59,120 --> 00:02:03,680
+and shipDate. Now these are date columns. What parseDates is going to do is that it's
+
+22
+00:02:03,680 --> 00:02:08,320
+going to take this list and it's going to parse these particular columns into date time objects.
+
+23
+00:02:08,360 --> 00:02:15,160
+So it's essentially going to convert those columns not as text but as date time objects
+
+24
+00:02:15,160 --> 00:02:20,920
+and that's useful because date time objects have a lot of interesting characteristics like you can
+
+25
+00:02:20,920 --> 00:02:27,400
+directly extract things like the year, the month, the day, day of the week, hour, minute, seconds and
+
+26
+00:02:27,400 --> 00:02:33,320
+so on. Whereas if it was actually just present in text then you would have to do a lot of text or
+
+27
+00:02:33,320 --> 00:02:39,080
+string manipulation on that and that is not required when you have those columns parsed as
+
+28
+00:02:39,080 --> 00:02:43,400
+date time objects. And then we have another column called orderID which is just the unique
+
+29
+00:02:43,400 --> 00:02:47,240
+idea of each order. It doesn't really help us much in this case so we're just going to delete that.
+
+30
+00:02:47,240 --> 00:02:52,680
+And then let's look at the data set. So let's run this. So here is what we have. We have the
+
+31
+00:02:52,680 --> 00:02:59,120
+orderDate, the shipDate. Each row is particularly one specific order that was placed and there is
+
+32
+00:02:59,120 --> 00:03:03,320
+a ship mode which can be second class, first class, standard class and so on. There is a
+
+33
+00:03:03,320 --> 00:03:09,280
+customer name. There is a segment. Then the segment is basically the market segment to
+
+34
+00:03:09,280 --> 00:03:14,040
+which that particular product belongs. The city in which the order was placed. The region is
+
+35
+00:03:14,040 --> 00:03:20,160
+basically the south, north, east and west region of the United States. The category to which that
+
+36
+00:03:20,160 --> 00:03:26,280
+order belongs. So basically the first three orders are furniture orders, specifically bookcases,
+
+37
+00:03:26,280 --> 00:03:31,120
+chairs and tables and the second two orders are office supplies which are storage and paper. And
+
+38
+00:03:31,120 --> 00:03:37,800
+then the sales is basically how much sales the store made on that in dollars or whatever currency
+
+39
+00:03:37,800 --> 00:03:42,680
+and the quantity is basically how many quantities were shipped, how much discount in percentage was
+
+40
+00:03:42,680 --> 00:03:48,240
+offered for that particular order and what is the absolute profit in dollars that the store made.
+
+41
+00:03:48,240 --> 00:03:54,560
+So these are our columns. So what we're going to do simply is well one of the most important
+
+42
+00:03:54,560 --> 00:03:59,600
+things that people would like to know about this sort of a data set is what were their yearly sales.
+
+43
+00:03:59,600 --> 00:04:06,120
+So let's say that we simply want to take the year information from these dates and add up all the
+
+44
+00:04:06,120 --> 00:04:12,120
+sales to see what the yearly sales are. One quick way to do that is simply take the order date column
+
+45
+00:04:12,120 --> 00:04:18,960
+and when you access the .dt attribute of the order date column that gives you the underlying
+
+46
+00:04:18,960 --> 00:04:36,760
+date object here. So essentially if you just look at say df order date you'll see that it has a date
+
+47
+00:04:36,760 --> 00:04:44,720
+time 64 data type and if you were to actually get the dt attribute of it that is basically going to
+
+48
+00:04:44,720 --> 00:04:50,120
+give us access to the date time properties of it and then when I do a dot year I get the years
+
+49
+00:04:50,120 --> 00:04:56,040
+which is 2016 for the first two rows then 2015 and then 17 for the fourth row. I can also do
+
+50
+00:04:56,040 --> 00:05:03,320
+something like month. So it tells me that the first two orders were placed in August the second
+
+51
+00:05:03,320 --> 00:05:07,760
+two were placed in November and the fourth one was placed in April and so on. I can also look
+
+52
+00:05:07,760 --> 00:05:13,560
+at the date. So basically the first two orders were placed on the 11th of the month the second
+
+53
+00:05:13,560 --> 00:05:19,440
+on the 10th of the month the second and third on the 10th of the month and the fifth on the 15th
+
+54
+00:05:19,440 --> 00:05:25,120
+of the month. So I can use this sort of a thing to access any sort of an attribute of a date time
+
+55
+00:05:25,120 --> 00:05:31,600
+object. So let's take a look at what we're doing with that over here. Let's say that we do df order
+
+56
+00:05:31,600 --> 00:05:37,640
+date.dt.year which is basically the year part of this particular value and that we are going to
+
+57
+00:05:37,640 --> 00:05:43,560
+assign to a new column called year. So basically let's just do that and then what we are going to
+
+58
+00:05:43,560 --> 00:05:48,280
+do is we are going to group the whole data by the year. We have seen a group by operation before.
+
+59
+00:05:48,280 --> 00:05:53,840
+What it's going to do is take each unique value which is in year and it's going to take the sales
+
+60
+00:05:53,840 --> 00:05:58,880
+column which is this column and it's going to sum up that column for each year. So that's what it
+
+61
+00:05:58,880 --> 00:06:06,080
+looks like. So for the year 2015 this is the sum of all the sales that that store made. For 2016
+
+62
+00:06:06,160 --> 00:06:11,280
+it's this value and for 2017 it's this value. We can almost see that it's almost completely
+
+63
+00:06:12,640 --> 00:06:18,960
+incremental. It's increasing right. So here's a few types of charts which we can use to represent
+
+64
+00:06:18,960 --> 00:06:24,080
+this data. Well the first and foremost one of the things that we have seen is a bar chart. We already
+
+65
+00:06:24,080 --> 00:06:31,840
+have this variable this yearly sales data present in our panda series. We can just say xtf.plot
+
+66
+00:06:31,920 --> 00:06:37,120
+kind equal to bar and there it is. Now you see that we have three bars one for each year one for
+
+67
+00:06:37,120 --> 00:06:43,280
+2015 one for 16 and one for 17 and they are increasing which basically means that my annual
+
+68
+00:06:43,280 --> 00:06:48,960
+sales are increasing as the years go by. Now of course you see that in this particular chart
+
+69
+00:06:49,760 --> 00:06:59,040
+I know that 2015 is a little above 400,000 and a little below halfway between 400,000 and 500,000.
+
+70
+00:06:59,040 --> 00:07:04,720
+So just by looking at this it's not very easy to say what is the exact value or what is the
+
+71
+00:07:04,720 --> 00:07:12,000
+closest round number to which this height matches. So in order to change that I can simply add
+
+72
+00:07:15,200 --> 00:07:21,440
+grid attribute to it. So I can do something like this and that gives me a grid. So you see that
+
+73
+00:07:21,440 --> 00:07:28,400
+now I have the vertical and horizontal lines and I can just say that this one is higher
+
+74
+00:07:28,400 --> 00:07:34,640
+than 6000. Now of course it may be obvious in this case what the values are but when the charts
+
+75
+00:07:34,640 --> 00:07:39,920
+grow bigger and larger and when these x and y-axis when they grow in scale it doesn't become very
+
+76
+00:07:39,920 --> 00:07:44,880
+obvious and therefore it might be useful to introduce a grid. The other aspect of this
+
+77
+00:07:44,880 --> 00:07:50,080
+chart is that you can see that it's built up of three rectangles and they can have their own
+
+78
+00:07:51,040 --> 00:07:58,160
+colors and transparencies. So let's say that I want to do a plot but this time with a green
+
+79
+00:07:58,160 --> 00:08:02,480
+color instead of the default blue and I want to make it transparent. So basically I can do
+
+80
+00:08:02,480 --> 00:08:07,680
+something like this. So you see that now I'm seeing things in green but my transparency is
+
+81
+00:08:07,680 --> 00:08:14,000
+20 percent. So this alpha is a parameter which helps us control the transparency of each color
+
+82
+00:08:14,000 --> 00:08:19,760
+that shows up in the chart and the color is a parameter which tells us which lets us control
+
+83
+00:08:19,760 --> 00:08:25,280
+what color we want to plot the chart in. So I can convert it to red and I can say change the alpha
+
+84
+00:08:25,280 --> 00:08:31,840
+to 0.5 and that gives me a semi-transparent red color. Now of course if I set alpha all the way
+
+85
+00:08:31,840 --> 00:08:36,960
+to one which means that it's completely opaque it's not transparent at all. In that case this
+
+86
+00:08:36,960 --> 00:08:41,760
+is what it would look like. So there we are. This is how you can control the colors and the
+
+87
+00:08:41,760 --> 00:08:48,640
+transparencies of multiple colors. So the major reason why you have to use transparencies is
+
+88
+00:08:49,280 --> 00:08:54,800
+because sometimes you might have overlapping objects in your data and if you have solid colors
+
+89
+00:08:54,800 --> 00:08:58,720
+then some objects might get completely overlapped by something that is above them.
+
+90
+00:08:58,720 --> 00:09:04,560
+So that is why you can adjust the transparencies so that both objects even if they are overlapping
+
+91
+00:09:04,560 --> 00:09:10,880
+are suitably visible. Then of course let's add a grid over here as we have seen already.
+
+92
+00:09:10,880 --> 00:09:17,040
+So these are basically the types of charts. Bar charts is there and the next type of charts is
+
+93
+00:09:17,040 --> 00:09:23,920
+line charts essentially. Actually this is wrong. This should be line charts. We have already seen
+
+94
+00:09:23,920 --> 00:09:28,560
+what a bar chart is. Now the other type of chart is a line chart. Now actually if you think about
+
+95
+00:09:28,560 --> 00:09:32,480
+it it's basically the same information which is being plotted in different ways but you see
+
+96
+00:09:33,040 --> 00:09:38,640
+how different it looks and how unusable this line chart is. If you look at my x-axis you have things
+
+97
+00:09:38,640 --> 00:09:45,120
+all the way from 2015, 2015.25 which is I don't know three months one quarter into the year
+
+98
+00:09:45,120 --> 00:09:52,800
+then there is 2016, 2016.25, 2016.5 all the way up to 2017. So this is not renewable at all
+
+99
+00:09:52,800 --> 00:09:57,280
+and essentially if we just have three values in the x-axis and a bunch of values on the y-axis
+
+100
+00:09:57,280 --> 00:10:02,080
+it's just going to draw a straight line. So you see that a straight line is not very suitable when
+
+101
+00:10:02,080 --> 00:10:06,720
+you have very few data points to draw. In this case we have actually only three data points.
+
+102
+00:10:06,720 --> 00:10:12,240
+So when you have a very small number of data points to draw and especially if the values on
+
+103
+00:10:12,240 --> 00:10:18,560
+the x-axis are categorical values then we might not want to use a line chart. However there are
+
+104
+00:10:18,560 --> 00:10:23,200
+a bunch of different things that you can change even with the line chart. So for example one major
+
+105
+00:10:23,200 --> 00:10:29,040
+thing that we see wrong with this particular plot is that the x-axis ticks these labels that you see
+
+106
+00:10:29,040 --> 00:10:34,640
+here these are called the ticks. They are not at all readable. If we look at xtf we see that there
+
+107
+00:10:34,640 --> 00:10:40,720
+are only three values 2015, 16, 17 but we are seeing all of these 0.25, 0.5, 0.75 intermediate
+
+108
+00:10:40,720 --> 00:10:45,760
+values in there. So I could simply want to change these to reflect only these three values and nothing
+
+109
+00:10:45,760 --> 00:10:52,720
+else. So when I draw the plots I can do a set x ticks which is set the ticks on the x-axis to
+
+110
+00:10:52,720 --> 00:11:01,440
+the index of xtf. Now the index of xtf is 2015, 2016 and 2017. When I do that I get the same chart
+
+111
+00:11:01,440 --> 00:11:09,360
+but this time my x-axis tick labels are a lot more readable. They are certainly not as cluttered and
+
+112
+00:11:09,360 --> 00:11:16,960
+as confusing as this is. Then another thing we can also do is that we can take a look at the labels
+
+113
+00:11:16,960 --> 00:11:23,040
+and titles of this image. Now I know that I have here on the y-axis on the x-axis I have no clue
+
+114
+00:11:23,040 --> 00:11:27,760
+what is there on the y-axis. It's just some number that I'm seeing. So in order to make it self
+
+115
+00:11:27,760 --> 00:11:33,200
+explanatory I can add something like a set y-label which will say that these are my sales and they
+
+116
+00:11:33,200 --> 00:11:38,640
+are indeed our sales because that's the analysis that we have done and I can also add a complete
+
+117
+00:11:38,640 --> 00:11:44,640
+title to the whole chart something that appears at the top which says that this is yearly sales.
+
+118
+00:11:44,640 --> 00:11:51,680
+So let's run that by using set y-label we have created this title this label over here sales.
+
+119
+00:11:51,680 --> 00:11:56,960
+Now earlier we had label only for the x-axis now we have one for the y-axis as well and we have
+
+120
+00:11:56,960 --> 00:12:03,040
+added a title for the entire chart which is yearly sales. So for that we used the set title function.
+
+121
+00:12:03,040 --> 00:12:07,840
+There are a bunch of different line styles that we have used so that we can use. We see that this
+
+122
+00:12:07,840 --> 00:12:14,960
+particular line is a solid straight line. We can have a dashed line also. So here's a dashed line
+
+123
+00:12:14,960 --> 00:12:20,960
+similarly we can also have a dotted line and that's a dotted line. We can also have a dashed dot line
+
+124
+00:12:20,960 --> 00:12:27,120
+which is basically a mix of these two options. So that's how it looks like. You see a series of
+
+125
+00:12:27,200 --> 00:12:33,200
+that's how it looks like. You see a series of dashes and dots and whenever you call the plot
+
+126
+00:12:33,200 --> 00:12:38,400
+function the default chart that it's going to draw is going to be a line chart unless you see
+
+127
+00:12:38,400 --> 00:12:43,840
+that we provided a specific parameter which says kind equal to bar. It's only then that it's going
+
+128
+00:12:43,840 --> 00:12:49,520
+to draw a bar chart or you know a pile chart or any other kind of chart. By default it will always
+
+129
+00:12:49,520 --> 00:12:54,880
+draw a line chart and you can have a parameter called line style which can be attached it can
+
+130
+00:12:54,880 --> 00:13:01,040
+be dotted it can be dashed dot which lets you pick a particular style of the line that you want to
+
+131
+00:13:01,040 --> 00:13:06,720
+draw. Now you can also adjust the color and the width of the line. So you see that this is the
+
+132
+00:13:06,720 --> 00:13:12,800
+default width of the line. You can simply say that I want my line to be 10 pixels wide. So for that
+
+133
+00:13:12,800 --> 00:13:17,920
+I can use an argument called line width and I want to say that my color needs to be red and when I
+
+134
+00:13:17,920 --> 00:13:23,280
+run this you see that my line is a lot thicker. The width of my line is now 10 pixels instead of
+
+135
+00:13:23,360 --> 00:13:30,160
+the one or two pixels that was over here. I have a line that was fairly large and now it's colored
+
+136
+00:13:30,160 --> 00:13:35,520
+in red. I can also compositionally add the line style attribute to it. So I can say something like
+
+137
+00:13:40,240 --> 00:13:48,320
+line style is dotted or it is dashed or it is dashed dotted. Oops sorry that's a typo
+
+138
+00:13:48,320 --> 00:13:52,560
+and there we are. So you see that all of these attributes you can mix and match to come up
+
+139
+00:13:52,560 --> 00:13:59,040
+with the right kind of the exactly the right kind of graphic that you really want. So all of them
+
+140
+00:13:59,040 --> 00:14:03,680
+more or less work independent of each other. For example the line style has nothing to do with the
+
+141
+00:14:03,680 --> 00:14:07,680
+color and the color has nothing to do with the line width and the line width has nothing to do
+
+142
+00:14:07,680 --> 00:14:11,760
+with the line style. So they are all mutually independent. However note that this particular
+
+143
+00:14:11,760 --> 00:14:18,560
+combination of attributes will only work with you know line charts. They may not necessarily work
+
+144
+00:14:18,560 --> 00:14:25,040
+with bar charts. I can try a line width over here basically if I want to basically shrink
+
+145
+00:14:25,040 --> 00:14:33,360
+the width of my rectangle. So let's try that. That doesn't work you see it just stays the same.
+
+146
+00:14:33,360 --> 00:14:39,680
+I cannot I can't also use a line style because this is not a line chart essentially. So there
+
+147
+00:14:39,680 --> 00:14:46,640
+is no oh sorry that shouldn't be a five that should be something like dashed and you see that also
+
+148
+00:14:46,640 --> 00:14:51,360
+that doesn't work because that's simply not an attribute which applies to a bar chart.
+
+149
+00:14:51,360 --> 00:14:55,280
+Color does apply to a bar chart. So I can have a green color or
+
+150
+00:14:57,360 --> 00:15:05,120
+yeah so I can have a green color. I can have a transparency. So you see it's now green but
+
+151
+00:15:05,120 --> 00:15:11,440
+a little more transparent and here also transparency is something that you can say applies to this. So I
+
+152
+00:15:11,440 --> 00:15:18,560
+can write something like this over here. So you see that it's a very transparent red line over here.
+
+153
+00:15:18,560 --> 00:15:24,560
+So many of these attributes will apply to many of the charts but you know you can't just add any
+
+154
+00:15:24,560 --> 00:15:29,360
+attribute to any chart and expect it to work. So be careful about that but however note that you can
+
+155
+00:15:29,360 --> 00:15:36,000
+always look at the documentation of matplotlib or pandas to figure out what are the options you want
+
+156
+00:15:36,000 --> 00:15:41,200
+and therefore figure out what sort of parameters you want to set to come up with the right kind of
+
+157
+00:15:41,200 --> 00:15:48,160
+chart. The second most important types of charts that we will look at is heat maps. Now the yearly
+
+158
+00:15:48,160 --> 00:15:54,640
+sales line charts and bar charts that we saw here again they are reflective of univariate analysis
+
+159
+00:15:54,640 --> 00:15:59,520
+but when we go over to bivariate analysis we have to look at heat maps and scatter plots. So let's
+
+160
+00:15:59,520 --> 00:16:07,120
+look at heat maps first. So let's say that we want to basically create a cross tabulation of the
+
+161
+00:16:07,120 --> 00:16:12,880
+category and the region and put the values as sales. So what we are doing is we are going to
+
+162
+00:16:12,880 --> 00:16:17,600
+say that if you go all the way back to our data we have something called a category which is furniture
+
+163
+00:16:17,600 --> 00:16:24,400
+office supplies and something else and then we have a state or a region. So for each category and
+
+164
+00:16:24,400 --> 00:16:30,560
+region pair what are the total profits? So that's exactly what we mean by a cross tabulation. So
+
+165
+00:16:30,560 --> 00:16:36,400
+let's try that we are essentially saying that cross tabulate the categories against the regions
+
+166
+00:16:36,400 --> 00:16:41,440
+and sum up the sales. So we are saying that create a new data frame where the index or the rows are
+
+167
+00:16:41,440 --> 00:16:45,920
+going to be categories, the columns are going to be the region and the values are going to be the
+
+168
+00:16:45,920 --> 00:16:50,480
+sales such that they are summed for that category and that region. So let's see how that looks
+
+169
+00:16:50,480 --> 00:16:55,840
+actually. Before we actually draw the heat map let's simply see how the cross tabulated data
+
+170
+00:16:55,840 --> 00:17:01,760
+looks. So this is how it looks like. So basically for furniture that was sold in the central region
+
+171
+00:17:01,760 --> 00:17:06,240
+these were the sales. For office supplies that were sold in central region these were the sales
+
+172
+00:17:06,240 --> 00:17:11,040
+and for technology products that were sold in the central region these were the sales and that same
+
+173
+00:17:11,040 --> 00:17:15,840
+thing applies to the east south and west region. Now you see this is just a rectangular grid of
+
+174
+00:17:15,840 --> 00:17:23,200
+numbers one easy way to simply visualize this is to use something called a heat map and heat maps
+
+175
+00:17:23,200 --> 00:17:30,560
+come from cbon which is which we have imported as sms. So let's try that there we are. So we see that
+
+176
+00:17:30,560 --> 00:17:35,680
+there is basically a grid of colors in front of us each value is basically an intensity of that
+
+177
+00:17:35,680 --> 00:17:40,800
+color so this looks like a heat map whichever has higher values will be redder and whichever has
+
+178
+00:17:40,800 --> 00:17:45,920
+lower values will basically or rather higher value you can see that there is a color scale over here.
+
+179
+00:17:45,920 --> 00:17:50,400
+So I can look at the scale and figure out what these values mean. So essentially office supplies
+
+180
+00:17:50,400 --> 00:17:55,280
+in the south are very low because they're at the lower end of the color scale at the same time in
+
+181
+00:17:55,280 --> 00:18:01,520
+south overall it seems like the sales are pretty low and technology in the east is very high it's
+
+182
+00:18:01,520 --> 00:18:07,040
+way over 200,000 dollars and that makes sense on the east coast there are a bunch of technology
+
+183
+00:18:07,680 --> 00:18:16,000
+specific business right. So that is what a heat map is it essentially plots a two-dimensional grid
+
+184
+00:18:16,000 --> 00:18:21,200
+of numbers with colors so that you can see a heat map and we have these four regions and we have these
+
+185
+00:18:21,200 --> 00:18:27,840
+three categories. Now just like bar charts have thickness and bar charts have colors and
+
+186
+00:18:27,840 --> 00:18:34,880
+transparencies line charts have line styles and line colors and x-axis labels y-axis labels ticks
+
+187
+00:18:34,880 --> 00:18:41,200
+and so on heat maps also have their own elements the most important element of a heat map is the
+
+188
+00:18:41,200 --> 00:18:46,160
+color map so this is one particular color scheme that we are using we can use multiple other color
+
+189
+00:18:46,160 --> 00:18:51,600
+schemes so this is a scheme called blues when we use that we get everything in shades of blue
+
+190
+00:18:51,600 --> 00:18:57,440
+so we see that very high values are over here which is technology in the east just as we saw
+
+191
+00:18:57,440 --> 00:19:02,640
+over here and we have very low values for office supplies in the south which again you can check
+
+192
+00:19:02,640 --> 00:19:09,520
+by looking at the color legend bar over here note that color maps are very useful when presenting
+
+193
+00:19:09,520 --> 00:19:15,680
+to an audience there may be people who are in fact color blind in your audience and you might
+
+194
+00:19:15,680 --> 00:19:21,760
+to consider you might have to consider picking heat maps that are or other color schemes that
+
+195
+00:19:21,760 --> 00:19:27,200
+are suitable for anybody's viewing at the same time depending on what sort of a projector you have
+
+196
+00:19:27,200 --> 00:19:33,840
+or what sort of a medium you are using to plot your charts you might have to pick the right color
+
+197
+00:19:33,840 --> 00:19:39,120
+map for example if i wanted to use this particular thing so that you know if i wanted to send this
+
+198
+00:19:39,120 --> 00:19:42,960
+to a newspaper then i probably wouldn't use this color map i'll probably use something like
+
+199
+00:19:43,680 --> 00:19:49,360
+a gray color so that might actually work out better in the case of a black and white newspaper
+
+200
+00:19:49,360 --> 00:19:55,200
+say i can also have a green color map which gives me something like this so there are a bunch of
+
+201
+00:19:55,200 --> 00:20:03,600
+color maps the default one that we usually use is viridis so i think it's a small v
+
+202
+00:20:05,040 --> 00:20:11,520
+yeah so this is also one of the most famous color maps that matplotlib uses you can use
+
+203
+00:20:11,600 --> 00:20:16,000
+and pick the right color map depending on who your audience is where you are going to be plotting
+
+204
+00:20:16,000 --> 00:20:20,320
+this and if it is made for consumption outside the jupyter notebook
+
+205
+00:20:22,800 --> 00:20:27,280
+and then of course there are seller notations now what i'm doing with this is that i'm looking at
+
+206
+00:20:27,280 --> 00:20:33,040
+the color of a particular cell let's say i pick a region i pick a category i look at a particular
+
+207
+00:20:33,040 --> 00:20:40,480
+color and then i look at this scale to see what closely matches that color now if i'm not very
+
+208
+00:20:40,480 --> 00:20:45,520
+careful i can easily go wrong for example i don't know if there is a difference of shade between
+
+209
+00:20:45,520 --> 00:20:50,080
+this color and this color i have to be very careful while looking at this and most people
+
+210
+00:20:50,080 --> 00:20:54,640
+in your audience are not going to be that careful so one quick way to deal with this is to show
+
+211
+00:20:54,640 --> 00:21:00,480
+values right in the box itself so we can do it something like this so we have a blue color map
+
+212
+00:21:00,480 --> 00:21:07,200
+and the values that are basically the sales of a particular category versus a particular region
+
+213
+00:21:07,200 --> 00:21:14,640
+are printed right in this box straight away right but these are printed in the exponential
+
+214
+00:21:14,640 --> 00:21:21,040
+notation i want to see the exact value so i can use a particular format the g format is basically
+
+215
+00:21:21,040 --> 00:21:25,760
+just going to turn this into an integer and the anot equal to true format is basically going to
+
+216
+00:21:25,760 --> 00:21:31,760
+annotate each box with the value so when i run this formatting i get the exact integers out
+
+217
+00:21:31,760 --> 00:21:38,960
+and i see that not only does my color help me find out the higher and lower values the value
+
+218
+00:21:38,960 --> 00:21:44,800
+actually tells me what the real value is and that's useful because then the density of the color or
+
+219
+00:21:44,800 --> 00:21:50,800
+basically the the hue or the you know intensity of the color it serves the purpose of drawing
+
+220
+00:21:50,800 --> 00:21:55,520
+my attention to a particular box but when i actually want to look inside that box i can just
+
+221
+00:21:55,520 --> 00:22:00,000
+read the value so both our problems are solved in this sort of thing however you can realize
+
+222
+00:22:00,000 --> 00:22:04,080
+that you know this works only because it's a three by four matrix we have only 12 values
+
+223
+00:22:04,080 --> 00:22:09,920
+what if you have something which is 10 by 10 or 20 by 20 or even larger there it may not always
+
+224
+00:22:09,920 --> 00:22:14,960
+work there it wouldn't suffice to simply print out all the values there you're probably better
+
+225
+00:22:14,960 --> 00:22:20,320
+off simply looking at the colors because if your heat map is large then you know you simply cannot
+
+226
+00:22:20,320 --> 00:22:26,000
+print color values inside each or you know you can't print numerical values inside each single
+
+227
+00:22:26,000 --> 00:22:32,400
+box there's just not enough space to do that the next thing that we need to figure out is the
+
+228
+00:22:32,400 --> 00:22:39,120
+scatter plot so c1 also gives us a scatter plot as you remember scatter plots are the easiest
+
+229
+00:22:39,120 --> 00:22:45,440
+graphical way of doing bivariate analysis when both the variables are continuous variables so
+
+230
+00:22:45,440 --> 00:22:50,560
+let's say that on the x-axis we want to plot the quantity let's take a look at our data frame once
+
+231
+00:22:50,560 --> 00:22:56,640
+again that's our data we have something called quantity which is the number of products shipped
+
+232
+00:22:56,640 --> 00:23:04,240
+and the discount so the idea would be that if i order multiple quantities of the same product
+
+233
+00:23:04,240 --> 00:23:09,040
+in bulk i should get some sort of a discount so let's see if that is true and when we do that
+
+234
+00:23:09,040 --> 00:23:13,840
+we see that there is absolutely no correlation for all types of quantities we are seeing that
+
+235
+00:23:13,840 --> 00:23:19,040
+all types of discounts are present so basically items that have been ordered twice at a time
+
+236
+00:23:19,840 --> 00:23:24,640
+they have discounts which go all the way from zero percent to eighty percent so this doesn't
+
+237
+00:23:24,640 --> 00:23:29,280
+make sense at all the assumption that higher quantities lead to higher discounts is just
+
+238
+00:23:29,280 --> 00:23:34,640
+false and what this simply means is that there is no correlation between discount and quantity
+
+239
+00:23:34,640 --> 00:23:41,280
+right so this is although it's it's a disappointing scatter plot but nevertheless it is a scatter plot
+
+240
+00:23:41,280 --> 00:23:45,600
+it's a scatter plot that doesn't show any linear trend or anything like that but nevertheless it
+
+241
+00:23:45,600 --> 00:23:52,880
+is a scatter plot we can maybe also try something like what would you have it so let's say i have
+
+242
+00:23:52,880 --> 00:24:01,920
+quantity versus sales and there it is so this is a slightly more well meaningful scatter plot because
+
+243
+00:24:01,920 --> 00:24:08,560
+we see that the sales for quantity also are fairly random you have quantities that have been ordered
+
+244
+00:24:08,560 --> 00:24:14,000
+once which make very little business but at the same time you have quantities that say at the
+
+245
+00:24:14,000 --> 00:24:20,560
+level of five where if you order five products at a time it may make sales anywhere from zero to
+
+246
+00:24:21,840 --> 00:24:28,000
+hundred and seventy five seventy thousand five hundred dollars but that seems to be an outlier
+
+247
+00:24:28,000 --> 00:24:33,040
+this again seems to be an outlier so you can use this kind of a technique to figure out correlation
+
+248
+00:24:33,040 --> 00:24:39,600
+between two three things just like heat maps bar charts and line charts before it scatter plots
+
+249
+00:24:39,600 --> 00:24:46,080
+also have their own attributes one of the most important attributes of a scatter plot is something
+
+250
+00:24:46,080 --> 00:24:54,640
+called a hue or a density so let's go back to the quantity and discount scatter plot that we had
+
+251
+00:24:54,640 --> 00:24:59,520
+earlier and we say that we want to hue it that is we want to color it by the profit and we give it
+
+252
+00:24:59,520 --> 00:25:05,760
+the data and we say that we want to use the blue color scheme so there it is so you see that now
+
+253
+00:25:05,760 --> 00:25:13,440
+we have the same scatter plot but the color of each plot can be changed according to how much
+
+254
+00:25:13,440 --> 00:25:19,040
+profit that particular order has made so we see that most of these orders are making almost zero
+
+255
+00:25:19,040 --> 00:25:23,920
+profit there's there are some which are slightly darker some which are very light so we have
+
+256
+00:25:23,920 --> 00:25:30,080
+profits between zero to minus five thousand which is basically just state of loss but then you know
+
+257
+00:25:31,040 --> 00:25:35,440
+this is one way where you can add one other dimension the quantity being one dimension
+
+258
+00:25:35,440 --> 00:25:39,840
+that is count being another dimension and the profit being the third dimension but since it's
+
+259
+00:25:39,840 --> 00:25:46,560
+a two-dimensional plot we don't have a third axis here to show the profit so we encode the profit in
+
+260
+00:25:46,560 --> 00:25:52,880
+the color of each marker separately let's try and change the profit to something like
+
+261
+00:25:53,680 --> 00:26:00,080
+sales you see here we have a fairly different plot in the sense that almost
+
+262
+00:26:01,120 --> 00:26:05,920
+most of the plots have gone away and you can see some dark spots here and there so you see you can
+
+263
+00:26:05,920 --> 00:26:13,520
+use the hue to encode a third element of information as well then you can also change the marker style
+
+264
+00:26:13,520 --> 00:26:19,680
+and sizes so here the marker style was basically a circle which was blue colored you can also
+
+265
+00:26:19,680 --> 00:26:27,600
+change the size so basically i can say that my x is quantity y is discount u i have already the
+
+266
+00:26:27,600 --> 00:26:32,800
+color that is i've already used that to encode the profit i can quantify the size by sales
+
+267
+00:26:34,320 --> 00:26:37,440
+so let's see that this is what we get you see that there are some bigger
+
+268
+00:26:38,160 --> 00:26:44,080
+circles and there are some smaller circles those are basically something that you know denote the
+
+269
+00:26:45,040 --> 00:26:51,600
+size of the sale that you have made so larger circle means a larger sale and the darker circle
+
+270
+00:26:51,600 --> 00:26:57,920
+means how much more profit you made so now here we have a way of encoding four different types
+
+271
+00:26:57,920 --> 00:27:02,240
+of information just like compared to the three before here we have four types of information
+
+272
+00:27:02,240 --> 00:27:07,120
+we have the quantity we have the discount we have the profit and we have the sales quantity
+
+273
+00:27:07,120 --> 00:27:13,040
+is represented by its offset on the x-axis discount is represented by its offset on the y-axis
+
+274
+00:27:13,040 --> 00:27:19,440
+profit is represented by the hue or the darkness of the color and sales is represented by the size
+
+275
+00:27:19,440 --> 00:27:23,760
+of the bubble so you see that this here is a bigger bubble than this particular bubble which
+
+276
+00:27:23,760 --> 00:27:30,720
+means that this particular order made a larger sale than this one so now we have gone from
+
+277
+00:27:30,720 --> 00:27:35,280
+representing only two types of information to representing four types of information
+
+278
+00:27:35,280 --> 00:27:40,880
+using different visual elements that are present within the same plot this is something that you
+
+279
+00:27:40,880 --> 00:27:48,320
+can keep on configuring endlessly just by changing x y q and size to different columns of the data
+
+280
+00:27:48,320 --> 00:27:54,000
+set and therefore coming up with better and better plots until you have the right size of course here
+
+281
+00:27:54,000 --> 00:28:00,160
+we had size as a function of one of the columns present you can also have it fixed so say i want
+
+282
+00:28:00,160 --> 00:28:06,960
+to keep it fixed and i just want every plot every dot to look the same way so there it is we basically
+
+283
+00:28:06,960 --> 00:28:12,480
+have every single circle with the same size no matter what its attributes are the only thing
+
+284
+00:28:12,480 --> 00:28:18,400
+that it shows us is basically the hue x and y so the quantity discount and profit are the only
+
+285
+00:28:18,400 --> 00:28:24,080
+things we can infer from it but the size is fixed i can also change the marker style itself so these
+
+286
+00:28:24,080 --> 00:28:30,480
+are all squares i can convert them into stars so i can look at this like that i can convert them
+
+287
+00:28:30,480 --> 00:28:36,400
+into pluses which would make it appear as crosses of course this is not at all readable even stars
+
+288
+00:28:36,400 --> 00:28:43,200
+are not completely readable but you can pick and choose the right kind of thing to show
+
+289
+00:28:44,480 --> 00:28:48,480
+the different kinds of things so let's say that i would want to use stars for furniture sales
+
+290
+00:28:48,480 --> 00:28:53,840
+versus dots or circles for technology sales versus for office supplies i want to use something like
+
+291
+00:28:54,400 --> 00:28:58,880
+you know diamonds or something like that so yeah
+
+292
+00:28:58,880 --> 00:29:09,440
+something like that i can use that as well so here again you have ways of using markers
+
+293
+00:29:09,440 --> 00:29:15,440
+to encode or represent categorical data so just like you have x and y representing numerical data
+
+294
+00:29:15,440 --> 00:29:21,200
+u or sizes representing numerical data you can use markers to represent categorical data as well
+
+295
+00:29:21,200 --> 00:29:24,800
+so let's say i use a different marker for a different category of sale that's perfectly
+
+296
+00:29:24,800 --> 00:29:30,560
+valid the idea is that you are able to encode different types of information in different
+
+297
+00:29:30,560 --> 00:29:40,320
+visual elements of the same chart that's broadly how we do effective data visualization with python
+

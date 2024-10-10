@@ -1,0 +1,524 @@
+1
+00:00:00,000 --> 00:00:07,000
+Welcome back. The purpose of this video is to clarify some terminology around data analytics,
+
+2
+00:00:07,000 --> 00:00:11,960
+starting with what we call data. Now it may be obvious to many of us what data is, but
+
+3
+00:00:11,960 --> 00:00:16,960
+it helps to have a clear idea of what data analysts mean by this term. This is useful
+
+4
+00:00:16,960 --> 00:00:22,000
+when picking your battles essentially. In an arbitrary conversation about data, we tend
+
+5
+00:00:22,000 --> 00:00:29,120
+to know whether we should get involved. And that's why we need to have a clear idea of
+
+6
+00:00:29,120 --> 00:00:34,400
+what data is for us as data analysts and how people are likely to use this term in different
+
+7
+00:00:34,400 --> 00:00:44,200
+ways in the industry in general or specifically in a given project. But to start with, the
+
+8
+00:00:44,200 --> 00:00:49,240
+dictionary definition is useful. Again, this will be obvious to many of us and as we get
+
+9
+00:00:49,240 --> 00:00:53,600
+more and more experience with data, it becomes more and more obvious. But in the interest
+
+10
+00:00:53,600 --> 00:00:58,840
+of catering to all audiences, let's go through this line anyway. So data is a noun, it's
+
+11
+00:00:58,840 --> 00:01:04,640
+a plural noun, the singular being datum, which means that it is factual information
+
+12
+00:01:04,640 --> 00:01:10,520
+such as measurements or statistics used as a basis for reasoning, discussion or calculation.
+
+13
+00:01:10,520 --> 00:01:18,040
+It is information in its digital form that can be transmitted and processed. Specifically,
+
+14
+00:01:18,040 --> 00:01:25,120
+data is also irrelevant or redundant information that must be processed to be made available.
+
+15
+00:01:25,720 --> 00:01:32,800
+Now let's keep that at the back of our heads before we proceed. Before we proceed, let's
+
+16
+00:01:32,800 --> 00:01:38,560
+take a quick detour. In the analytics space, the last 10 to 15 years have been all about
+
+17
+00:01:38,560 --> 00:01:44,160
+big data. This is a phrase that you will see a lot in advertisements, job postings, tech
+
+18
+00:01:44,160 --> 00:01:51,040
+evangelism, many other places. My point here is to show you what big data means. For a
+
+19
+00:01:51,040 --> 00:01:55,320
+beginner in this field who has just started to learn data analytics, it can be intimidating
+
+20
+00:01:55,320 --> 00:02:00,920
+to hear words like big data analytics. Well, I'm here to tell you what it means. It means
+
+21
+00:02:00,920 --> 00:02:07,120
+nothing really. Yes, you heard that right. Big data means nothing. There's nothing more
+
+22
+00:02:07,120 --> 00:02:12,880
+big data about big data problems or big data technology or big data analytics that is new.
+
+23
+00:02:12,880 --> 00:02:19,560
+All of it has existed for ages, well before big data as a phrase became popular. It's just
+
+24
+00:02:19,560 --> 00:02:24,320
+that some specific analytical problems and technologies required to solve these problems
+
+25
+00:02:24,320 --> 00:02:30,880
+are being packaged under the collective term of big data. Big data simply means distributed
+
+26
+00:02:30,880 --> 00:02:36,240
+computing. Whenever you realize that your computational task is not going to be completed
+
+27
+00:02:36,240 --> 00:02:42,120
+on a single computer and you have to resort to distributed computing, you are dealing with big
+
+28
+00:02:42,120 --> 00:02:48,280
+data. There are two key resources on your computer, memory and processing. Whenever you have an
+
+29
+00:02:48,280 --> 00:02:53,320
+analytical task that requires more memory or more processing than you have available on your
+
+30
+00:02:53,320 --> 00:02:58,680
+single computer, you basically use big data techniques to solve that problem. And that's
+
+31
+00:02:58,680 --> 00:03:04,920
+about it. All big data problems are problems of distributed computing and all data algorithms
+
+32
+00:03:04,920 --> 00:03:12,040
+and big data distributed algorithms. That's pretty much all there is to it. To reiterate,
+
+33
+00:03:12,040 --> 00:03:17,280
+just like it is important to understand what data is, it is important to understand what big
+
+34
+00:03:17,280 --> 00:03:22,920
+data is. Remember that the industry is in a perpetual big data problem. There will always
+
+35
+00:03:22,920 --> 00:03:31,600
+be more data than we can analyze. Now one of the reasons why a big data scenario even exists is
+
+36
+00:03:31,600 --> 00:03:37,680
+because of something called Moore's law. Moore's law coined by Gordon Moore, who is a co-founder
+
+37
+00:03:37,680 --> 00:03:44,520
+of Intel, says that the number of transistors in a dense integrated circuit doubles every two years.
+
+38
+00:03:44,520 --> 00:03:51,800
+What this means is that the processing power of a given CPU chip more or less doubles every year.
+
+39
+00:03:51,800 --> 00:03:58,760
+Also note that transistors can also store data. So increasing the number of transistors on a chip
+
+40
+00:03:58,760 --> 00:04:04,680
+increases its capacity to collect and store data. So basically we are getting more and more on-device
+
+41
+00:04:04,680 --> 00:04:10,800
+memory and more computing capacity as well. And I'm sure you have seen examples of this in your
+
+42
+00:04:10,800 --> 00:04:21,080
+day-to-day lives. For example, the first computer I had was in the year 2000. It had a RAM of 128
+
+43
+00:04:21,080 --> 00:04:29,640
+megabytes. Today I have a computer that has 32 gigabytes of RAM. That's an increase by a factor
+
+44
+00:04:29,640 --> 00:04:37,720
+of 115, just about 20 years. And that's a lot cheaper also. We can also see how broadband
+
+45
+00:04:37,720 --> 00:04:43,960
+internet rates have decreased and mobile data is getting so cheap that it's almost free nowadays.
+
+46
+00:04:44,680 --> 00:04:50,760
+A little footnote here though, even though this is called Moore's law, it's not actually a law of
+
+47
+00:04:50,760 --> 00:04:58,760
+nature or a law of physics. It's a statistically observed fact. This increasing trend that we see
+
+48
+00:04:58,760 --> 00:05:06,600
+over here is because Intel and a lot of other companies chose to invest in semiconductor research
+
+49
+00:05:06,600 --> 00:05:14,920
+and boost it as much as they could. That's why this is Moore's law as it was originally stated.
+
+50
+00:05:15,720 --> 00:05:22,280
+The doubling factor and the time period of two years, both these factors keep changing from time
+
+51
+00:05:22,280 --> 00:05:28,840
+to time. It's not a strictly straight line as you see here, but overall in summary this is why we
+
+52
+00:05:28,840 --> 00:05:32,600
+have so much data and not enough analysts to go through that data.
+
+53
+00:05:36,200 --> 00:05:42,040
+Well, now that we know what data is and why we have so much of it, let's take a look at the life
+
+54
+00:05:42,040 --> 00:05:48,600
+cycle of data. Broadly I've divided into four stages, generation, acquisition, analysis and consumption.
+
+55
+00:05:50,600 --> 00:05:55,720
+Note that these four stages may not be clearly demarcated in the real world, but it's a useful
+
+56
+00:05:55,800 --> 00:06:01,560
+mental model to have. For a given application, for a given client, for a specific industry problem,
+
+57
+00:06:01,560 --> 00:06:06,760
+you can come up with your own model, but do have a model. It's important because it helps us decide
+
+58
+00:06:06,760 --> 00:06:13,000
+at what stage an intervention is required, at what stage of the cycle action is required,
+
+59
+00:06:13,000 --> 00:06:17,480
+and who should take that action. So let's go through this pipeline.
+
+60
+00:06:19,960 --> 00:06:24,200
+So who creates data? Well, everything around you creates data. Nature creates data.
+
+61
+00:06:24,200 --> 00:06:29,560
+The earliest uses of data analysis which go all the way back to the age of enlightenment or the
+
+62
+00:06:29,560 --> 00:06:35,320
+Renaissance period were all about understanding natural phenomena. Many predictive and analytical
+
+63
+00:06:35,320 --> 00:06:40,680
+models that we have today have descended from models that were used to model natural phenomena
+
+64
+00:06:40,680 --> 00:06:47,800
+like predicting floods on major rivers or you know trying to predict when a volcano or a geyser
+
+65
+00:06:47,880 --> 00:06:53,880
+is likely to erupt. A lot of early work in astronomy from Copernicus to Newton was based
+
+66
+00:06:53,880 --> 00:06:58,840
+on data captured by sailors who would travel all over the world and try to record the movements
+
+67
+00:06:58,840 --> 00:07:04,440
+and positions of stars and planets. Secondly, people create a lot of data. Just think of how
+
+68
+00:07:04,440 --> 00:07:09,080
+much WhatsApp data you have generated in the last 24 hours or how many emails you have sent or videos
+
+69
+00:07:09,080 --> 00:07:14,680
+you have seen. Finally, machines themselves generate a lot of data. Well, machines are everywhere
+
+70
+00:07:14,680 --> 00:07:21,080
+obviously, specifically computers are everywhere and computers act as central nodes which connect
+
+71
+00:07:21,080 --> 00:07:26,360
+the internet, the information superhighway. So naturally they generate a lot of information.
+
+72
+00:07:26,360 --> 00:07:30,600
+Server log analysis is a favorite use case in data analysis for example.
+
+73
+00:07:32,760 --> 00:07:38,040
+Who collects this data? Individuals and organizations collect all of this data.
+
+74
+00:07:38,040 --> 00:07:43,960
+Whether you like it or not, Google, Facebook, Amazon, many other organizations are collecting data
+
+75
+00:07:43,960 --> 00:07:49,480
+even if it may be anonymized. In particular, anybody who sells a service that needs data has
+
+76
+00:07:49,480 --> 00:07:55,800
+a very good claim on the data that it collects. For example, I have a blog and it would be very
+
+77
+00:07:55,800 --> 00:08:03,960
+wasteful if I did not collect the data on likes, shares, views or comments on my blog. In general,
+
+78
+00:08:03,960 --> 00:08:09,720
+it's a good practice to set up a data acquisition framework ethically before you launch a service
+
+79
+00:08:10,520 --> 00:08:15,000
+You don't want to be caught into some controversy only later to surrender all your data.
+
+80
+00:08:19,080 --> 00:08:25,400
+Now this is where things get a little practical. Who analyzes data? Pretty much everyone. My
+
+81
+00:08:25,400 --> 00:08:29,400
+grandmother used to do it just that she did not know how to use spreadsheets.
+
+82
+00:08:30,760 --> 00:08:34,040
+All of these people are your potential clients.
+
+83
+00:08:34,040 --> 00:08:39,800
+And finally, the consumption is the single most important aspect of the pipeline. In fact, I'd say
+
+84
+00:08:39,800 --> 00:08:45,000
+that this is more important than the analysis itself. We will motivate this further in an
+
+85
+00:08:45,000 --> 00:08:52,360
+upcoming video, but there is absolutely no shortage of analysis. But there is a massive problem with
+
+86
+00:08:52,360 --> 00:08:58,360
+the consumption of that analysis. Let's think about it. If you are somebody who has a smartphone,
+
+87
+00:08:59,000 --> 00:09:04,840
+if you are somebody who has a smartphone, there will be apps on your phone that will be doing
+
+88
+00:09:04,840 --> 00:09:11,560
+some sort of automatic analysis. For example, Google Maps sends an automated email every month
+
+89
+00:09:11,560 --> 00:09:18,360
+telling you how many kilometers you have traveled, which places you have been to, etc. A Fitbit
+
+90
+00:09:18,360 --> 00:09:24,920
+might record all your physical activity, but we as consumers have no idea what to do with all of
+
+91
+00:09:24,920 --> 00:09:30,360
+this data. For example, if I were to develop health problems later in my life, I would have
+
+92
+00:09:30,360 --> 00:09:35,560
+to change my exercise routine, but I would conveniently forget that I had data lying on
+
+93
+00:09:35,560 --> 00:09:41,720
+my Fitbit device for years and I did nothing with it. This unfortunately is what goes wrong
+
+94
+00:09:41,720 --> 00:09:47,720
+with many of us. First, something goes wrong and only then we realize that there was some data
+
+95
+00:09:47,720 --> 00:09:54,840
+which was giving us all sorts of hints about an impending problem. And this is what I
+
+96
+00:09:54,840 --> 00:10:03,080
+mean by inefficient consumption. Doing analysis is the easy part, by the way. Making it stick,
+
+97
+00:10:03,080 --> 00:10:06,600
+making people listen, that is where you make an impact.
+
+98
+00:10:09,960 --> 00:10:14,360
+And these are the two stages that we are going to focus on throughout this course. We are going
+
+99
+00:10:14,360 --> 00:10:19,640
+to develop a framework for doing analysis and then making sure that it properly sinks its teeth
+
+100
+00:10:19,640 --> 00:10:20,520
+into the consumer.
+
+101
+00:10:23,960 --> 00:10:29,000
+Before we conclude, let's come down to the brass tacks. In this course, we are going to
+
+102
+00:10:29,000 --> 00:10:36,680
+deal with datasets, which are basically pieces of data that are present as tables. We are not
+
+103
+00:10:36,680 --> 00:10:42,840
+going to discuss databases, data streams or unstructured or real-time data. If some data
+
+104
+00:10:42,840 --> 00:10:47,960
+is not present as a table, we are not going to deal with it in this course. That's because to
+
+105
+00:10:47,960 --> 00:10:53,880
+deal with data in all its varieties and forms, we need to invest some time in data engineering,
+
+106
+00:10:53,880 --> 00:10:58,440
+which is fairly out of the scope for this particular module. But that doesn't mean that
+
+107
+00:10:58,440 --> 00:11:03,480
+dealing with individual tables is a limitation. In fact, that is the most common way of storing
+
+108
+00:11:03,480 --> 00:11:08,440
+and sharing data. Clients are more likely to share individual files with you rather than give you
+
+109
+00:11:08,440 --> 00:11:13,560
+access to their database servers. For example, when sharing data, we are more likely to upload
+
+110
+00:11:13,560 --> 00:11:18,760
+individual files on the web. In short, we are going to deal with small data exclusively.
+
+111
+00:11:18,760 --> 00:11:24,760
+And as we shall see, doing good analytics on small data itself is half the battle one.
+
+112
+00:11:24,760 --> 00:11:31,240
+The rest is just engineering and automation. So we will be dealing with individual datasets.
+
+113
+00:11:31,240 --> 00:11:36,680
+Each dataset will be a table that is a two-dimensional data structure, something
+
+114
+00:11:36,680 --> 00:11:42,440
+that has rows and columns. Each row represents an object of a given type and each column would
+
+115
+00:11:42,440 --> 00:11:48,040
+represent one attribute of the objects. Then if you take the object and one of its attributes,
+
+116
+00:11:48,040 --> 00:11:53,400
+for each such pair, you will get a cell which contains some measurement of that attribute for
+
+117
+00:11:53,400 --> 00:12:01,720
+that object. Here's an example. This is a very famous dataset called the Fisher Iris dataset.
+
+118
+00:12:02,280 --> 00:12:09,400
+Many of you might have already seen this dataset. It contains 150 rows, which correspond to 150
+
+119
+00:12:09,400 --> 00:12:17,560
+samples of the Iris flowers, each row being one flower. It has five columns, as you can see,
+
+120
+00:12:18,280 --> 00:12:21,960
+which means that for each flower, we are taking five different measurements.
+
+121
+00:12:22,600 --> 00:12:28,440
+These measurements are the lengths and widths of the petal and the length and width of the sepal.
+
+122
+00:12:29,000 --> 00:12:36,200
+FYI, the sepal is the pod that encloses the flower before it blooms. Once the flower blooms,
+
+123
+00:12:36,200 --> 00:12:41,320
+the pod breaks and the broken pieces of the pod which stick to the stem of the flower,
+
+124
+00:12:41,320 --> 00:12:47,000
+they are called the sepal. We also have the species of each sample over here.
+
+125
+00:12:47,880 --> 00:12:53,960
+In this dataset, there are three unique species. That is, each sample belongs to one out of three
+
+126
+00:12:53,960 --> 00:13:00,440
+species. To reiterate, the whole table represents a collection of objects of the same type. In this
+
+127
+00:13:00,440 --> 00:13:06,360
+case, the objects are individual sample flowers. Each column represents one attribute
+
+128
+00:13:07,960 --> 00:13:14,120
+of the object. In this case, we have four physical measurements and one other attribute. Each cell
+
+129
+00:13:14,120 --> 00:13:21,160
+value is the measurement for the corresponding object and the attribute. All the datasets we
+
+130
+00:13:21,160 --> 00:13:29,480
+will use in this course will follow the same semantic structure. Tables, rows, columns, each
+
+131
+00:13:29,480 --> 00:13:39,000
+of which has a precise meaning. So this is what data means for us.
+

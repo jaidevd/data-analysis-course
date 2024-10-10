@@ -1,0 +1,1476 @@
+1
+00:00:00,960 --> 00:00:06,960
+Welcome back. In this video, we are going to take a look at one of the most powerful features that
+
+2
+00:00:06,960 --> 00:00:13,920
+Excel has to offer in terms of how it presents data, that is conditional formatting. We have
+
+3
+00:00:13,920 --> 00:00:20,960
+seen that one way to present data and insights in general is through charts, but sometimes we
+
+4
+00:00:20,960 --> 00:00:25,680
+also need to look at the raw data values, that is the numbers or the text that are actually
+
+5
+00:00:26,240 --> 00:00:32,800
+occurring in our tables. And as you can see, sometimes that is not very easy because all
+
+6
+00:00:32,800 --> 00:00:38,080
+you have is a bunch of numbers and text. However, when we do some analysis, we extract some summary
+
+7
+00:00:38,080 --> 00:00:43,440
+values or some statistics or some sort of metrics from the data. And conditional formatting is
+
+8
+00:00:43,440 --> 00:00:48,800
+something that helps us highlight some interesting statistics out of all the analysis that we have
+
+9
+00:00:48,800 --> 00:00:57,920
+done. It's fairly powerful and it has saved my life more than I'd like to admit. So let's get
+
+10
+00:00:57,920 --> 00:01:05,680
+started. As usual, this is fairly small. So let's go to the view tab and let's increase the zoom
+
+11
+00:01:05,680 --> 00:01:12,960
+value to 200% so that we can see the data a little better. And let's freeze the top row so that
+
+12
+00:01:13,600 --> 00:01:20,960
+Excel understands that that is our row header. Essentially, what that means is that no matter
+
+13
+00:01:20,960 --> 00:01:27,040
+how much I scroll, I can still see the top header and it understands that this is the label for each
+
+14
+00:01:27,040 --> 00:01:35,440
+given column. So let's take a look at how we can use conditional formatting to look at some insights
+
+15
+00:01:35,440 --> 00:01:40,400
+or some summary statistics of this data at just a glance.
+
+16
+00:01:44,560 --> 00:01:50,880
+Now, the single entry point into conditional formatting is through the home tab under the
+
+17
+00:01:51,600 --> 00:01:56,160
+conditional formatting button. And when you click on this, you'll see a bunch of drop downs. Let's
+
+18
+00:01:56,160 --> 00:02:01,600
+take a look at the first one. You see that we have this thing called highlights and rules,
+
+19
+00:02:01,600 --> 00:02:07,600
+which means that these are a bunch of rules that will help us highlight certain cells within our
+
+20
+00:02:07,600 --> 00:02:13,120
+selection. As you can see, our selection here is the column A, which is the simple length column.
+
+21
+00:02:13,120 --> 00:02:16,880
+So let's take a look. You see that we want to highlight cell rules which are,
+
+22
+00:02:16,880 --> 00:02:22,640
+suppose, greater than a certain value. So when you click on that, you get this new formatting rule
+
+23
+00:02:22,640 --> 00:02:28,560
+dialog. This essentially helps us create a new formatting rule. A rule, a formatting rule rather,
+
+24
+00:02:28,560 --> 00:02:34,640
+is just basically a set of conditions that are applied on every single cell within whatever
+
+25
+00:02:34,640 --> 00:02:39,600
+selection that we have made. And Excel makes a decision whether it has to highlight that
+
+26
+00:02:39,600 --> 00:02:44,400
+particular cell in a certain way or not. So essentially, we are saying that only format
+
+27
+00:02:44,400 --> 00:02:49,040
+cells that contain something, which is a cell value of greater than something else. So let's
+
+28
+00:02:49,040 --> 00:02:56,560
+say we have cell values going from 5.1, 4.9, 5, and well, mostly we see values that are between
+
+29
+00:02:56,560 --> 00:03:03,120
+5 and 4. So let's say that we want to highlight everything that's greater than 5. And we want to
+
+30
+00:03:03,120 --> 00:03:09,680
+format it with light red fill with dark red text. Essentially, the background of the cell is going
+
+31
+00:03:09,680 --> 00:03:16,240
+to be light red and the content or the text of the cell is going to be dark red. And let's just
+
+32
+00:03:16,240 --> 00:03:24,800
+click on OK. So there it is. Whichever cell has a value of more than 5 gets highlighted
+
+33
+00:03:24,800 --> 00:03:31,120
+in a light red background with a dark red text. Now this itself was just random. We did not
+
+34
+00:03:31,120 --> 00:03:38,560
+necessarily put too much thought into how we want to design this formatting rule. And we can see that
+
+35
+00:03:38,560 --> 00:03:44,240
+the more we scroll, basically the formatting has been applied to the whole column. We didn't really
+
+36
+00:03:44,240 --> 00:03:50,080
+put too much thought into this. This was just an illustration, an example. So let us clear this out
+
+37
+00:03:50,080 --> 00:03:56,000
+and try something slightly more meaningful. So then again, to clear it out, since our original
+
+38
+00:03:56,000 --> 00:04:00,960
+selection was the entire column, we recreate that selection by selecting the whole column.
+
+39
+00:04:00,960 --> 00:04:06,960
+We click on conditional formatting, and that again shows us the formatting menu. And here we
+
+40
+00:04:06,960 --> 00:04:12,560
+have an option called clear rules. So then under that, we have two other options, which is clear
+
+41
+00:04:12,560 --> 00:04:17,760
+rules from the selected cells or clear rules from the entire sheet. Now, it doesn't matter which one
+
+42
+00:04:17,760 --> 00:04:23,920
+we click over here because we have made basically any selection rules that we have made are the ones
+
+43
+00:04:23,920 --> 00:04:28,240
+on this particular selection. There are no selections outside of this. So we can simply
+
+44
+00:04:28,240 --> 00:04:34,640
+click this and it takes away the formatting. But in general, do be careful with the clear rules
+
+45
+00:04:34,640 --> 00:04:39,760
+because sometimes accidentally you might click on clear rules from the entire sheet and that
+
+46
+00:04:39,760 --> 00:04:46,000
+can actually throw away a lot of hard work that you have done while arranging formatting rules
+
+47
+00:04:46,000 --> 00:04:52,080
+for the rest of your sheet. So this is how you can add a particular conditional formatting rule
+
+48
+00:04:52,080 --> 00:05:02,320
+and clear it. Let us try to take a shot at trying to create formatting rules that are a little more
+
+49
+00:05:02,320 --> 00:05:08,080
+mathematically analytically meaningful. Let us say that in this column, separate length,
+
+50
+00:05:08,080 --> 00:05:17,600
+we want to try and find the outliers. So one good way to find out outliers in any numerical variable
+
+51
+00:05:17,600 --> 00:05:24,720
+as we have covered in one of our previous videos is to find the average and then find the standard
+
+52
+00:05:24,720 --> 00:05:31,200
+deviation. Whichever value is more than two standard deviations above or more than two standard
+
+53
+00:05:31,200 --> 00:05:37,040
+deviations below the average can count as an outlier. So let's try that. Let us say that we
+
+54
+00:05:37,040 --> 00:05:43,040
+want to calculate the mean first, which is the average of the separate length. So let us just say
+
+55
+00:05:43,040 --> 00:05:48,880
+that average separate length and we already know the formula for that. So let us say equal to
+
+56
+00:05:49,600 --> 00:05:55,280
+average and as we have studied in one of our previous videos, we just give the selection range,
+
+57
+00:05:55,280 --> 00:06:00,640
+which in this case would be the entire column. So I can just click on the entire column and that
+
+58
+00:06:00,640 --> 00:06:07,680
+gets translated into A is to A. Let's finish the parentheses and press enter. So that's it.
+
+59
+00:06:07,680 --> 00:06:13,040
+That's basically in centimeters, what is the average separate length in my whole data sets,
+
+60
+00:06:13,040 --> 00:06:19,680
+5.83. And in order to detect the outliers, the one other metric that I'm going to need
+
+61
+00:06:19,680 --> 00:06:26,400
+is the standard deviation as well. So let us say we have a standard deviation for the separate length
+
+62
+00:06:26,400 --> 00:06:36,960
+and let that be also computed with a formula. We already have a formula for that STDEV.P.
+
+63
+00:06:36,960 --> 00:06:44,880
+Remember that we have two functions here STDEV.P and STDEV.S. The STDEV.P corresponds to the
+
+64
+00:06:44,880 --> 00:06:49,200
+population standard deviation, whereas the S corresponds to the sample standard deviation.
+
+65
+00:06:49,200 --> 00:06:55,520
+We are more interested in the population standard deviation. Again, the range that we want to give
+
+66
+00:06:55,520 --> 00:07:02,160
+is A is to A and there it is. So we know that the standard deviation of sample length in this data
+
+67
+00:07:02,160 --> 00:07:09,200
+set is 0.82 centimeters. Now, in order to detect an outlier, what we need to do is find out which
+
+68
+00:07:09,200 --> 00:07:15,280
+values are more than two standard deviations away from the average. That is, they are more than two
+
+69
+00:07:15,280 --> 00:07:21,280
+standard deviations either above or below the average. So let's compute something like that.
+
+70
+00:07:21,280 --> 00:07:32,480
+We say that average plus 2 STDEV is basically, I again press equal to so that Excel knows that
+
+71
+00:07:32,480 --> 00:07:41,120
+I am entering formula. It is essentially this value plus 2 times this value and then I press enter.
+
+72
+00:07:41,120 --> 00:07:47,840
+So basically, I am saying that whichever value for sample length is more than 7.49 is an outlier
+
+73
+00:07:47,840 --> 00:07:55,120
+to the upper side. Similarly, I can take a limit to the lower side as well. I can say average minus
+
+74
+00:07:56,480 --> 00:08:05,760
+2 times 2 STDEV is basically equal to, I again take the average and this time I do minus 2 times
+
+75
+00:08:07,280 --> 00:08:12,240
+this particular value. So there we are. So whatever is greater than this is an outlier
+
+76
+00:08:12,240 --> 00:08:17,200
+and whatever is less than this is also an outlier. Now that we have these values which are
+
+77
+00:08:17,200 --> 00:08:22,160
+basically the thresholds for the upper and lower limits, we can recalculate our conditional
+
+78
+00:08:22,160 --> 00:08:28,000
+formatting. So let's click on the on the column again and add a conditional formatting rules
+
+79
+00:08:29,360 --> 00:08:34,640
+for the first time to find out which are the upper outliers. Let's say that we want to find
+
+80
+00:08:34,640 --> 00:08:41,840
+out again with the greater than rule and here we say that color with the same color scheme that
+
+81
+00:08:41,840 --> 00:08:52,880
+we had earlier, light red background text and dark red cell color and dark red text and in this
+
+82
+00:08:52,880 --> 00:08:59,120
+case greater than I just click this particular value and then I press OK and there it is.
+
+83
+00:08:59,120 --> 00:09:05,840
+So none of these values are obviously outliers but as we scroll along we will see that we have some
+
+84
+00:09:05,840 --> 00:09:14,960
+values just 1.6, 7.7 and so on which are outliers. Now if we see that we see that almost no outlier
+
+85
+00:09:14,960 --> 00:09:21,840
+in sepal length can be found in the setosa or even the versicolor species of the iris flower.
+
+86
+00:09:21,840 --> 00:09:27,440
+Most of the outliers to the upper side that we see are found in virginica. What this means is that
+
+87
+00:09:27,440 --> 00:09:34,480
+if we find any value of sepal length which is more than 2 times greater 2 times the standard
+
+88
+00:09:34,480 --> 00:09:41,040
+deviation away from the mean that would mean that it's probably a virginica flower. So this is
+
+89
+00:09:41,040 --> 00:09:46,640
+an example of how you can apply conditional formatting and quickly at a glance see values
+
+90
+00:09:46,640 --> 00:09:54,240
+that allow us to infer some sort of a useful insight from our data set. The idea is that if
+
+91
+00:09:54,240 --> 00:09:59,760
+we have something as simple as this then we don't really even have to do something like machine
+
+92
+00:09:59,840 --> 00:10:05,120
+learning or classification or anything like that. We know at a glance that high sepal lengths
+
+93
+00:10:05,120 --> 00:10:10,720
+correspond more likely towards the virginica species rather than the versicolor and the
+
+94
+00:10:10,720 --> 00:10:16,480
+setosa species. Now that's for the upper limit of the outlier. What do we have for the lower
+
+95
+00:10:16,480 --> 00:10:21,920
+limit of the outliers? Let's try that again. Again I click on A. Again I go to the conditional
+
+96
+00:10:21,920 --> 00:10:27,680
+formatting menu and add another rule. This time I say that I want values which are less than a
+
+97
+00:10:27,680 --> 00:10:33,760
+particular value. So let's click on that. We say that we want a cell value which is less than
+
+98
+00:10:33,760 --> 00:10:40,560
+this particular value which is h9 which is average minus 2 the standard deviation but I want to color
+
+99
+00:10:40,560 --> 00:10:46,560
+it with a different scheme. So let's say I want to have a green fill with dark green text. So
+
+100
+00:10:46,560 --> 00:10:52,560
+basically the exact opposite of what we had earlier. We want to color the lower outliers in
+
+101
+00:10:52,880 --> 00:10:58,720
+green rather than the thread as we had earlier. Let's click on OK again and you see that
+
+102
+00:11:01,200 --> 00:11:07,120
+we have pretty much no outliers to the lower limit. Of course all of this got scaled because
+
+103
+00:11:07,120 --> 00:11:13,600
+it's interpreting that as zero but we see that on the lower side at least by this particular rule
+
+104
+00:11:13,600 --> 00:11:15,920
+we have no outliers. We only have upper outliers.
+
+105
+00:11:15,920 --> 00:11:26,560
+Now we only have highlighted upper outliers. We did not find any lower outliers but that also
+
+106
+00:11:26,560 --> 00:11:32,160
+leaves a bunch of these values unhighlighted. So if I wanted to see what happens if I were to
+
+107
+00:11:32,160 --> 00:11:38,480
+range the entire, if I were to highlight the entire range of values, let's see how to do that.
+
+108
+00:11:38,480 --> 00:11:43,440
+So basically we know what to do when something is more than two standard deviations away from
+
+109
+00:11:43,440 --> 00:11:49,360
+the mean but let's say that we also want to find out what happens when a value is between the mean
+
+110
+00:11:49,360 --> 00:11:54,960
+and the first standard deviation on either side. So for that let's calculate what happens when we
+
+111
+00:11:54,960 --> 00:12:02,880
+have the average plus the first standard deviation. That would just be the average
+
+112
+00:12:03,920 --> 00:12:10,240
+plus this particular value which is the standard deviation and let's press Enter and also we need
+
+113
+00:12:10,240 --> 00:12:15,920
+something which counts the same limit to the lower side which is average minus the first standard
+
+114
+00:12:15,920 --> 00:12:22,160
+deviation. So that would then be equal to the average value which is this value minus the
+
+115
+00:12:23,200 --> 00:12:29,520
+standard sepal, the standard deviation of the sepal length and that's it. What we want to do is
+
+116
+00:12:30,960 --> 00:12:36,240
+find out what happens to values between them. So then we can add another conditional formatting
+
+117
+00:12:36,880 --> 00:12:42,400
+we say that we want to highlight cells which are this time between two values not greater than not
+
+118
+00:12:42,400 --> 00:12:48,320
+less than but between so there it is. We say that we want to highlight cell values which are between
+
+119
+00:12:49,600 --> 00:12:56,480
+this particular value on the lower side which is 5.00 something so let's just click on this
+
+120
+00:12:56,480 --> 00:13:01,360
+particular thing and the upper limit is this which is average plus one standard deviation
+
+121
+00:13:01,360 --> 00:13:08,560
+and since we saw that we did not have any lower outliers no outliers on the lower end of range
+
+122
+00:13:08,560 --> 00:13:13,680
+that particular value which we used which was for green that was left unused so we can just use the
+
+123
+00:13:13,680 --> 00:13:20,320
+same value again. So there it is and we can compute that so let's click on OK and there it is. So
+
+124
+00:13:20,320 --> 00:13:27,440
+these are basically values which fall between the mean and the first standard deviation. So now we
+
+125
+00:13:27,440 --> 00:13:32,400
+know what to do when something is either greater than the second standard deviation
+
+126
+00:13:33,760 --> 00:13:39,040
+less than the second standard deviation from the mean between the first and the second standard
+
+127
+00:13:39,040 --> 00:13:44,800
+deviation. The one other range that has been left out is what happens when a value is between the
+
+128
+00:13:44,800 --> 00:13:50,160
+first standard deviation and the second standard deviation. So essentially what happens to the
+
+129
+00:13:50,160 --> 00:13:58,400
+values that are between 6 and 7 and what are basically between 6.66 and 7.49 and the values
+
+130
+00:13:58,400 --> 00:14:05,120
+between 4.18 and 5.09. So let's add that as the third conditional formatting rule that should
+
+131
+00:14:05,120 --> 00:14:10,800
+by the way cover most of the values in this whole spectrum because as you can see the lower limit
+
+132
+00:14:10,800 --> 00:14:17,200
+is 4.18 so whatever is greater than this should get covered and let's again add that rule go to
+
+133
+00:14:17,200 --> 00:14:23,520
+conditional formatting highlight cell rules say between well for the upper limit we would have
+
+134
+00:14:23,520 --> 00:14:32,320
+something like we want a cell value that is between average minus the first standard deviation
+
+135
+00:14:33,040 --> 00:14:37,680
+which is or rather average minus the second standard deviation because we are moving from
+
+136
+00:14:37,680 --> 00:14:43,920
+left to right let's add that and average minus the first standard deviation and let's click OK.
+
+137
+00:14:43,920 --> 00:14:47,920
+This time let's pick a different color let's say yellow fill with dark yellow text that's good
+
+138
+00:14:47,920 --> 00:14:54,400
+enough and let's click OK and that covers some of the values of course we still haven't taken into
+
+139
+00:14:54,400 --> 00:15:01,200
+account what happens between the second standard deviations as well so let's do that again add
+
+140
+00:15:01,200 --> 00:15:08,400
+another rule highlight cell rules and we say that we want a value that is between this time on the
+
+141
+00:15:08,400 --> 00:15:14,320
+upper side of things basically what that means is we want values that are between
+
+142
+00:15:15,840 --> 00:15:20,720
+the first standard deviation only from the average and then the second standard
+
+143
+00:15:20,720 --> 00:15:26,640
+deviation only from the average and these also let's fill with yellow text so let's click OK.
+
+144
+00:15:26,640 --> 00:15:33,440
+Now with that you see we'll cover almost every value in the range so there we are now in order
+
+145
+00:15:33,440 --> 00:15:41,440
+to see everything at a glance let's go back to the view tab and zoom out let's do a 25% zoom so
+
+146
+00:15:41,440 --> 00:15:48,800
+that we can okay that's too small that's far too small let's go back to say 75% and we see this
+
+147
+00:15:48,800 --> 00:15:55,440
+whole range we see that most of the green values which was basically between the means and the
+
+148
+00:15:55,440 --> 00:16:00,640
+first standard deviation you see that they are laid out throughout the red values are all to the
+
+149
+00:16:00,640 --> 00:16:07,520
+bottom and the yellow values are mostly in the setosa range so that basically allows us to see
+
+150
+00:16:07,520 --> 00:16:14,000
+what our data distribution looks like with conditional formatting let's zoom back to 200%
+
+151
+00:16:14,640 --> 00:16:22,320
+to do further analysis one way to manage all the conditional formatting rules that we have applied
+
+152
+00:16:22,320 --> 00:16:27,440
+and note that these can quickly get out of hand basically we have applied more than two or three
+
+153
+00:16:27,440 --> 00:16:33,200
+rules from this one particular column one way to simply check that is go back to the home tab and
+
+154
+00:16:33,200 --> 00:16:39,920
+click on manage rules under the conditional formatting menu so what this gives me is a list
+
+155
+00:16:39,920 --> 00:16:46,320
+of all the rules that I have applied on this particular column it tells me that basically
+
+156
+00:16:46,320 --> 00:16:53,040
+there are two rules which make me which I have specified should be colored in yellow there are
+
+157
+00:16:53,040 --> 00:16:59,600
+two rules which should be colored in green and there is one rule which should be colored in red
+
+158
+00:16:59,600 --> 00:17:04,480
+so I can just you know delete either of them or I can add rules or I can remove rules basically
+
+159
+00:17:04,480 --> 00:17:10,880
+you can just make a particular selection here and go to the manage rules tab within conditional
+
+160
+00:17:10,880 --> 00:17:16,000
+formatting menu to see all the rules that are currently applied on that particular column
+
+161
+00:17:16,560 --> 00:17:22,000
+so this is something that is useful for rule management there's nothing to do over here so
+
+162
+00:17:22,000 --> 00:17:31,520
+let's just cancel this for now and continue so now that we know what to do with conditional
+
+163
+00:17:31,520 --> 00:17:36,320
+formatting how to add rules how to manage rules let's move on to another category of conditional
+
+164
+00:17:36,320 --> 00:17:41,360
+rules which are basically you know the top bottom rules which we call the top bottom rules the
+
+165
+00:17:41,360 --> 00:17:46,480
+earlier ones that we were simply that we used were simply called the highlights and rules which
+
+166
+00:17:46,560 --> 00:17:52,000
+take care of basic logic like greater than less than equal to and so on top bottom rules are rules
+
+167
+00:17:52,000 --> 00:17:56,560
+that inherently do some mathematics for us so basically they are going to find the top 10
+
+168
+00:17:56,560 --> 00:18:00,400
+percent they are going to find the bottom 10 percent they are going to find the above average
+
+169
+00:18:00,400 --> 00:18:05,360
+and the below average and so on now of course we are going to let's say apply it on a separate
+
+170
+00:18:05,360 --> 00:18:09,920
+column let's in order just in the interest of clarity remove all the rules that we have
+
+171
+00:18:09,920 --> 00:18:15,840
+applied to see for length over here just so that we can see the data better in order to remove
+
+172
+00:18:15,840 --> 00:18:22,240
+rules we can just go to clear rules and say clear rules from selected sets so let's do that and then
+
+173
+00:18:22,240 --> 00:18:30,320
+our set is blank now let's apply the top bottom rules on the simple width column so let's highlight
+
+174
+00:18:30,320 --> 00:18:36,240
+that row and then click on conditional formatting and say that I want some top bottom rules now I
+
+175
+00:18:36,240 --> 00:18:42,480
+want to say highlight the top 10 percent of all the rows the top 10 percent values in all the
+
+176
+00:18:42,480 --> 00:18:49,360
+rows so let's click on that thing and say that I want the top 10 percent to be colored in red
+
+177
+00:18:49,360 --> 00:18:54,480
+so let's click okay and we see that some values already show up then let's add another rule which
+
+178
+00:18:54,480 --> 00:19:00,000
+says that I want the bottom 10 percent to also be colored in red because essentially let's say
+
+179
+00:19:00,000 --> 00:19:07,840
+we are just interested in looking at the outliers so there it is we have all of the lowest and all
+
+180
+00:19:07,840 --> 00:19:14,880
+of the largest values covered in red then I can also add another thing which says that everything's
+
+181
+00:19:14,880 --> 00:19:22,320
+that above the average I want it colored in green and then I click on okay now you see that one of
+
+182
+00:19:22,320 --> 00:19:26,880
+the things that happened is that some of the rules that were colored earlier in red are now colored
+
+183
+00:19:26,880 --> 00:19:33,040
+in green the reason that happens is because the earlier rule is now conflicting with this current
+
+184
+00:19:33,040 --> 00:19:39,040
+rule and this rule has overridden the previous rule so essentially the order in which we apply
+
+185
+00:19:39,040 --> 00:19:45,440
+rules also matters if you want to re-add that rule it is going to have to go here manage rules
+
+186
+00:19:46,480 --> 00:19:51,920
+and basically that above the top 10 and bottom 10 percent rule we just want to you know
+
+187
+00:19:53,600 --> 00:20:00,480
+order it in a certain way so we can just click on change rule order and so we say that
+
+188
+00:20:00,480 --> 00:20:06,880
+we want the above average to be executed the last and so then we click on okay and we see that some
+
+189
+00:20:06,880 --> 00:20:12,480
+of our red values which were actually top 10 or bottom 10 percent have resumed their original
+
+190
+00:20:12,480 --> 00:20:18,960
+color now we know what we have done with above average although to make sure we can always
+
+191
+00:20:18,960 --> 00:20:24,480
+check out manage rules and see what we have done so yeah we have covered above average in green
+
+192
+00:20:24,960 --> 00:20:31,200
+and we have covered the top and bottom 10 percent in red so let's cancel this and let's add another
+
+193
+00:20:31,200 --> 00:20:36,240
+rule we know what we have done with the above average value let's do something with the below
+
+194
+00:20:36,240 --> 00:20:42,240
+average values as well you see that I want to format all the values which are below the average
+
+195
+00:20:42,240 --> 00:20:50,720
+this time with yellow for example and let's click okay and there it is so those are all our values
+
+196
+00:20:51,280 --> 00:20:58,320
+again see at a glance we can see that virginica has a lot of yellow values which means that on
+
+197
+00:20:58,320 --> 00:21:04,880
+an average virginica sepal width is less than the average so we can use simply this particular
+
+198
+00:21:04,880 --> 00:21:10,720
+you know statistical fact to determine whether something is well it also seems like versicolor
+
+199
+00:21:10,720 --> 00:21:18,560
+also has the same rule so we can see simply that whatever is below average is likely to be either
+
+200
+00:21:18,560 --> 00:21:23,760
+versicolor or virginica but if we go back to setosa we see that a lot of values are
+
+201
+00:21:23,760 --> 00:21:29,440
+mostly green and red so they are in the either top few or definitely above average so if the
+
+202
+00:21:29,440 --> 00:21:35,680
+sepal width is too high the flower is more likely to be setosa and if the sepal width is too low
+
+203
+00:21:35,680 --> 00:21:41,040
+either below average or far too below average which is in the bottom few then we can say that
+
+204
+00:21:41,040 --> 00:21:47,360
+it's likely to be a virginica or a versicolor so this is again an example of how we can simply
+
+205
+00:21:47,360 --> 00:21:54,560
+use conditional formatting to figure out some very basic some very obvious insights from our data
+
+206
+00:21:58,480 --> 00:22:05,280
+so now that we know how to use the highlight cell rules and the top bottom rules let's go over to
+
+207
+00:22:05,280 --> 00:22:11,360
+the next most interesting type of conditional formatting which is data bars it's essentially
+
+208
+00:22:11,360 --> 00:22:18,160
+a way of trying to fill cells with bars which almost look like bar charts depending on the
+
+209
+00:22:18,160 --> 00:22:24,080
+value of the cell let's take a look at how this is important you see that in this particular data
+
+210
+00:22:24,080 --> 00:22:32,480
+set we have four continuous variables now one way to summarize the overall amount of variability in
+
+211
+00:22:32,480 --> 00:22:39,440
+a particular data set is to simply sum up the variance of all columns of all numerical columns
+
+212
+00:22:39,440 --> 00:22:44,640
+in that data set so let us try and find the variance of these four columns let's just copy
+
+213
+00:22:44,640 --> 00:22:51,440
+these column headers and paste them over here and here i can simply add a label called variance and
+
+214
+00:22:51,440 --> 00:22:57,920
+i can say as we have seen earlier we have a function called var.p which stands for population
+
+215
+00:22:57,920 --> 00:23:03,760
+variance and in this case for the sepal length i will just add a to a because that's my selection
+
+216
+00:23:03,760 --> 00:23:11,280
+and i just press enter and that's it 0.685 is the variance of sepal length and i can just drag it
+
+217
+00:23:11,280 --> 00:23:20,640
+to find the variances of all of the other columns now let's basically try and transpose this data
+
+218
+00:23:20,640 --> 00:23:24,960
+so essentially i want the sepal lengths or basically the column names not to appear in
+
+219
+00:23:24,960 --> 00:23:32,720
+columns here but in rows so in order to do that i can simply say equal to transpose transpose is
+
+220
+00:23:32,720 --> 00:23:37,840
+basically a function in excel which when it is given a particular range it's going to flip the
+
+221
+00:23:37,840 --> 00:23:42,720
+rows and the columns so when i complete the parenthesis and i press enter i get something
+
+222
+00:23:42,720 --> 00:23:49,200
+like this variance becomes a column and the columns which i had here become the rows so
+
+223
+00:23:49,200 --> 00:23:55,280
+essentially transpose is converting columns into rows and rows into columns now that i have the
+
+224
+00:23:55,280 --> 00:24:02,240
+variances for the four different columns i can also have something called total variance which
+
+225
+00:24:02,240 --> 00:24:09,840
+i can simply say is the sum of these four values and there it is something went wrong with my
+
+226
+00:24:09,840 --> 00:24:16,080
+formula i can do sum open a parenthesis and then make the selection yeah this time it fills
+
+227
+00:24:16,080 --> 00:24:21,120
+if i try to do a selection without opening a parenthesis it just stops everything it is
+
+228
+00:24:21,120 --> 00:24:26,800
+doing and starts making the selection which makes the formula go wrong so there it is so that is the
+
+229
+00:24:26,800 --> 00:24:32,560
+total variance i have let's drag this column limit slightly ahead so we can read properly
+
+230
+00:24:32,560 --> 00:24:39,200
+there it is now one of the most important tasks in summary statistics is to figure out how much
+
+231
+00:24:39,200 --> 00:24:44,800
+each column is contributing to the whole variance and that can be expressed as percentages so
+
+232
+00:24:44,800 --> 00:24:50,560
+basically i can just divide this by this and therefore express that as a percentage so let's
+
+233
+00:24:50,640 --> 00:24:56,320
+try to see how much variance sepal length is contributing to the total variance of the
+
+234
+00:24:56,320 --> 00:25:03,600
+data set well i can simply do that by dividing this value by this value and say that the
+
+235
+00:25:03,600 --> 00:25:08,880
+contribution of sepal length to the total variance is simply the variance of sepal length
+
+236
+00:25:08,880 --> 00:25:15,280
+divided by the total variance which is that and then i just press enter and then i can just
+
+237
+00:25:16,240 --> 00:25:21,760
+scroll down this value all the way over here and that essentially well it should have extended
+
+238
+00:25:21,760 --> 00:25:27,440
+that my formula but it did not now let's take a look at why i'm getting this divide by zero error
+
+239
+00:25:28,080 --> 00:25:35,200
+if i click on this particular cell i see that the formula is g18 by g22 now g18 is this and g22
+
+240
+00:25:35,200 --> 00:25:39,920
+is this particular value total variance so the variance of sepal length divided by the total
+
+241
+00:25:39,920 --> 00:25:46,320
+variance now if i click on this particular thing you see it's g19 by g23 not only while you're
+
+242
+00:25:46,320 --> 00:25:51,520
+dragging it's basically changed the row number it's actually also changed this number to 23
+
+243
+00:25:51,520 --> 00:26:00,480
+so instead of making it change from g22 to g23 i want to keep g22 fixed because that's my value
+
+244
+00:26:00,480 --> 00:26:06,160
+over here so i can rewrite this formula as follows i can basically say that it's this value divided by
+
+245
+00:26:06,320 --> 00:26:14,000
+g dollar 22 what this means is that this number 22 is now going to stay fixed it's not going to
+
+246
+00:26:14,000 --> 00:26:21,040
+change and i enter that and then again when i drag it this time that gives me the right values
+
+247
+00:26:21,040 --> 00:26:26,640
+obviously the total variance divided by itself is going to be one and these are all the values i have
+
+248
+00:26:26,640 --> 00:26:31,760
+now of course the idea is to express these as percentages i want to figure out what percent
+
+249
+00:26:32,720 --> 00:26:38,320
+of the total variance is contributed by sepal length what percent is contributed by sepal width
+
+250
+00:26:38,320 --> 00:26:46,480
+what bipedal length and what bipedal width so in order to format a range of values or any selection
+
+251
+00:26:46,480 --> 00:26:52,320
+as percentages you can just make that selection and in the home tab click on this percent sign
+
+252
+00:26:52,320 --> 00:26:58,800
+so that basically formats my entire thing as percentages now obviously these are percentages
+
+253
+00:26:58,800 --> 00:27:04,320
+and i can quickly see that 68 is very high there is 30 there is 15 and there is a very small value
+
+254
+00:27:04,320 --> 00:27:11,120
+of 4 but if i wanted to see the whole thing at a glance i could just select the ranges i could go
+
+255
+00:27:11,120 --> 00:27:17,280
+to conditional formatting data bars and i can just pick one of the two gradient fill or solid fill
+
+256
+00:27:17,280 --> 00:27:24,080
+and click on one particular bar let's pick blue bars light blue data bar and there it is so basically
+
+257
+00:27:24,080 --> 00:27:30,400
+that's giving me a small tiny bar chart which is embedded in myself instead of creating a new one
+
+258
+00:27:30,400 --> 00:27:35,680
+which at a glance tells me that this particular value is very high of course if i were to take
+
+259
+00:27:35,680 --> 00:27:39,440
+the trouble of reading those values it would have been very obvious to me what a high value
+
+260
+00:27:39,440 --> 00:27:44,320
+is and what a low value is but you see that this is a kind of presentation that quickly catches
+
+261
+00:27:44,320 --> 00:27:50,640
+somebody's eye and just by looking at it i can tell you that peter length actually has a lot
+
+262
+00:27:50,640 --> 00:27:57,200
+of variance and now i can see it see out of the 4.54 3.07 is covered just by peter length
+
+263
+00:27:57,200 --> 00:28:05,440
+all of the others are very small so this is how we can use data bars to essentially present
+
+264
+00:28:05,440 --> 00:28:12,480
+percentages and proportions in a very easy to understand manner of course that's not the only
+
+265
+00:28:12,480 --> 00:28:18,560
+way we can also have something like a gradient fill so essentially a gradient fill is basically
+
+266
+00:28:18,560 --> 00:28:25,600
+something that has a color gradient it goes from very opaque to a little transparent and that
+
+267
+00:28:25,600 --> 00:28:31,760
+itself depends on the value it's the the rate at which the opaque part changes to the transparent
+
+268
+00:28:31,760 --> 00:28:38,800
+part the length and the rate of the change of transparency it depends on the value itself so
+
+269
+00:28:38,800 --> 00:28:43,440
+these are essentially conveying the same information but you might want to pick a particular color or
+
+270
+00:28:43,440 --> 00:28:48,560
+whether you wanted a solid or a transparent range depending on the overall theme of
+
+271
+00:28:48,560 --> 00:28:53,760
+your spreadsheet or whatever whatever your aesthetic sense asks you to do
+
+272
+00:29:00,320 --> 00:29:06,560
+now the next set of conditional formatting tools are called color scales and in order to
+
+273
+00:29:07,120 --> 00:29:12,240
+understand that let's revisit some of the formatting that we have done on one of our
+
+274
+00:29:12,240 --> 00:29:18,080
+existing columns in the case of simple length and simple width what we did initially in this video
+
+275
+00:29:18,080 --> 00:29:24,640
+is that we created some handmade rules that is we said that values that are beyond a certain
+
+276
+00:29:24,640 --> 00:29:30,720
+threshold we want them colored in green values that are above or below a certain threshold we want
+
+277
+00:29:30,720 --> 00:29:38,080
+them to get colored in red and intermediate values in yellow now color scales are essentially simply
+
+278
+00:29:38,080 --> 00:29:42,800
+an automatic way of doing that they are simply going to take the whole range of values in a
+
+279
+00:29:42,800 --> 00:29:49,120
+given selection and divide them across the different shades of a particular color scale
+
+280
+00:29:49,920 --> 00:29:55,600
+to understand that let's try it out with petal length so i make the selection i go to conditional
+
+281
+00:29:55,600 --> 00:30:02,160
+formatting and then i go to the color scales menu and i select the first one which is basically the
+
+282
+00:30:02,160 --> 00:30:07,920
+green yellow red color scale what this means is that lower values will be colored in green
+
+283
+00:30:07,920 --> 00:30:15,440
+middle values in yellow and high values in red so let's just click on that and that's how it is
+
+284
+00:30:15,440 --> 00:30:21,600
+well it turns out i was wrong i basically flipped the order around the low values are going to be
+
+285
+00:30:21,600 --> 00:30:28,880
+colored in red the middle values in green and the higher ones in yellow and you see again at a glance
+
+286
+00:30:28,880 --> 00:30:36,080
+we can see the behavior of petal length as it traverses across the different species
+
+287
+00:30:36,080 --> 00:30:43,280
+we can see that setosa values for petal length are mostly low versicolor are somewhere in medium
+
+288
+00:30:43,280 --> 00:30:49,040
+and virginica has really high petal lengths to see this in a more concise way let's go back
+
+289
+00:30:49,040 --> 00:30:55,760
+to the view tab and try to zoom out to say 75 percent and there we see it slightly better
+
+290
+00:30:56,400 --> 00:31:04,160
+the whole range as we go from top to bottom goes from red to yellow and orange and then finally
+
+291
+00:31:04,160 --> 00:31:13,920
+to green let's go back to the zoom the original zoom and there it is now to understand how color
+
+292
+00:31:13,920 --> 00:31:21,120
+scales work in a slightly more detailed fashion let's try a simple exercise let's say that i
+
+293
+00:31:21,120 --> 00:31:28,400
+again want my columns and i want to perform some sort of statistics on them again so i create
+
+294
+00:31:29,600 --> 00:31:35,520
+simply the mean which is let's just call it mean and i want to find out all the
+
+295
+00:31:36,160 --> 00:31:46,320
+stratifications above and below the mean so i have mean plus 1 std i have mean plus 2 std
+
+296
+00:31:46,400 --> 00:31:56,720
+i have mean minus 1 std and i have mean minus 2 std so let's see what values we can fill in
+
+297
+00:31:56,720 --> 00:32:02,320
+essentially the mean is just do we have the average somewhere well we have it here but let's
+
+298
+00:32:02,320 --> 00:32:10,400
+compute it again let's say that the mean is simply the average of a to a and then i simply
+
+299
+00:32:10,400 --> 00:32:17,440
+i simply drag this out and now we also need the standard deviation let's calculate the
+
+300
+00:32:17,440 --> 00:32:23,600
+standard deviation over here and say the standard deviation is a to a and oops
+
+301
+00:32:24,560 --> 00:32:33,040
+got the formula wrong again and we can say stdev dot p so that's a to a and that completes my
+
+302
+00:32:33,040 --> 00:32:38,400
+formula i have my standard deviation for the simple length then i drag it across i get it for
+
+303
+00:32:38,400 --> 00:32:44,240
+everything and for the mean plus 1 standard deviation i basically can enter the formula
+
+304
+00:32:44,240 --> 00:32:51,280
+say equal to this particular value plus this particular value and that's it then i can again
+
+305
+00:32:51,280 --> 00:32:57,840
+drag it across and there it is i have the mean plus the first standard deviation limit for all
+
+306
+00:32:57,840 --> 00:33:03,680
+the different types of continuous variables here i can again add another formula and i say
+
+307
+00:33:03,680 --> 00:33:13,440
+that i want the mean plus 2 times the standard deviation there it is and let me also drag that
+
+308
+00:33:13,440 --> 00:33:20,000
+across and that gives me the whole values and i just do the opposite on the other hand which is
+
+309
+00:33:20,000 --> 00:33:27,600
+basically take the mean and this time subtract 1 times the standard deviation and then i drag it
+
+310
+00:33:27,600 --> 00:33:34,960
+all across here i do the same thing but 2 times the standard deviation so i take the mean and i
+
+311
+00:33:34,960 --> 00:33:44,480
+do minus 2 times this particular value and that's it and then i drag this across as well oh well
+
+312
+00:33:44,480 --> 00:33:48,720
+here's a first surprise we see that the lower limit is going into a negative value here
+
+313
+00:33:48,720 --> 00:33:55,600
+so basically little width can't go below zero but it seems like in order to find the lower outlier
+
+314
+00:33:55,600 --> 00:34:01,120
+at least according to the normal distribution you need to go well into the negative value which
+
+315
+00:34:01,120 --> 00:34:08,400
+can't happen now here's what happens when we do a color scale on this particular table of values
+
+316
+00:34:10,080 --> 00:34:16,640
+let's go back to the home tab and then click on conditional formatting color scales and
+
+317
+00:34:16,640 --> 00:34:22,800
+pick the red yellow green color scale again click on that this is what we get you see that the
+
+318
+00:34:22,800 --> 00:34:29,680
+lowest value is red and the highest value is green now what can we infer from this well let's
+
+319
+00:34:29,680 --> 00:34:36,240
+take a look if you look at the values in the sepal length column you see that the lowest value which
+
+320
+00:34:36,240 --> 00:34:41,600
+is mean minus 2 standard deviation is a little bit in the green which means that it's somewhere
+
+321
+00:34:41,600 --> 00:34:48,800
+on the green yellow slightly somewhere on the mid side or the middle portion of the entire range
+
+322
+00:34:48,800 --> 00:34:55,280
+of values and the highest value is green which means that sepal lengths occupy mostly the higher
+
+323
+00:34:55,280 --> 00:35:02,240
+spectrum of the upper half spectrum of values whereas in sepal width we see that values go
+
+324
+00:35:02,240 --> 00:35:06,640
+from somewhere in the mid range all the way to some sort of a lower range petal length on
+
+325
+00:35:06,640 --> 00:35:11,840
+the other hand is a little strange you see that we have values which contains all shades of colors
+
+326
+00:35:11,840 --> 00:35:22,560
+it goes from slightly dark red to yellow to orange to greenish to red to orange to yellow to
+
+327
+00:35:22,560 --> 00:35:28,800
+greenish yellow to dark green this what this represents is that there is a lot of variation
+
+328
+00:35:28,800 --> 00:35:33,840
+in these values because in the same column you're seeing all shades of the color scale
+
+329
+00:35:33,840 --> 00:35:40,320
+that you have chosen and that actually corresponds to this particular value over here when we say
+
+330
+00:35:40,320 --> 00:35:44,720
+that 68% variance is found in petal length what that means is that these values are
+
+331
+00:35:45,920 --> 00:35:51,920
+they vary a lot there there is a lot of variance in the sense that values range all the way from
+
+332
+00:35:51,920 --> 00:36:01,600
+0.02 or 0.2 to 7.25 that's basically a large range for a particular variable to cover and that fact
+
+333
+00:36:01,600 --> 00:36:08,400
+we can also see directly from this particular color scale essentially we're seeing colors that
+
+334
+00:36:08,400 --> 00:36:14,480
+range all the way from green to all the way down to red and similarly in petal width we see that
+
+335
+00:36:14,480 --> 00:36:21,120
+the variation is not so large it goes mostly from red to orange which means that occupies again the
+
+336
+00:36:21,120 --> 00:36:28,880
+lower bottom rung of the spectrum so you see that petal width since it has mostly no green values
+
+337
+00:36:28,880 --> 00:36:35,840
+it has a low variance and we know that it's basically 13% only petal length occupies most
+
+338
+00:36:35,840 --> 00:36:40,640
+of the values that are already present in the color spectrum of your color scale and that's why
+
+339
+00:36:40,640 --> 00:36:46,240
+it has a high variance this also has a very low variance because you see most of the values are
+
+340
+00:36:46,240 --> 00:36:50,640
+concentrated around orange yellow what do you want to call this color which is a very small
+
+341
+00:36:50,640 --> 00:36:55,280
+value of 4% and this also has a slightly high variance because we see values going all the
+
+342
+00:36:55,280 --> 00:37:01,440
+way from 4 to 7 which is reflected by the color scale again and that contributes to a variance
+
+343
+00:37:01,440 --> 00:37:08,240
+of 15% so essentially what we saw through bars over here you can also see through colors over
+
+344
+00:37:08,240 --> 00:37:13,840
+here so depending on what sort of presentation you want to make you can choose the right kind
+
+345
+00:37:13,840 --> 00:37:21,360
+of conditional formatting and see it one word of caution about how to pick color scales though
+
+346
+00:37:21,360 --> 00:37:26,720
+whenever you want to make a selection to draw color scales be careful about what selection you're
+
+347
+00:37:26,720 --> 00:37:32,560
+doing so basically let's say that we want to not drag this whole thing but we want to add a color
+
+348
+00:37:32,560 --> 00:37:37,920
+scale only to this particular value only to this particular column which is just the sepal length
+
+349
+00:37:37,920 --> 00:37:43,200
+and here again when i click on color scale and click here you see that i get those values and
+
+350
+00:37:43,200 --> 00:37:49,360
+then again if i do this other column independently of the first one i pick the same color scale add
+
+351
+00:37:49,360 --> 00:37:57,040
+it here again i pick the same color scale and add it and here again i pick the same color scale
+
+352
+00:37:57,680 --> 00:38:06,000
+and add it do you see what the problem is well the problem is that across all of these the color
+
+353
+00:38:06,000 --> 00:38:10,720
+scales are not changing at all it's like they are basically occupying the same range over here as
+
+354
+00:38:10,720 --> 00:38:16,720
+the same range over here or rather at the bottom row we see the same shade of red we see the same
+
+355
+00:38:16,720 --> 00:38:24,080
+shade of orange the same shade of yellow the same shade of green and dark green why this happens
+
+356
+00:38:24,080 --> 00:38:29,840
+is because whenever you select a color scale and then perform conditional formatting with any
+
+357
+00:38:29,840 --> 00:38:36,160
+particular color scale the range of that color scale essentially adapts to the values that have
+
+358
+00:38:36,160 --> 00:38:41,440
+been selected they don't adapt to the values around it so essentially if you want to compress
+
+359
+00:38:41,440 --> 00:38:46,560
+a bunch of values in the same color scale you have to make the whole selection work so here
+
+360
+00:38:46,640 --> 00:38:53,360
+this sort of a color scale is more valid because we want comparisons of this value with this value
+
+361
+00:38:53,360 --> 00:38:58,320
+with this value and with this value we don't want comparisons of a particular value with
+
+362
+00:38:58,320 --> 00:39:04,320
+only values in its own column so that is why be careful when making a selection for any
+
+363
+00:39:04,320 --> 00:39:12,480
+conditional formatting so broadly this is how you use conditional formatting to create highlights
+
+364
+00:39:12,480 --> 00:39:18,800
+in your data in your numbers well one quick other way of presenting your work is to show
+
+365
+00:39:18,800 --> 00:39:24,800
+charts but at the same time if you want people to look at numbers which sometimes cannot be avoided
+
+366
+00:39:24,800 --> 00:39:30,000
+and you want to draw their attention to certain sets of numbers first before others then conditional
+
+367
+00:39:30,000 --> 00:39:36,720
+formatting is one way you can do it and of course make sure that the inference that is being drawn
+
+368
+00:39:36,720 --> 00:39:42,880
+from this conditional formatting is obvious to people so that's it about conditional formatting
+
+369
+00:39:42,880 --> 00:39:49,040
+and I will see you in the next video thank you very much
+

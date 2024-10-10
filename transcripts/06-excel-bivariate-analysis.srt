@@ -1,0 +1,384 @@
+1
+00:00:00,960 --> 00:00:06,480
+Welcome back. In this video we are going to take a look at how we can do some sort of bivariate
+
+2
+00:00:06,480 --> 00:00:12,080
+analysis using Excel. We've already taken a fairly detailed look at how we can do arithmetic using
+
+3
+00:00:12,080 --> 00:00:17,840
+Excel and how we can extend that arithmetic to do univariate analysis on continuous as well as
+
+4
+00:00:17,840 --> 00:00:23,760
+discrete columns. Here let's take a look at what happens when we try to do bivariate analysis. Now
+
+5
+00:00:23,760 --> 00:00:29,520
+as we know in order to do bivariate analysis we are going to need two columns either a pair of
+
+6
+00:00:29,520 --> 00:00:36,880
+continuous columns or a continuous and a discrete columns. So let's start with a pair of continuous
+
+7
+00:00:36,880 --> 00:00:43,840
+columns which is sepal length and sepal width. So we know that one of the most useful graphical
+
+8
+00:00:43,840 --> 00:00:48,960
+ways of checking correlation or essentially independence between two continuous variables
+
+9
+00:00:48,960 --> 00:00:53,920
+is to look at a scatter plot. So we have selected these two columns and since scatter plot is a
+
+10
+00:00:53,920 --> 00:00:58,720
+chart we can just go to the insert tab over here and then click on this particular
+
+11
+00:00:59,280 --> 00:01:05,440
+button here which simply says x y scatter. So we just click on this and there we have it. This is
+
+12
+00:01:05,440 --> 00:01:12,320
+basically the scatter plot of sepal length versus sepal width and you might have expected that
+
+13
+00:01:12,880 --> 00:01:17,840
+if sepal length grows then sepal width also grows but that doesn't seem to be the case over here.
+
+14
+00:01:17,840 --> 00:01:22,800
+In fact if you look at this blob here what that tells us is that there is no increasing or
+
+15
+00:01:22,800 --> 00:01:28,240
+decreasing sort of a strict relationship. Now that is something that we have inferred by simply
+
+16
+00:01:28,240 --> 00:01:34,480
+looking at this particular plot. We still do not have a quantitative idea of how much correlation
+
+17
+00:01:34,480 --> 00:01:40,800
+there is between the sepal length and the sepal width and of course we have a formula directly
+
+18
+00:01:40,800 --> 00:01:47,440
+to compute it which is called simply Corel and there we just say that we want to give it an array
+
+19
+00:01:47,440 --> 00:01:51,920
+basically a pair of arrays array 1 and array 2 and it's going to compute the correlation between
+
+20
+00:01:51,920 --> 00:01:56,960
+them. So let's say that I want to fill in my array I can just click on a over here so if it fills in
+
+21
+00:01:56,960 --> 00:02:03,840
+a colon a for us and then I put a comma space and then I click on b which is b colon b and I finish
+
+22
+00:02:03,840 --> 00:02:08,800
+the parenthesis and I press enter. So that's basically the correlation between sepal length
+
+23
+00:02:08,800 --> 00:02:14,400
+and sepal width and surprisingly you see it's actually it has a negative sign which means that
+
+24
+00:02:14,400 --> 00:02:19,200
+there is negative correlation between the sepal length and sepal width which means that as one
+
+25
+00:02:19,200 --> 00:02:24,960
+increases the other doesn't increase it decreases and even that relationship even the decreasing
+
+26
+00:02:24,960 --> 00:02:29,920
+relationship between them is very small because the magnitude tells us that it's a very small
+
+27
+00:02:29,920 --> 00:02:36,240
+magnitude it's in fact 0.08 which means that the extent to which one decreases as the other
+
+28
+00:02:36,240 --> 00:02:42,560
+increases is very small and the sign basically tells us whether it's an increasing relationship
+
+29
+00:02:42,560 --> 00:02:48,560
+or a decreasing relationship and now we what we graphically saw from this we basically saw that
+
+30
+00:02:48,560 --> 00:02:53,760
+there is almost no correlation these are mostly randomly scattered values that is reflected by
+
+31
+00:02:53,760 --> 00:02:58,800
+the very tiny value of correlation that we're getting here and basically as one increases the
+
+32
+00:02:58,800 --> 00:03:03,120
+other decreases that is not something we could have inferred by simply looking at this so that
+
+33
+00:03:03,120 --> 00:03:08,480
+is given by the mathematical quantity the negative sign tells us that there is and there is a
+
+34
+00:03:08,480 --> 00:03:16,480
+decreasing relationship. Now petals are a far more you know important characteristic of a flower and
+
+35
+00:03:16,480 --> 00:03:23,040
+you might expect that bigger petals mean that as a petal length increases the petal width also
+
+36
+00:03:23,040 --> 00:03:27,120
+increases so we might expect to find positive correlation between these two columns let's try
+
+37
+00:03:27,120 --> 00:03:33,440
+that as well let's select the petal length column and also the petal width column then go back to
+
+38
+00:03:33,440 --> 00:03:39,920
+the insert tab click on the xy scatter menu select the scatter plot and there it is that's basically
+
+39
+00:03:40,000 --> 00:03:46,080
+the scatter plot of petal width versus petal length and we see that you know there is a fairly
+
+40
+00:03:46,080 --> 00:03:50,240
+linear trend over here of course there is a cluster over here and there is another cluster
+
+41
+00:03:50,240 --> 00:03:55,760
+over here as you might have guessed these clusters depend on the species so this is basically
+
+42
+00:03:55,760 --> 00:04:00,960
+one species and this is a combination this large cluster that we see over here is a combination
+
+43
+00:04:00,960 --> 00:04:07,200
+of the other species now graphically again looking at this might lead us to believe that
+
+44
+00:04:07,200 --> 00:04:12,480
+there is a very high positive correlation between petal width and petal length but in
+
+45
+00:04:12,480 --> 00:04:20,160
+order to actually verify this value let's also try and do the correlation and we have the first
+
+46
+00:04:20,160 --> 00:04:27,280
+array which is petal length which is the c column so we say c to c and then we say d to d for petal
+
+47
+00:04:27,280 --> 00:04:33,440
+width and then we press enter and we get a value of 0.96 so the magnitude of the value which is
+
+48
+00:04:33,440 --> 00:04:39,120
+very high indicates that there is indeed a very strong correlation between petal length and petal
+
+49
+00:04:39,120 --> 00:04:44,800
+width obviously as one increases the other also increases and that increasing relationship is
+
+50
+00:04:44,800 --> 00:04:52,160
+given to us by the positive sign and there is a very high correlation so the relationship between
+
+51
+00:04:52,160 --> 00:05:03,040
+them is very dominant so this is broadly how we do bivariate analysis between a pair of continuous
+
+52
+00:05:03,040 --> 00:05:08,160
+variables we draw a scatter plot and we look at the correlation so we have the graphical and the
+
+53
+00:05:08,160 --> 00:05:13,520
+mathematical aspects both covered with excel however we still haven't considered what we can
+
+54
+00:05:13,520 --> 00:05:20,720
+do when one of our variables is categorical and the other is a numerical variable as you remember
+
+55
+00:05:20,720 --> 00:05:26,160
+from the previous video what we do in this case is something called grouping and aggregation you
+
+56
+00:05:26,160 --> 00:05:32,560
+group any particular continuous variable let's say something like petal width by each unique
+
+57
+00:05:32,560 --> 00:05:37,760
+value of species that occurs and then you try to do some aggregation on that individual group
+
+58
+00:05:37,760 --> 00:05:44,240
+the easiest way to do this in excel is something called a pivot table so let's select an empty cell
+
+59
+00:05:44,880 --> 00:05:51,440
+go to the insert tab and then we click on pivot table so that basically asks us to select a
+
+60
+00:05:51,440 --> 00:05:57,040
+table or a range now the table that we want to consider is basically this one so it's all the
+
+61
+00:05:57,040 --> 00:06:01,760
+sepal length sepal width petal length petal width and the species column and we want to essentially
+
+62
+00:06:01,760 --> 00:06:06,160
+insert this into the existing worksheet we don't want to create a new file so we leave this
+
+63
+00:06:06,160 --> 00:06:13,120
+particular option selected and then we click on okay and that basically gives me my pivot table
+
+64
+00:06:13,120 --> 00:06:19,200
+over here now in order to populate this pivot table i can look at this menu over here now here
+
+65
+00:06:19,200 --> 00:06:26,000
+what i say is that along the rows of this pivot table i want species so basically i drag species
+
+66
+00:06:26,080 --> 00:06:33,600
+from the field day menu over here into the rows menu over here and that gives me all the row labels
+
+67
+00:06:33,600 --> 00:06:38,880
+sir to sir versiculum and virginica and the blank are basically because we have values that are
+
+68
+00:06:38,880 --> 00:06:45,920
+extending beyond the row 139 as well we can ignore that one and then we say that the values that i
+
+69
+00:06:45,920 --> 00:06:53,200
+want are say the sepal length so i drag the sepal length down to the values colon and you see that
+
+70
+00:06:53,200 --> 00:06:57,680
+it says that it's giving me the sum of sepal length now what if we don't want the sum of
+
+71
+00:06:57,680 --> 00:07:03,200
+sepal length well i can just right click on this particular element over here and i can go to field
+
+72
+00:07:03,200 --> 00:07:08,320
+settings and here it basically says that sum of the sepal length is the field name and it is
+
+73
+00:07:08,320 --> 00:07:13,760
+summarized by sum however i can change it to average to count max min anything i want so let's
+
+74
+00:07:13,760 --> 00:07:19,440
+take average for now so that's basically average and as you see the field name changes to average
+
+75
+00:07:19,440 --> 00:07:25,040
+of sepal length and then i click on okay so what this means is that for setosa flowers the average
+
+76
+00:07:25,040 --> 00:07:31,120
+sepal length is this much for versicular the average sepal length is that much and for virginica
+
+77
+00:07:31,120 --> 00:07:36,720
+it is that much now of course i can do the same with all other values that is all other types of
+
+78
+00:07:36,720 --> 00:07:42,720
+numerical columns so this is one case of bivariate analysis i have taken one particular
+
+79
+00:07:43,520 --> 00:07:48,560
+categorical column i have taken another numerical column and i have applied some sort of
+
+80
+00:07:49,200 --> 00:07:54,480
+aggregation on that column which in this case is the average i can add the sum as well so let's say
+
+81
+00:07:54,480 --> 00:08:00,720
+i want to simply click on this again and that gives me my menu back i say not only i want the
+
+82
+00:08:00,720 --> 00:08:05,840
+average but i also want the sum so again i can drop sepal length into the values menu over here
+
+83
+00:08:05,840 --> 00:08:11,120
+and here again i get the sum let's remove the sum for now because anyway
+
+84
+00:08:13,440 --> 00:08:17,440
+it's not going to help us much so let's say i can just right click on the values field again
+
+85
+00:08:17,440 --> 00:08:26,720
+and do a remove field so i can also drop sepal width i can drop petal length i can also drop
+
+86
+00:08:26,720 --> 00:08:35,120
+petal width so here is my entire pivot table where i say that i have against the setosa species the
+
+87
+00:08:35,120 --> 00:08:40,880
+average sepal length the total sepal width the total petal length and the total petal width
+
+88
+00:08:40,880 --> 00:08:48,320
+now of course like we demonstrated earlier we can change these aggregations from sum
+
+89
+00:08:48,320 --> 00:08:54,720
+to average so basically let's or basically sum to anything else so let's say i click on this
+
+90
+00:08:54,720 --> 00:09:00,960
+i right click on this and then again i go to field settings and when i look at this i can
+
+91
+00:09:00,960 --> 00:09:07,360
+just do an average and i can do basically this becomes my average again here i can right click
+
+92
+00:09:07,360 --> 00:09:13,600
+on the sum of petal length i can go to field settings again and then i can do a minimum
+
+93
+00:09:13,600 --> 00:09:22,000
+instead of a sum or an average so basically that is my minimum value so there it is we have basically
+
+94
+00:09:22,640 --> 00:09:32,240
+one categorical variable we have four numerical variables and we have four different aggregations
+
+95
+00:09:32,240 --> 00:09:37,600
+specified against all of them so this is something that lets me perform bivariate analysis
+
+96
+00:09:37,600 --> 00:09:48,960
+when both my columns are of a different type that is one is categorical versus other is numerical
+

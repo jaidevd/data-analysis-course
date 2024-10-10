@@ -1,0 +1,2164 @@
+1
+00:00:00,960 --> 00:00:06,880
+Welcome back. Now that we have a fairly detailed understanding of what patterns of insights are,
+
+2
+00:00:06,880 --> 00:00:12,640
+what bus metrics are and how we can use them to tailor our analysis for a particular data set,
+
+3
+00:00:12,640 --> 00:00:18,960
+we are going to try and apply it on this particular data set that is the Titanic data set.
+
+4
+00:00:18,960 --> 00:00:25,440
+Essentially this is a data set which contains details of about 800 passengers that were
+
+5
+00:00:26,160 --> 00:00:33,280
+unfortunately aboard the Titanic in 1912 when it sank. And the idea is how well can you predict
+
+6
+00:00:33,280 --> 00:00:39,760
+who's going to survive and who won't survive. So we already have this data set downloaded,
+
+7
+00:00:39,760 --> 00:00:47,920
+you can just search for this data set on Kaggle, you can just Google Titanic data set
+
+8
+00:00:48,560 --> 00:00:57,280
+and the first link probably the first link you're going to find is the link to the Kaggle data set.
+
+9
+00:00:57,840 --> 00:01:05,280
+You'll just have to go ahead and download the data which we have done and we have it here.
+
+10
+00:01:05,280 --> 00:01:10,080
+So this basically is the main file in that data set. Let's go ahead and open it.
+
+11
+00:01:10,080 --> 00:01:26,720
+So there we are. Let's maximize this a little bit. Let's zoom in
+
+12
+00:01:29,840 --> 00:01:37,360
+and also let's freeze the top row as is the custom and there we are. Now we are ready for
+
+13
+00:01:37,360 --> 00:01:43,040
+some analysis. Now one of the first things we are going to do is instead of diving headfirst
+
+14
+00:01:43,040 --> 00:01:48,240
+into the analysis we are going to draw on the patterns of insights that we have learned
+
+15
+00:01:48,960 --> 00:01:55,360
+in an earlier video and try and see if we can come up with certain questions based on those patterns
+
+16
+00:01:55,360 --> 00:02:00,800
+and then we are going to use those questions to drive our analysis. Essentially we are going to
+
+17
+00:02:00,800 --> 00:02:07,280
+go through each pattern of analysis and see what sort of questions we can draw from it and instead
+
+18
+00:02:07,280 --> 00:02:13,520
+of doing the analysis willy-dilly or just going through multivariate, bivariate or
+
+19
+00:02:13,520 --> 00:02:18,720
+multivariate analysis we are going to use these questions and try to find their answers through
+
+20
+00:02:18,720 --> 00:02:25,440
+whatever analytical tool that we can come up with. So let's try and come up with a list of questions.
+
+21
+00:02:26,160 --> 00:02:32,240
+So let's try to write down our questions here. Let's just simply rename this particular sheet to
+
+22
+00:02:32,400 --> 00:02:40,800
+patterns of insights and there we are. Well this too needs to be zoomed to 200% let's say
+
+23
+00:02:41,360 --> 00:02:46,800
+and the first thing we are going to need is a list of columns because until we know what each
+
+24
+00:02:46,800 --> 00:02:53,840
+column means we wouldn't really be able to come up with questions. So let us copy over the columns
+
+25
+00:02:54,800 --> 00:03:02,640
+from the first row of the sheet. Now I can straight away see that passenger ID is just
+
+26
+00:03:02,640 --> 00:03:07,040
+an idea of the passenger so we're probably not going to need this column because we can
+
+27
+00:03:07,040 --> 00:03:16,720
+do nothing with the ID itself. So let's copy the remaining columns and paste them over here.
+
+28
+00:03:17,760 --> 00:03:23,600
+Actually we shouldn't be having them like this. Let's try and lay them out in rows so we can do
+
+29
+00:03:23,600 --> 00:03:32,320
+something like transpose of this particular selection and then close it and there we are.
+
+30
+00:03:32,880 --> 00:03:38,480
+So we can try and see if we can delete this. Well you see we can't delete this because then
+
+31
+00:03:38,480 --> 00:03:43,200
+the transpose will mess up. So let's leave it like that. Let's just delete this particular row.
+
+32
+00:03:46,400 --> 00:03:53,360
+There we are. So we have the name of the column and let's also add what that column
+
+33
+00:03:53,360 --> 00:03:59,280
+means. So if we look at the column survived we see that it's basically a column which has values
+
+34
+00:03:59,280 --> 00:04:04,560
+in 0 and 1 and if you go back to the page from where you downloaded this data you'll see that
+
+35
+00:04:04,560 --> 00:04:10,320
+these are basically binary indicators of whether a particular passenger survived or not. So
+
+36
+00:04:10,320 --> 00:04:14,720
+essentially a 1 means that a particular passenger survived. This particular person
+
+37
+00:04:15,360 --> 00:04:22,320
+Mrs. Jack Heath Futrell she survived but Mr. William Henry Allen did not survive.
+
+38
+00:04:22,880 --> 00:04:26,720
+So let's try and add that information here.
+
+39
+00:04:31,440 --> 00:04:35,360
+These comments are later going to help us when we try to frame up our questions.
+
+40
+00:04:35,920 --> 00:04:42,400
+E class is essentially again an integer indicator of the class of the passenger. So essentially
+
+41
+00:04:42,400 --> 00:04:47,760
+third class, first class and second class. So here we can simply say
+
+42
+00:04:49,520 --> 00:04:58,000
+passenger class, name is self-explanatory, sex is self-explanatory, age is self-explanatory as well.
+
+43
+00:04:58,560 --> 00:05:06,000
+We don't know what sibsp is so let's go back to the date to the page where we got the data from
+
+44
+00:05:06,080 --> 00:05:12,720
+and look at the data dictionary and here what they have said is that sibsp is the number of
+
+45
+00:05:12,720 --> 00:05:19,360
+siblings or spouses about the Titanic. So essentially for each passenger how many siblings
+
+46
+00:05:19,360 --> 00:05:25,520
+or spouses overall were about the Titanic. So let's just call it let's just simplify it say
+
+47
+00:05:26,240 --> 00:05:34,720
+number of siblings and spouses. Well you would assume everybody to have only one spouse but
+
+48
+00:05:34,720 --> 00:05:42,720
+you never know. Then again the next one is part which is the number of parents or children about
+
+49
+00:05:42,720 --> 00:05:50,640
+the Titanic. So we have siblings classified separately and parents and children classified
+
+50
+00:05:50,640 --> 00:05:57,600
+separately. Ticket, so ticket I think is just the ticket number and that I guess is just going to
+
+51
+00:05:57,600 --> 00:06:05,920
+be another unique idea. So not going to help us really. Then passenger fare is self-explanatory.
+
+52
+00:06:05,920 --> 00:06:10,640
+Cabin is something interesting, it's like cabin number. It's possible that multiple passengers
+
+53
+00:06:10,640 --> 00:06:20,080
+shared a cabin so multiple people could have a cabin number and let's say and we have also
+
+54
+00:06:20,080 --> 00:06:26,240
+something called embarked. So let's see what that means. Here the data says that embarked is basically
+
+55
+00:06:26,240 --> 00:06:32,240
+the port of embarkation. If you go back to the original data set which is in this particular sheet
+
+56
+00:06:32,240 --> 00:06:38,080
+we see that embark contains S, C and Q, three different unique values that keep on repeating
+
+57
+00:06:38,640 --> 00:06:46,880
+and the website tells us that C is Cherbourg, Q is Queenstown and S is Southampton. So let's just copy
+
+58
+00:06:46,880 --> 00:06:59,040
+this and paste that into our data dictionary. So now the next thing we are going to do is try and
+
+59
+00:06:59,040 --> 00:07:07,760
+look at some patterns of insights and based on that try and see if we can come up with some
+
+60
+00:07:07,760 --> 00:07:20,400
+questions. So let's try and do that. So the very first pattern of insight that we know is as we know
+
+61
+00:07:20,400 --> 00:07:27,040
+called an unknown result. So these are the most common types of patterns that are the most common
+
+62
+00:07:27,040 --> 00:07:31,200
+types of insights that we're going to draw. Let's simply list down a bunch of things that we might
+
+63
+00:07:31,200 --> 00:07:36,880
+want to generally find out through this data set. So these would all be unknown results so far because
+
+64
+00:07:36,880 --> 00:07:43,120
+we know nothing about the data so far. Obviously since it's a data set about the passengers of the
+
+65
+00:07:43,120 --> 00:07:50,160
+Titanic we might want to find out what is the survival rate. Now we know that this is going to
+
+66
+00:07:50,160 --> 00:07:56,960
+be a low figure. Essentially the Titanic disaster is known as one of the worst maritime disasters
+
+67
+00:07:56,960 --> 00:08:03,360
+in history and that is for good reason that is simply because a lot of people died but
+
+68
+00:08:04,320 --> 00:08:08,720
+exactly how many people died is not something we know and what is the probability of somebody
+
+69
+00:08:08,720 --> 00:08:14,320
+surviving on the Titanic is also not somebody we know. But since it is widely considered a disaster
+
+70
+00:08:14,320 --> 00:08:19,680
+we can safely assume that the probability is less than 50 percent of the survival rate is less than
+
+71
+00:08:19,680 --> 00:08:24,720
+50 percent. Whether it is actually less than 50 percent or not is something that we'll have to
+
+72
+00:08:24,720 --> 00:08:31,360
+verify through the data set. Well the other thing that we could find out by simply looking at these
+
+73
+00:08:31,360 --> 00:08:41,680
+columns is that what is the survival rate by class. So by passenger class what is the survival
+
+74
+00:08:41,680 --> 00:08:47,840
+rate. If you've seen the movie you might have seen those scenes where people from the second
+
+75
+00:08:47,840 --> 00:08:54,720
+and third classes were locked up or people from the first class or the higher classes were given
+
+76
+00:08:54,720 --> 00:09:01,040
+preference when the ship was being evacuated and when the lifeboats were being filled. We
+
+77
+00:09:01,040 --> 00:09:05,920
+have now an opportunity to figure out whether that was really true or whether it was just a
+
+78
+00:09:05,920 --> 00:09:12,880
+figment of James Cameron's imagination. Let's see if survival rate differs by class and if actually
+
+79
+00:09:12,880 --> 00:09:20,080
+the lower classes had a lower survival rate. Well one obvious thing that we know about the Titanic
+
+80
+00:09:20,080 --> 00:09:25,200
+is that women and children were allowed to evacuate the Titanic first. So essentially
+
+81
+00:09:26,080 --> 00:09:34,160
+survival rate by gender should be higher for women than for men. Let's see if that is true
+
+82
+00:09:34,160 --> 00:09:39,360
+and if actually it is true which probably most likely it is. Let's see what is the difference.
+
+83
+00:09:40,640 --> 00:09:44,800
+The other thing that we have is couple of variables related to families.
+
+84
+00:09:44,800 --> 00:09:53,520
+So we could also ask something like are people traveling with their families
+
+85
+00:09:57,520 --> 00:10:05,040
+more likely to survive. So this is something that we can infer from these two columns over here.
+
+86
+00:10:05,840 --> 00:10:15,680
+So that's it like those are broadly a few general questions that we can ask. Oh and we also have
+
+87
+00:10:15,680 --> 00:10:21,520
+the fare as a variable which is how much the ticket had cost. So we can also ask something like
+
+88
+00:10:22,480 --> 00:10:30,160
+apart from this is basically an extension of the survival rate by class problem. So we can ask
+
+89
+00:10:30,240 --> 00:10:39,120
+something like given that we have fare were people who paid a higher fare more likely to
+
+90
+00:10:40,160 --> 00:10:46,560
+survive. So let's find that out as well. So yeah those are broadly the kind of questions that we
+
+91
+00:10:46,560 --> 00:10:53,680
+can come up with when we think of unknown results as a pattern of insights. The next pattern of
+
+92
+00:10:53,680 --> 00:11:02,080
+insight that we know of is called surprising comparison. So these are essentially questions
+
+93
+00:11:02,080 --> 00:11:17,360
+like how does the survival rate compare between say gender, passenger class. Now maybe couple of
+
+94
+00:11:17,360 --> 00:11:24,800
+these questions we have already addressed here but anyway let's put them down here in the interest
+
+95
+00:11:24,800 --> 00:11:31,760
+of completeness. How does the survival rate compare between age for example are younger people more
+
+96
+00:11:31,760 --> 00:11:37,840
+likely to survive or are older people more likely to survive. And yeah the other one other variable
+
+97
+00:11:37,840 --> 00:11:45,440
+which we have not used so far is the embarkment. So whether you embarked on Cherbourg or Queenstown
+
+98
+00:11:45,440 --> 00:11:51,760
+or Southampton which of them makes you the most likely or the least likely to survive. So
+
+99
+00:11:52,400 --> 00:11:59,360
+how does the survival rate compare between embarkment ports. Let's just call this
+
+100
+00:12:00,000 --> 00:12:08,960
+embarkment for the sake of convenience. There we are and then we can also ask some other
+
+101
+00:12:09,840 --> 00:12:14,480
+question based on you know this particular pattern of insight based on say the family
+
+102
+00:12:16,000 --> 00:12:27,120
+so we can say that how do number of family members compare across gender. So basically
+
+103
+00:12:27,120 --> 00:12:32,320
+do men have more family members or do women have more family members. Passenger class
+
+104
+00:12:33,680 --> 00:12:40,240
+and what this means is that which class of passengers has more and less family members
+
+105
+00:12:40,240 --> 00:12:48,080
+traveling with this. Then age which what age how does the number of family members vary as
+
+106
+00:12:48,080 --> 00:12:53,280
+your age changes. So you would imagine that younger people children would be traveling with their
+
+107
+00:12:53,280 --> 00:13:00,320
+family members and older people might not be traveling with their family members. Let's see
+
+108
+00:13:00,320 --> 00:13:05,520
+if that is true and again as usual the other variable that we have is embarkment. So let's
+
+109
+00:13:05,520 --> 00:13:12,400
+see what happens. Now the next pattern of insight that we have is surprising
+
+110
+00:13:13,680 --> 00:13:17,200
+extremes. Let's see what sort of thing we can come up with over here.
+
+111
+00:13:18,000 --> 00:13:23,360
+So here we have to frame questions that are in the superlator. We ask questions about highest
+
+112
+00:13:23,360 --> 00:13:31,360
+and lowest and things like that. So let's think about this. Yeah one question we can ask is
+
+113
+00:13:31,360 --> 00:13:39,760
+which passenger class had the highest or the lowest women passengers or you know
+
+114
+00:13:42,240 --> 00:13:42,960
+passengers
+
+115
+00:13:45,920 --> 00:13:56,400
+which passenger class had the highest or the lowest men or women. So gender ratio across classes.
+
+116
+00:13:56,400 --> 00:14:08,880
+Let's see what that gives us. We can then ask who are the oldest and the youngest people in each
+
+117
+00:14:08,880 --> 00:14:17,840
+class. So we are basically trying to combine extremes between the class variable as well as
+
+118
+00:14:17,840 --> 00:14:27,280
+the age variable. We can also say what was the highest or the lowest fare and then we can group
+
+119
+00:14:27,280 --> 00:14:39,280
+this again by age by gender by passenger class and by embarkment. So there is a bunch of things
+
+120
+00:14:39,280 --> 00:14:45,440
+that we have which we can use to do our analysis and of course like we can also say what is the
+
+121
+00:14:45,440 --> 00:14:54,080
+highest or lowest fare by survival because ultimately one of the things that people believe
+
+122
+00:14:54,080 --> 00:15:00,880
+about the Titanic may be perpetrated by the movie is that people who paid higher fares were more
+
+123
+00:15:00,880 --> 00:15:08,560
+likely to survive. Let's see if that is actually true. Then we also have abnormal distribution as
+
+124
+00:15:08,560 --> 00:15:14,800
+another class or another pattern of insights. So let's see what sort of distribution we expect
+
+125
+00:15:14,800 --> 00:15:23,360
+from this and what do we actually get. So we can ask something like what is the distribution of
+
+126
+00:15:23,360 --> 00:15:36,000
+passengers across well age passenger class fare. I'm not even sure if that really makes sense or
+
+127
+00:15:36,000 --> 00:15:41,520
+not like basically how do you even compare how many passengers paid what kind of fare.
+
+128
+00:15:42,240 --> 00:15:46,960
+Not sure if that really makes sense but let's leave it here for the sake of completion. This
+
+129
+00:15:46,960 --> 00:15:53,120
+is basically more of an exercise in how we frame questions rather than how we actually do the
+
+130
+00:15:53,120 --> 00:15:59,360
+analysis. The analysis is something that follows and anyway once we take a particular question and
+
+131
+00:15:59,360 --> 00:16:05,280
+try to tackle it how we exactly do the analysis and does the question itself make analytical sense
+
+132
+00:16:05,280 --> 00:16:10,640
+becomes a different argument completely. What is the distribution of passengers across
+
+133
+00:16:11,600 --> 00:16:19,360
+embarkment. So essentially you would expect that few children very few old people but a lot of
+
+134
+00:16:19,360 --> 00:16:24,960
+young and middle-aged people would be there by age. By passenger class you would expect that
+
+135
+00:16:24,960 --> 00:16:29,440
+very few people are in the first or second classes and a lot of people are there in the third class
+
+136
+00:16:30,880 --> 00:16:37,600
+as is true for most modes of travel fare. Again not too sure let's find out and
+
+137
+00:16:37,600 --> 00:16:42,960
+embarkment again we don't know what are the distributions of passengers that embarked in
+
+138
+00:16:42,960 --> 00:16:50,960
+CQRS so let's take a look. So I guess this is a fairly large set of questions that we have
+
+139
+00:16:51,680 --> 00:16:57,520
+and let's tackle them one by one through our analysis and see what we can get to.
+
+140
+00:16:57,520 --> 00:17:07,520
+So let's go back to the sheet with the data and try to start answering our questions.
+
+141
+00:17:08,080 --> 00:17:14,240
+Well the first question that we asked was what is the survival rate and that can be answered by
+
+142
+00:17:14,240 --> 00:17:18,640
+looking at this column. We essentially have a binary indicator which tells us whether a
+
+143
+00:17:18,640 --> 00:17:24,960
+particular passenger survived or not. So let's try and take a look at how we would solve this.
+
+144
+00:17:27,840 --> 00:17:32,880
+Now one way to calculate this is simply count the number of ones that are there in this whole
+
+145
+00:17:32,880 --> 00:17:38,560
+column and divide them by the total number of rows. So essentially we can simply say
+
+146
+00:17:39,600 --> 00:17:49,360
+sum of a to a and then simply divide it by the count of a to a. Now we see that we get the value
+
+147
+00:17:49,360 --> 00:17:56,880
+of 0.38 which means that the survival is 38 percent quite less than 50 percent as we expected.
+
+148
+00:17:56,880 --> 00:18:02,320
+So essentially what this means is that 38 percent of the passengers on the Titanic survived.
+
+149
+00:18:02,880 --> 00:18:08,960
+Now if we look at the formula here very carefully you will see that count a to a is the same as the
+
+150
+00:18:08,960 --> 00:18:14,880
+length of that column and when you have the sum of a column divided by the length of a column
+
+151
+00:18:14,880 --> 00:18:21,520
+that's nothing but the average. In general whenever you have a binary variable like this one or a
+
+152
+00:18:21,520 --> 00:18:29,360
+Boolean variable like this one the average is often a proxy for the probability of the positive
+
+153
+00:18:29,360 --> 00:18:37,440
+class. So instead of using this particular somewhat convoluted formula we can simply replace it with
+
+154
+00:18:38,320 --> 00:18:46,480
+average. So we can simply say average of a by a and that gives us the same value and that's a
+
+155
+00:18:46,480 --> 00:18:53,600
+good proxy to have because average is a formula that we are familiar with and it avoids us writing
+
+156
+00:18:53,600 --> 00:19:01,760
+a complicated formula. Now the next question that we had was what is the survival rate by class.
+
+157
+00:19:02,400 --> 00:19:08,880
+Now we have the survival rate in this particular column and we have already calculated it overall
+
+158
+00:19:08,880 --> 00:19:16,800
+and we have the class over here. So what we need to do first in order to find the survival rate
+
+159
+00:19:16,800 --> 00:19:22,800
+for each independent class is to filter this particular column by a particular class value.
+
+160
+00:19:22,800 --> 00:19:28,720
+So basically for the third class take all the rows which have three in this particular column
+
+161
+00:19:28,720 --> 00:19:33,440
+and then compute the survival rate for those rows separately then do the same for the first
+
+162
+00:19:33,440 --> 00:19:38,720
+class and then do the same for the second class. Now this is called a group by operation and one
+
+163
+00:19:38,720 --> 00:19:44,400
+easy way to do that in excel is to use a pivot table. So let's write this down
+
+164
+00:19:48,560 --> 00:19:54,480
+and let's go to the next cell and in order to create a pivot table we go to the insert tab and
+
+165
+00:19:54,480 --> 00:20:00,720
+we click on pivot table. Now it's going to ask us to select a table or range and it has very
+
+166
+00:20:00,720 --> 00:20:06,880
+helpfully already selected a range essentially all of these this boundary that you see with
+
+167
+00:20:06,880 --> 00:20:13,360
+the dotted lines that's basically the range that it has already selected for us and what it's going
+
+168
+00:20:13,360 --> 00:20:19,200
+to do is that it's going to use all of these columns to create the pivot table of course which
+
+169
+00:20:19,200 --> 00:20:26,320
+individual column to use for a particular metric that is up to us. So let's click on okay and here
+
+170
+00:20:26,320 --> 00:20:31,760
+we see the details of the pivot table. Now we need to find out the survival rate by class so
+
+171
+00:20:31,760 --> 00:20:38,800
+we need a table which shows each class in a given row and in the row next to it we need to see or
+
+172
+00:20:38,800 --> 00:20:43,280
+in the column next to it we need to see the survival rates. So what we need to do is take
+
+173
+00:20:43,280 --> 00:20:50,480
+the p class variable from here and drag it down to the rows section and then we need to take the
+
+174
+00:20:50,480 --> 00:20:57,600
+survive variable and drag it down to the values section. Now you see that it has already picked
+
+175
+00:20:57,600 --> 00:21:02,960
+a particular aggregation for us which is sum of survived. We don't need the sum here we actually
+
+176
+00:21:02,960 --> 00:21:08,160
+need the probability which in this case is also the average. So in order to change the sum to
+
+177
+00:21:08,160 --> 00:21:14,480
+the average we can simply right click on this particular field and go to field settings and
+
+178
+00:21:14,480 --> 00:21:19,520
+here as we see we have multiple different aggregations which are available to us and
+
+179
+00:21:19,520 --> 00:21:26,080
+the default value is sum we simply change it to average and then we click on okay. So there it is
+
+180
+00:21:26,080 --> 00:21:32,640
+those are the survival rates or probabilities of particular classes. Now in order to make it a
+
+181
+00:21:32,640 --> 00:21:39,680
+little more readable let's sort this in a descending manner by the average of survived. So essentially
+
+182
+00:21:39,680 --> 00:21:48,560
+we know that 62 percent passengers from the first class survived, 47 percent passengers from the
+
+183
+00:21:48,560 --> 00:21:55,200
+second class survived and 24 percent passengers from the third class survived. So this is fairly
+
+184
+00:21:55,200 --> 00:22:04,880
+significant and it's also fairly depressing in a way because what this means is that of the people
+
+185
+00:22:04,880 --> 00:22:11,600
+who were there in the first class for every three people roughly two of them survived whereas in
+
+186
+00:22:11,600 --> 00:22:15,680
+the second class every one out of two people survived whereas in the third class one out of
+
+187
+00:22:15,680 --> 00:22:22,080
+four people survived. So there is clearly a significant distinction between the survival
+
+188
+00:22:22,080 --> 00:22:28,960
+rates of the different classes that were about the Titanic. Let's take a look at the next question.
+
+189
+00:22:28,960 --> 00:22:33,600
+The next question is what is the survival rate by gender? Now the answer to this is not something
+
+190
+00:22:33,600 --> 00:22:38,960
+that should surprise everyone we clearly know for a fact that women would have a higher survival
+
+191
+00:22:38,960 --> 00:22:45,520
+rate but that is also something that we know from our general knowledge or whatever but let's see
+
+192
+00:22:45,520 --> 00:22:51,360
+if the data actually holds up and again to do that we have to create a new pivot table. We are
+
+193
+00:22:51,360 --> 00:22:55,440
+going to use a ton of pivot tables in this particular exercise by the way simply because
+
+194
+00:22:55,440 --> 00:23:01,120
+pivot tables are so convenient and they allow us to do a bunch of different operations very quickly.
+
+195
+00:23:01,120 --> 00:23:08,400
+So again we go to the insert tab and we click on pivot table it's the same range as usual and the
+
+196
+00:23:09,120 --> 00:23:14,320
+when we want to place the pivot table is this particular cell m10 and that is what it has
+
+197
+00:23:14,320 --> 00:23:21,680
+basically already selected over here and then we click on okay. Here we basically need in our rows
+
+198
+00:23:23,280 --> 00:23:30,000
+the sex because we want to figure out what is the survival rate for each individual gender and then
+
+199
+00:23:30,000 --> 00:23:37,040
+again we drag the survived column into the value section and here also as usual it's basically
+
+200
+00:23:37,040 --> 00:23:42,720
+giving us the sum. We don't want the sum we want the average so again we go to the field settings
+
+201
+00:23:42,720 --> 00:23:50,560
+and then we change the sum to average and we click on okay and there it is. So 74 percent of
+
+202
+00:23:50,560 --> 00:23:56,720
+the females about the Titanic survived whereas only 18 percent of the men about the Titanic
+
+203
+00:23:56,720 --> 00:24:03,600
+survived and that is obvious because we know that it's basically the females and the children who
+
+204
+00:24:03,600 --> 00:24:13,360
+were allowed to evacuate the sinking ship before anybody else. So that answers our next question
+
+205
+00:24:13,360 --> 00:24:18,640
+which is what is the survival rate by gender. So let's add this also here.
+
+206
+00:24:23,520 --> 00:24:27,760
+Let's give this a little more room so that we can read what we have done.
+
+207
+00:24:28,320 --> 00:24:35,040
+Let's go to the next question now and see are people traveling with their families more likely
+
+208
+00:24:35,040 --> 00:24:40,000
+to survive. Now this is a somewhat compounded question it's a somewhat complicated question
+
+209
+00:24:40,000 --> 00:24:47,200
+we don't know how to straight away answer with this because in our data set we don't see a
+
+210
+00:24:47,200 --> 00:24:54,160
+straight up column which tells us whether a particular passenger had a family on the Titanic
+
+211
+00:24:54,160 --> 00:24:59,680
+or not. However we do have two other columns from which this information can be derived. We know
+
+212
+00:24:59,680 --> 00:25:06,080
+for each passenger how many siblings were on the Titanic or spouse and we also know for each
+
+213
+00:25:06,080 --> 00:25:11,760
+passenger how many parents or children were on the Titanic. So what we can simply do is take the
+
+214
+00:25:11,760 --> 00:25:19,040
+sum of these two columns and that output the sum of siblings or spouses or parents and children
+
+215
+00:25:20,000 --> 00:25:26,640
+and children essentially gives us the number of family members that were there with a particular
+
+216
+00:25:26,640 --> 00:25:32,160
+passenger on the Titanic and if this number happens to be greater than zero then we can conclude that
+
+217
+00:25:32,800 --> 00:25:38,480
+somebody has a family on the Titanic. So let's try that. In order to compute this variable we'll
+
+218
+00:25:38,480 --> 00:25:46,880
+have to introduce a blank row and then fill that row with the sum of these two columns and then
+
+219
+00:25:46,880 --> 00:25:52,480
+see if that column is greater than zero or not. So let's insert a particular column that gives us
+
+220
+00:25:52,480 --> 00:25:59,200
+this column. Let's simply call it n underscore family which is the number of family members you
+
+221
+00:25:59,200 --> 00:26:10,560
+have and then we can simply do sum of this column plus this column and press enter. So there it is
+
+222
+00:26:10,560 --> 00:26:17,440
+this particular person which is Mr Owen Harris-Brown had one family member on the Titanic
+
+223
+00:26:17,440 --> 00:26:23,920
+and as usual we can simply drag this down all the way in the end
+
+224
+00:26:27,680 --> 00:26:37,280
+to apply that particular formula to the entire set of rows and we overshot it a little bit but
+
+225
+00:26:37,280 --> 00:26:43,200
+that's okay we get a bunch of zeros we can just reduce it a little bit and go down to
+
+226
+00:26:43,200 --> 00:26:52,080
+exactly 892 columns and there it is. So now we have a column which tells us what is the total
+
+227
+00:26:52,080 --> 00:26:58,880
+number of family members a person had when they were on the Titanic. Now we can simply convert
+
+228
+00:26:58,880 --> 00:27:04,240
+this into a Boolean variable. Basically if you remember the wording of our question was very
+
+229
+00:27:04,240 --> 00:27:09,360
+specific what we are asking is are people traveling with their families more likely to
+
+230
+00:27:09,360 --> 00:27:15,200
+survive which means that all we need to answer is whether somebody was traveling with their
+
+231
+00:27:15,200 --> 00:27:21,120
+family or not because whether they survived or not is already available to us here. So essentially
+
+232
+00:27:21,120 --> 00:27:26,160
+we just need to perform some sort of a logical operation on this column which tells us that
+
+233
+00:27:26,160 --> 00:27:31,040
+if this number is greater than zero then that person was traveling with their family or if
+
+234
+00:27:31,040 --> 00:27:36,320
+that number is zero then that person was not traveling with their family. So let's introduce
+
+235
+00:27:36,320 --> 00:27:44,240
+another column which we will simply call as family and in order to populate this again we
+
+236
+00:27:44,240 --> 00:27:51,280
+simply do an if operation. So an if is basically a formula which takes in a particular condition
+
+237
+00:27:51,280 --> 00:27:56,080
+and if that condition is true it picks one value and if it is not true it simply picks another
+
+238
+00:27:56,080 --> 00:28:04,320
+value. So let's say that our condition basically is h2 greater than zero and if that is the case
+
+239
+00:28:04,320 --> 00:28:10,000
+we want to call it true and if that is not the case we want to call it false and then we press
+
+240
+00:28:10,000 --> 00:28:22,640
+enter. So let's copy this and paste it all the way to the end of the sheet it went well beyond
+
+241
+00:28:22,640 --> 00:28:28,400
+the range so let's not do that because that will slow down the operation and let's go back to the
+
+242
+00:28:28,400 --> 00:28:45,040
+top and let's just drag this down until we reach 892 columns. There is a keyboard shortcut for this
+
+243
+00:28:45,040 --> 00:28:50,720
+basically you can just press a particular keyboard shortcut which will take you down to the end of
+
+244
+00:28:50,720 --> 00:28:56,240
+that particular data not to the end of the spreadsheet completely but somehow on my
+
+245
+00:28:56,240 --> 00:29:01,920
+computer i can't seem to make it work. So there it is essentially this particular person had five
+
+246
+00:29:01,920 --> 00:29:06,480
+family members therefore they were traveling with a family this person had three family members
+
+247
+00:29:06,480 --> 00:29:10,880
+so they were traveling with the families and others were not. So wherever there is a zero
+
+248
+00:29:10,880 --> 00:29:16,400
+we conclude that that person does not have a family and if there is a one then that person
+
+249
+00:29:16,400 --> 00:29:29,280
+has a family. So let's go back all the way up.
+
+250
+00:29:37,840 --> 00:29:44,000
+Now the question we had was is a person with a family more likely to survive or not. So
+
+251
+00:29:44,000 --> 00:29:49,520
+essentially what we need to do is find the survival rate depending on whether a particular
+
+252
+00:29:49,520 --> 00:29:56,560
+person has a family or not. So again we use a pivot table go back to the insert tab click on
+
+253
+00:29:56,560 --> 00:30:03,360
+pivot table and the same range is selected the new output range of the cell is also selected
+
+254
+00:30:03,360 --> 00:30:11,040
+you click on okay that gives us the pivot table and then we say that what i want in my rows is
+
+255
+00:30:11,040 --> 00:30:18,320
+basically whether a person had a family or not well it seems like those particular columns are
+
+256
+00:30:18,320 --> 00:30:24,240
+not showing up. So let's see what went wrong with our selection let's close this and delete this
+
+257
+00:30:24,240 --> 00:30:42,400
+particular pivot table well we can just instead of pressing the delete key we can just press
+
+258
+00:30:42,400 --> 00:30:48,240
+the undo key to make this work. Now let's see why it did not create the pivot table correctly for
+
+259
+00:30:48,240 --> 00:30:53,360
+us remember that we need the i column over here when you click on the pivot table you see that
+
+260
+00:30:53,360 --> 00:31:00,240
+it's only picking up to the it's actually picking up the has family column itself so
+
+261
+00:31:00,240 --> 00:31:03,840
+let's see why it wouldn't pick up the pivot table also.
+
+262
+00:31:09,200 --> 00:31:17,360
+Well let's see if we can directly select the columns like that and then make a pivot table.
+
+263
+00:31:17,920 --> 00:31:23,520
+So essentially instead of making a selection on its own we are creating a pivot table
+
+264
+00:31:24,560 --> 00:31:30,720
+by ourselves so we make the selection and we click on the pivot table and we say that we want
+
+265
+00:31:31,280 --> 00:31:38,960
+to place the pivot table in the existing sheet over here basically. So essentially let's click
+
+266
+00:31:38,960 --> 00:31:46,080
+on okay now we have the ith column and this time it says that a pivot table cannot overlap another
+
+267
+00:31:46,080 --> 00:31:52,400
+pivot table well we did not remove the original one so let's do that and then again select all
+
+268
+00:31:52,400 --> 00:31:59,120
+the rows from all the columns from a to i and click on insert pivot table again we want the
+
+269
+00:31:59,120 --> 00:32:03,760
+result to come up in the existing sheet which is over here let's click on okay
+
+270
+00:32:06,720 --> 00:32:12,960
+and there it is we have the has family variable available to us so let's drag that down to the
+
+271
+00:32:12,960 --> 00:32:20,640
+rows and let's as usual pick the survived column and drag it down to the values the sum which is
+
+272
+00:32:20,640 --> 00:32:26,640
+the default aggregation let's change that to average so instead of getting the total number
+
+273
+00:32:26,640 --> 00:32:32,960
+of people who survived we'll get essentially the probability of them surviving and there it is.
+
+274
+00:32:32,960 --> 00:32:38,720
+Essentially the idea is that if you have a family you have a 50% chance of survival
+
+275
+00:32:39,680 --> 00:32:43,760
+if you don't have a family then you have a 30.3% chance of survival.
+
+276
+00:32:44,800 --> 00:32:50,320
+Let's see how we can make this a little pretty we want to make it descending and we don't want
+
+277
+00:32:50,320 --> 00:32:58,160
+to see any blank values so there it is and let's again format this as percentages just in the
+
+278
+00:32:58,160 --> 00:33:05,360
+interest of better presentation so that it is nearly 51% people who have a family survived and
+
+279
+00:33:05,360 --> 00:33:10,480
+only 30% of the people who did not have a family survived now one of the reasons why
+
+280
+00:33:10,480 --> 00:33:17,280
+this could happen is that you can imagine a typical family consisting of a father a mother
+
+281
+00:33:17,280 --> 00:33:25,200
+and two or more children or even one child and you see that since women and children were evacuated
+
+282
+00:33:25,200 --> 00:33:30,960
+first it's possible that even within a family the rate of survival is something around at least
+
+283
+00:33:30,960 --> 00:33:37,360
+50% because there would be a man and a woman and if there are children then the rate of survival
+
+284
+00:33:37,360 --> 00:33:45,360
+would be more for if you consider a given family as the unit which we are considering for this
+
+285
+00:33:45,360 --> 00:33:50,240
+particular probabilistic analysis so that's why it makes sense that people who were traveling
+
+286
+00:33:50,240 --> 00:33:55,920
+with families had a higher rate of survival the only way that you would not survive if you
+
+287
+00:33:56,800 --> 00:34:04,240
+were in a family on the Titanic is if you were a man so that's why this is not too surprising
+
+288
+00:34:05,040 --> 00:34:12,400
+let's see what our next question is so were people who paid a higher fare more likely to survive
+
+289
+00:34:12,960 --> 00:34:19,440
+now let's think about how we could calculate this what we can do is simply have the fare over here
+
+290
+00:34:20,080 --> 00:34:29,200
+and let's format this as currency so here we can go to the formatting tab and we say that we want to
+
+291
+00:34:30,800 --> 00:34:35,360
+format this particular thing as a currency now clearly it has picked the Indian rupee
+
+292
+00:34:35,360 --> 00:34:42,240
+as the currency symbol but we can go a little ahead and click on more number formats and instead
+
+293
+00:34:42,240 --> 00:34:51,440
+of the rupee symbol we can use the Great Britain pound the reason I've chosen Great Britain pound
+
+294
+00:34:51,440 --> 00:34:59,200
+is because the Titanic started its voyage in England and it was going to the US so the fares
+
+295
+00:34:59,200 --> 00:35:05,600
+are likely to be in British pounds not in American dollars or rupees obviously so let's leave it at
+
+296
+00:35:05,600 --> 00:35:14,320
+that and there it is the idea is that we now want to figure out does paying a higher fare mean
+
+297
+00:35:14,320 --> 00:35:21,360
+that you are more likely to survive let's think a bit about how we would do that here again also
+
+298
+00:35:21,360 --> 00:35:26,800
+it's a case of bivariate analysis where we have one categorical variable which is simply true or
+
+299
+00:35:26,800 --> 00:35:34,080
+false and we have one numerical variable which is the fare so does increasing fare mean a better
+
+300
+00:35:34,080 --> 00:35:42,560
+chance of survival let's think about it well since one of our variables is actually a categorical
+
+301
+00:35:42,560 --> 00:35:48,960
+variable here also we have no choice but to do a group buy essentially we are going to figure out
+
+302
+00:35:48,960 --> 00:35:54,240
+if somebody survived or not and then check the average fare they they pay so essentially we can
+
+303
+00:35:54,240 --> 00:36:05,520
+say something like average fare by survival and again let's insert another pivot table
+
+304
+00:36:12,400 --> 00:36:18,640
+so here's basically seem to have messed up the selection but let's cancel it anyway
+
+305
+00:36:18,640 --> 00:36:23,680
+and let's restart again I clicked in the wrong place and that messed up the selection
+
+306
+00:36:24,240 --> 00:36:30,640
+so here's a selection and we want to place the result in the cell o 18 which is basically the
+
+307
+00:36:30,640 --> 00:36:38,240
+cell and we click on okay and here what we want to do is we want to have the survived factor
+
+308
+00:36:38,800 --> 00:36:46,080
+as our rows and we have the fare factor in our columns and here we have some affairs again let's
+
+309
+00:36:46,080 --> 00:36:52,000
+change that to average pairs one of the reasons we use average so often is because it gives us
+
+310
+00:36:52,000 --> 00:36:58,080
+the best of the worst kind of an estimate so there it is the people who did not survive
+
+311
+00:36:58,080 --> 00:37:08,560
+had an average pair of 22.1 gbp whereas those who survived had an average pair of 48.39 gbp
+
+312
+00:37:09,600 --> 00:37:16,480
+clearly means that the people who survived were basically paying more than twice the amount
+
+313
+00:37:16,480 --> 00:37:22,560
+on average of people who did not survive this is also a very stark contrast and
+
+314
+00:37:23,840 --> 00:37:29,120
+somewhat surprising result because you would not expect to find any correlation between
+
+315
+00:37:30,000 --> 00:37:36,720
+what fair people are paying versus whether they survived or not but anyway that's what the data
+
+316
+00:37:36,720 --> 00:37:45,200
+tells us so let's continue so the next question is amongst surprising comparisons how does the
+
+317
+00:37:46,080 --> 00:37:51,840
+survival rate compare between gender i think this is something we have already answered so if we go
+
+318
+00:37:51,840 --> 00:37:57,840
+back to see the survival rate by gender we have already answered how survival rate changes from
+
+319
+00:37:57,840 --> 00:38:04,000
+men to women so that question is answered we have done the same for passenger class but we have not
+
+320
+00:38:04,000 --> 00:38:10,400
+done that for age essentially we need to see how survival rate changes as your age group changes
+
+321
+00:38:11,040 --> 00:38:17,040
+now in order to do that we are going to have a slightly complicated type of a pivot table
+
+322
+00:38:17,040 --> 00:38:17,920
+so let's take a look
+
+323
+00:38:21,280 --> 00:38:25,120
+so let's write down the metric we are trying to measure here which is
+
+324
+00:38:26,960 --> 00:38:34,640
+rate of survival by age now here too we need a pivot table so let's go ahead and
+
+325
+00:38:34,640 --> 00:38:44,320
+insert a pivot table same range and there we are now here amongst the rows we basically want
+
+326
+00:38:45,280 --> 00:38:51,600
+ages so let's take the age column and drag it down to rows so there we have all the different
+
+327
+00:38:51,600 --> 00:38:56,960
+ages that are present in the data set we see that it's a fairly large list we might want to
+
+328
+00:38:56,960 --> 00:39:03,280
+group it down but see let's see what happens and again as usual in the values let's drag
+
+329
+00:39:03,280 --> 00:39:10,400
+the survived column here again it's the sum of survived instead of that let's do the average
+
+330
+00:39:10,400 --> 00:39:18,880
+of survived so there it is now you see that we have ages which are 0.42 0.67 1 2 3 4 9 basically
+
+331
+00:39:18,880 --> 00:39:24,800
+all integer ages are there there are also floating point ages in between so instead of dealing with
+
+332
+00:39:24,800 --> 00:39:30,720
+ages as the raw numerical number that they are let's group them together into pins and one way
+
+333
+00:39:30,720 --> 00:39:38,480
+to do that is to simply click on one particular age value in the table and click on the group
+
+334
+00:39:38,480 --> 00:39:46,400
+selection button over here which is available under the pivot table analyze tab of excel and
+
+335
+00:39:46,400 --> 00:39:52,240
+so when we click on group selection it gives us a menu so it's basically saying that starting at
+
+336
+00:39:52,240 --> 00:39:58,080
+0.42 which is the lowest value and ending at 80 which is the highest value we want to group the
+
+337
+00:39:58,080 --> 00:40:04,720
+whole range in groups of 10 let's start a little lower than 0.42 because we want the range to
+
+338
+00:40:04,720 --> 00:40:11,600
+slightly exceed the actual range and instead of ending at 80 let's end at 90 and group it into 10
+
+339
+00:40:11,600 --> 00:40:17,600
+and then when we click okay we see that the data becomes a lot more compact and instead of having
+
+340
+00:40:17,600 --> 00:40:23,840
+a survival rate at each unique value of age that is present in the data set we get aggregated
+
+341
+00:40:23,840 --> 00:40:31,680
+survival rate for different ranges of these values now those are our values let's sort this
+
+342
+00:40:31,680 --> 00:40:39,440
+by decreasing order and we want to sort by the average of survival so there it is basically
+
+343
+00:40:39,440 --> 00:40:44,800
+anybody who is between 80 to 90 years of age had a hundred percent chance of survival but at the
+
+344
+00:40:44,800 --> 00:40:51,680
+same time that you see that somebody is between 70 to 80 percent of age has a zero percent chance
+
+345
+00:40:51,680 --> 00:40:58,320
+of survival this probably is a fluke value what that means is that there's probably one or two
+
+346
+00:40:58,320 --> 00:41:03,600
+passengers who are in that age range and it just so happened that both of them survived or whatever
+
+347
+00:41:03,600 --> 00:41:08,880
+number there were in that range happened to survive and that's why it's getting a high rating but
+
+348
+00:41:10,000 --> 00:41:16,480
+you know the same cannot be said over the values clearly for lower values which is 0 to 10 or
+
+349
+00:41:17,440 --> 00:41:22,080
+we see that the survival rate is pretty high which is 60 percent that makes sense
+
+350
+00:41:22,080 --> 00:41:27,600
+children were allowed to evacuate first but at the same time if you look at the range of 10 to
+
+351
+00:41:27,600 --> 00:41:34,560
+20 years the survival rate falls a lot more below so there it is these are the different
+
+352
+00:41:34,560 --> 00:41:37,760
+survival rates as grouped by age
+
+353
+00:41:42,960 --> 00:41:45,520
+now the next question that we have is
+
+354
+00:41:49,600 --> 00:41:55,040
+how does the survival rate compare between embarkments so let's try that as well here
+
+355
+00:41:55,040 --> 00:42:01,360
+again let's click on the cell where we want to add our pivot table let's go to insert and again
+
+356
+00:42:01,360 --> 00:42:08,720
+insert a pivot table same range and when we click on okay we get the pivot table menu
+
+357
+00:42:08,720 --> 00:42:17,920
+here we are talking about embarkments so let's drag to back to a rows field and survive to the
+
+358
+00:42:17,920 --> 00:42:30,480
+columns field and change this to average and there it is so again we can clean this up a little bit
+
+359
+00:42:30,480 --> 00:42:35,680
+say that we don't want to see the blanks we want to sort by the age of survived in a descending
+
+360
+00:42:35,680 --> 00:42:45,440
+order and there it is so basically the people who embarked on c which is let's take a brief look at
+
+361
+00:42:45,440 --> 00:42:53,520
+what that is Cherbourg Queenstown and Southampton so basically the people who embarked on Cherbourg
+
+362
+00:42:53,520 --> 00:42:58,960
+had the highest chance of survival whereas those who embarked on Southampton had the lowest chance
+
+363
+00:42:58,960 --> 00:43:08,000
+of survival let's select these and format these as percentages in the sake of better presentation
+
+364
+00:43:08,000 --> 00:43:15,280
+so there we are so you see that most of these questions we have been able to answer through
+
+365
+00:43:15,280 --> 00:43:21,600
+a variety of pivot tables and that is why if there is one thing that you learn about excel
+
+366
+00:43:21,600 --> 00:43:28,240
+it's probably going to be pivot tables so that's pretty useful so let's proceed to our next set of
+
+367
+00:43:28,240 --> 00:43:38,000
+questions the next question is how do family members compare across gender so essentially
+
+368
+00:43:38,000 --> 00:43:43,520
+what we need to do is find out how many family members on average each particular gender had
+
+369
+00:43:43,520 --> 00:43:56,160
+so we can say something like this number of family members by let's say gender and let's insert our
+
+370
+00:43:56,160 --> 00:44:02,800
+pivot table over here so let's go to the insert tab click on pivot table and this time we want
+
+371
+00:44:02,800 --> 00:44:10,320
+to group the number of family members by gender so what we need to do is put the sex in the
+
+372
+00:44:10,960 --> 00:44:16,400
+basically the sex column from here we want to drag it into rows that gives us male and female
+
+373
+00:44:16,960 --> 00:44:23,120
+and we have we still don't have the number of family members columns which is n family again as
+
+374
+00:44:23,840 --> 00:44:28,640
+happened in the previous case the selection has failed to take these things into consideration
+
+375
+00:44:29,360 --> 00:44:37,440
+let us try and recreate the table again so let's undo this and see if we can create
+
+376
+00:44:37,440 --> 00:44:47,440
+this particular table and we also had basically the gender column so then again we click on
+
+377
+00:44:47,440 --> 00:44:54,880
+insert and we click on pivot table so there it is it has not picked up the correct one but we
+
+378
+00:44:54,880 --> 00:44:59,840
+can add it over here we can say that we want to pick up the range from
+
+379
+00:45:03,200 --> 00:45:10,880
+b and we want to pick up the h so there it is we only want it to pick up these two values
+
+380
+00:45:10,880 --> 00:45:16,720
+and that's good enough for us and we want to add the result in an existing worksheet which is this
+
+381
+00:45:16,720 --> 00:45:26,560
+one over all the way over here so let's click on okay it says that the data source reference
+
+382
+00:45:26,560 --> 00:45:33,360
+is not valid let's see what can go wrong over there let's cancel this and actually force select
+
+383
+00:45:33,360 --> 00:45:43,120
+all the can columns from a to h and that should give us a correct selection for the pivot table
+
+384
+00:45:43,120 --> 00:45:49,600
+so there it is and we want to add it to the existing worksheet over here and then we click on okay
+
+385
+00:45:52,160 --> 00:45:58,960
+and if you look at it yeah this time the number of family members has come up so let's say that
+
+386
+00:45:58,960 --> 00:46:06,160
+we take the sex in the rows column that gives us male and female and we also take the n family
+
+387
+00:46:06,160 --> 00:46:11,840
+members in the values column again let's convert the sum to an average
+
+388
+00:46:14,240 --> 00:46:20,000
+and there it is so here it is and let's clean this up and say that we don't want to see any
+
+389
+00:46:20,000 --> 00:46:30,480
+blanks and reset the table so phi waves had almost twice the average family members than men and this
+
+390
+00:46:30,480 --> 00:46:38,240
+is also understandable probably because women were not allowed to travel alone and they would
+
+391
+00:46:38,240 --> 00:46:45,760
+be accompanied by their family whereas men could travel alone and there it is so basically that's
+
+392
+00:46:45,760 --> 00:46:57,680
+basically how number of family members varies by gender so the next question is how do the
+
+393
+00:46:57,680 --> 00:47:03,040
+number of family members compare across passenger class we could simply create another pivot table
+
+394
+00:47:03,040 --> 00:47:08,560
+but for convenience we can just modify this existing pivot table so let's see how to do that
+
+395
+00:47:08,560 --> 00:47:15,440
+we can just delete this particular row from here we can say remove field and since we want to have
+
+396
+00:47:15,440 --> 00:47:23,920
+a comparison across the number of family members which we already have the average of here and
+
+397
+00:47:23,920 --> 00:47:29,520
+amongst the rows we want the passenger class so we can just drag this over here and that's how
+
+398
+00:47:29,520 --> 00:47:38,480
+it changes so let's also try and modify this a bit we can say that we want to see this in the
+
+399
+00:47:38,480 --> 00:47:44,240
+descending order by the average number of family members and not want to see any blanks so there
+
+400
+00:47:44,240 --> 00:47:50,240
+it is so that makes sense essentially between the first and the second class the average number of
+
+401
+00:47:50,320 --> 00:47:56,320
+family members is 0.7 and in the third class it's one so essentially most of the people
+
+402
+00:47:57,120 --> 00:48:00,960
+in the third class on an average were traveling with one other family member
+
+403
+00:48:00,960 --> 00:48:04,960
+whereas people in the first and the second classes had smaller families
+
+404
+00:48:07,200 --> 00:48:13,360
+now the next few questions which is how do number of family members compare across age or
+
+405
+00:48:13,360 --> 00:48:19,760
+embarkment those are simply modifications of the same pivot table that we have already added
+
+406
+00:48:19,760 --> 00:48:26,880
+so you can do them as exercises but let's move on to the next pattern of insight which is
+
+407
+00:48:26,880 --> 00:48:32,080
+surprising extremes so let's take a look at the first question that we ask which passenger class
+
+408
+00:48:32,080 --> 00:48:39,360
+had the highest or the lowest passengers so let's take a look at this this also requires
+
+409
+00:48:39,360 --> 00:48:45,200
+a kind of a pivot table but a slightly different aggregation so let's go and insert
+
+410
+00:48:45,200 --> 00:48:53,200
+the pivot table over here say that's the correct pivot table here we basically want to insert
+
+411
+00:48:54,080 --> 00:49:00,160
+the passenger class along the rows now in the values since we simply want the count of the
+
+412
+00:49:00,160 --> 00:49:05,520
+passenger class we can take any other column so let's just take something like survived but this
+
+413
+00:49:05,520 --> 00:49:13,040
+time we instead of the sum we want count so when we go to field settings and we can simply replace
+
+414
+00:49:13,040 --> 00:49:21,600
+them by count and click okay so that's basically the idea in the first class we had 216 passengers
+
+415
+00:49:21,600 --> 00:49:28,160
+in the second class we had 184 passengers and in the third class we had more than twice of
+
+416
+00:49:28,160 --> 00:49:34,960
+any of the other two classes 491 passengers so that makes sense like third class was the largest
+
+417
+00:49:34,960 --> 00:49:42,080
+class of passengers let's move on to the next question which is
+
+418
+00:49:44,240 --> 00:49:50,800
+which passenger class had the highest or the lowest men or women so let's take a look we can
+
+419
+00:49:50,800 --> 00:50:05,360
+again insert a pivot table and here also we need to do a count so along the lows we want
+
+420
+00:50:05,360 --> 00:50:12,960
+the passenger class and along the values we want the sex fields but here in the case of
+
+421
+00:50:13,680 --> 00:50:24,960
+this particular sum we basically want to change it so that we can just do a differentiation between
+
+422
+00:50:24,960 --> 00:50:31,920
+men and women so it seems like this is not something we can have over here we can also drag sex into
+
+423
+00:50:31,920 --> 00:50:38,640
+the columns so that will basically give us the male and female part separately so there it is
+
+424
+00:50:38,640 --> 00:50:44,560
+essentially in the first class there were 94 females and 122 males in the second class there
+
+425
+00:50:44,560 --> 00:50:53,280
+were 76 females and 108 males and in the third class there were 144 women and 347 males we can
+
+426
+00:50:53,280 --> 00:50:59,120
+also take this a step further and actually calculate the gender ratio so essentially that
+
+427
+00:50:59,120 --> 00:51:05,440
+is simply the number of women divided by the number of men in that particular class and let's take a
+
+428
+00:51:05,440 --> 00:51:12,320
+look at what that tells us so we have this value you'll see that a large formula has appeared here
+
+429
+00:51:12,320 --> 00:51:16,880
+that is because this is not a literal value this is a computed value the pivot table has actually
+
+430
+00:51:16,880 --> 00:51:22,960
+computed that value for us and then we divide it by this particular value and we press enter
+
+431
+00:51:22,960 --> 00:51:28,880
+and that's basically the gender ratio for the first class again let's do the same here we say
+
+432
+00:51:28,880 --> 00:51:36,720
+that we want to divide this value slash this value and there it is and then again for the last class
+
+433
+00:51:36,720 --> 00:51:43,840
+we say we want to divide this value by this value and then again for the sake of presentation
+
+434
+00:51:43,840 --> 00:51:52,320
+let's format these as percentages and here is where we see our first surprising output
+
+435
+00:51:53,120 --> 00:51:59,120
+essentially the gender ratio of the third class is the lowest of the three classes we have
+
+436
+00:51:59,120 --> 00:52:04,320
+steadily decreasing gender ratios between the first and the second class but they are still
+
+437
+00:52:04,320 --> 00:52:09,840
+fairly high 77 percent and 70 percent but the gender ratio of only 41 percent is too low
+
+438
+00:52:10,480 --> 00:52:18,800
+why this is important is because the gender ratio in the third class of passengers was very low
+
+439
+00:52:18,800 --> 00:52:24,640
+it is also possible that it is because of this that their overall survival rate could have gone
+
+440
+00:52:24,640 --> 00:52:31,200
+down now we can divide the passengers into using any of these columns essentially we can divide
+
+441
+00:52:31,200 --> 00:52:37,520
+them by survival you can divide them by passenger class we can divide them by age also sex also but
+
+442
+00:52:37,520 --> 00:52:43,680
+that is trivial we can divide them by age and you know where they particularly embarked and so on
+
+443
+00:52:44,240 --> 00:52:51,360
+whichever way we try to divide our passengers if in that particular cohort or in that particular
+
+444
+00:52:51,360 --> 00:52:57,120
+classification of passengers there are more females then it is likely that the survival rate
+
+445
+00:52:57,120 --> 00:53:01,920
+of that particular group of passengers is going to be higher so essentially if we were to divide
+
+446
+00:53:01,920 --> 00:53:08,960
+them by class and we see that a particular class has more females then the overall survival rate
+
+447
+00:53:08,960 --> 00:53:16,320
+of that class gets pushed up at the same time if we were to divide age groups into a bunch of
+
+448
+00:53:18,240 --> 00:53:23,360
+if we were to divide passengers by age groups and if a particular age group has more women in it
+
+449
+00:53:23,360 --> 00:53:28,640
+then simply because there are more women in it and because women were basically allowed
+
+450
+00:53:28,640 --> 00:53:35,520
+to evacuate the Titanic before them and that fact alone pushes the survival rate of that group
+
+451
+00:53:35,520 --> 00:53:42,160
+so basically so far we have seen that the survival rate by class of the third class is very low
+
+452
+00:53:42,800 --> 00:53:48,480
+and one of the reasons why that could be happening simply is because their gender ratio is very low
+
+453
+00:53:48,480 --> 00:53:55,600
+if they had enough if they had a high enough representation of women well representation is
+
+454
+00:53:55,600 --> 00:54:01,600
+a wrong word if they had a high enough gender ratio then it's possible that their overall survival
+
+455
+00:54:01,600 --> 00:54:03,840
+rate could also have increased
+
+456
+00:54:09,600 --> 00:54:13,360
+so there we are and let us continue with the questions
+
+457
+00:54:16,160 --> 00:54:22,240
+now you see that many of the following questions can also be solved again just by extending the
+
+458
+00:54:22,240 --> 00:54:28,080
+same sort of pivot table and cross tabulation that we have been doing so far so let's jump
+
+459
+00:54:28,080 --> 00:54:35,920
+directly to the next section of insights which is abnormal distributions so let's take a look at
+
+460
+00:54:35,920 --> 00:54:42,240
+what is the distribution of passengers across age one quick way to do that simply is to draw
+
+461
+00:54:42,240 --> 00:54:48,960
+a histogram and as we know we can simply select a column and go to the insert tab where we are
+
+462
+00:54:48,960 --> 00:54:55,040
+going to see a bunch of charts now let's take a look at recommended charts sometimes what you
+
+463
+00:54:55,040 --> 00:55:00,880
+find is directly available in the recommended charts and there it is so we want to draw a
+
+464
+00:55:00,880 --> 00:55:07,600
+histogram now what this tells us simply is that most people fell in this particular bucket which
+
+465
+00:55:07,600 --> 00:55:16,080
+is basically the age group of 17.5 to 23 years so most people were actually between the age of 17
+
+466
+00:55:16,080 --> 00:55:24,560
+and a half and 23 years we had quite a few people who are below six years of age and we had very
+
+467
+00:55:24,560 --> 00:55:31,520
+few people above 63 years of age we see that we have less than 10 people who are basically above
+
+468
+00:55:31,520 --> 00:55:38,240
+63 years of age now we see that since we have so few old people it's one of the reasons why
+
+469
+00:55:38,240 --> 00:55:47,360
+basically the survival rate of senior citizens over here is so high it's basically when we try
+
+470
+00:55:47,360 --> 00:55:55,600
+to calculate the survival rate of the passengers by age we saw that in the age group of 80 to 90
+
+471
+00:55:55,600 --> 00:56:00,800
+the survival rate is one that simply could be because there is exactly one fellow over here
+
+472
+00:56:00,800 --> 00:56:06,080
+one particular passenger who happened to survive and that's what's pushing that survival rate to
+
+473
+00:56:06,080 --> 00:56:13,360
+a very high value and that clearly you know the age decreases as the number of people who are
+
+474
+00:56:13,360 --> 00:56:20,640
+older decreases and there are a bunch of people who are young there are a lot of people who are
+
+475
+00:56:21,360 --> 00:56:28,800
+well young adults there are a few people who are middle age so when we say that we are looking at
+
+476
+00:56:28,800 --> 00:56:33,120
+the distribution of a particular column essentially what we're doing is talking about what its
+
+477
+00:56:33,120 --> 00:56:39,120
+histogram looked like and we don't see anything surprising over here so this is not what we would
+
+478
+00:56:39,120 --> 00:56:49,200
+call an abnormal distribution let's take a look at the next question which is essentially what is
+
+479
+00:56:49,200 --> 00:56:54,720
+the distribution of passengers across passenger class now if you think about this a simple way
+
+480
+00:56:54,720 --> 00:56:59,280
+to do this would be simply to take the counts of all the passengers in all different classes
+
+481
+00:56:59,280 --> 00:57:05,200
+and sum them up but we have actually already done this so essentially we have the three classes
+
+482
+00:57:05,200 --> 00:57:10,880
+over here and we have the grand total of the passengers over here so we can just select these
+
+483
+00:57:10,880 --> 00:57:19,680
+three rows and create a new chart out of this instead of actually creating a chart through the
+
+484
+00:57:19,680 --> 00:57:25,840
+usual way which is recommended charts doesn't show anything all of these charts will not work so for
+
+485
+00:57:25,840 --> 00:57:31,200
+example if i try to click a 2d line it's basically going to give me this but this doesn't tell me
+
+486
+00:57:31,200 --> 00:57:40,400
+anything one easy way to essentially click or basically view a particular chart which is coming
+
+487
+00:57:40,400 --> 00:57:46,960
+from the result of a pivot table is to straight away look at pivot chart which we see over here
+
+488
+00:57:46,960 --> 00:57:54,480
+so let's look at the pivot chart and there it is essentially this is the distribution of passengers
+
+489
+00:57:54,480 --> 00:58:00,480
+across the three classes we see that this also reflects what we know about the gender ratio
+
+490
+00:58:00,480 --> 00:58:06,880
+it's high in the first two classes and it's very low in the last class and there are far too many
+
+491
+00:58:07,920 --> 00:58:17,680
+men in the third class so not entirely surprising that this particular class received many fatalities
+
+492
+00:58:22,480 --> 00:58:29,440
+so yes this overall may not be a abnormal distribution but what is abnormal over here
+
+493
+00:58:29,440 --> 00:58:37,120
+is essentially the gender ratio it should not have been so low but then there might be certain
+
+494
+00:58:37,120 --> 00:58:42,400
+socio-economic factors which have led to this obviously the people who were traveling in the
+
+495
+00:58:42,400 --> 00:58:50,320
+third class were poor people and remember that the titanic sank in the year 1912 and those were the
+
+496
+00:58:50,320 --> 00:58:57,040
+times when europe was in the grip of the first world war or at least the onset of the first world
+
+497
+00:58:57,040 --> 00:59:04,240
+war the economy wasn't great and a lot of people were leaving their european homes to travel to
+
+498
+00:59:04,240 --> 00:59:09,600
+the united states and one of the reasons why united states was a major destination at that time
+
+499
+00:59:11,200 --> 00:59:20,240
+was because it had largely been untouched by the first world war so that is why it was perhaps a
+
+500
+00:59:21,200 --> 00:59:27,840
+reasonable choice for a lot of men to go and seek employment in the united states
+
+501
+00:59:27,840 --> 00:59:33,280
+and obviously they probably did not have the resources to carry their families with them
+
+502
+00:59:33,280 --> 00:59:38,720
+if they had then maybe this gender ratio would have gone up but that didn't happen and
+
+503
+00:59:38,720 --> 00:59:45,200
+unfortunately the titanic sank and so did all these well at least most of these people who
+
+504
+00:59:45,200 --> 00:59:47,680
+were traveling in the third class
+
+505
+00:59:50,160 --> 00:59:54,880
+now all of that by the way is just a hypothesis which i have put together
+
+506
+00:59:54,880 --> 00:59:58,560
+in the spur of the moment using some of my own general knowledge obviously
+
+507
+00:59:59,200 --> 01:00:03,280
+if you would like to actually validate this with data you're most welcome to do so
+
+508
+01:00:03,280 --> 01:00:05,680
+and maybe treat that as a homework assignment
+
+509
+01:00:07,920 --> 01:00:14,880
+let's take a look at the next question which is essentially what is the distribution of
+
+510
+01:00:14,880 --> 01:00:23,200
+passengers across the fair so essentially what we want to do is simply take the histogram of
+
+511
+01:00:23,200 --> 01:00:31,280
+the fair column let's move this chart out of the way let's select fair and simply go to the insert
+
+512
+01:00:31,280 --> 01:00:38,400
+part and click on recommended charts we see that we have a bunch of charts and let's particularly
+
+513
+01:00:38,400 --> 01:00:47,360
+pick the histogram and there it is we see that a lot of passengers played played like really
+
+514
+01:00:47,360 --> 01:00:53,680
+really low values and basically about 500 passengers paid less than 18 pounds or whatever
+
+515
+01:00:53,680 --> 01:01:02,000
+the currency is many of them paid between 18 to 36 pounds many of them between 36 to 54 and
+
+516
+01:01:02,000 --> 01:01:07,200
+it goes on decreasing that makes sense because the cheapest ticket went to the largest class
+
+517
+01:01:07,200 --> 01:01:15,120
+of passengers but this is definitely somewhat abnormal because you would expect the curve to
+
+518
+01:01:15,760 --> 01:01:22,080
+fall obviously because a lot more people will be playing paying say cheaper tickets paying for
+
+519
+01:01:22,080 --> 01:01:26,800
+cheaper tickets and a lot fewer people would be paying for more expensive tickets but you
+
+520
+01:01:26,800 --> 01:01:33,840
+wouldn't expect the curve to fall so quickly you would probably expect it to fall a little more
+
+521
+01:01:33,840 --> 01:01:38,960
+smoothly essentially what this means is that there is this one slot of tickets which has 500
+
+522
+01:01:38,960 --> 01:01:44,480
+people and the second slot has less than half that amount which doesn't make really too much sense
+
+523
+01:01:45,680 --> 01:01:50,720
+at the same time we don't even know what sort of division there is between
+
+524
+01:01:53,280 --> 01:02:00,480
+the fares by class what is exactly the threshold here above which we have the first class rates
+
+525
+01:02:00,480 --> 01:02:05,840
+below which we have the second class rates and so on maybe that can be inferred from the
+
+526
+01:02:05,840 --> 01:02:10,480
+cabin information over here so if somebody has too many cabins they like for example this
+
+527
+01:02:10,480 --> 01:02:15,440
+particular person has three cabins allotted to them and we might want to figure out whether
+
+528
+01:02:15,440 --> 01:02:20,640
+that leads to a higher fare clearly does you see that 263 pounds is a fairly high value over here
+
+529
+01:02:21,200 --> 01:02:28,880
+so in summary this chart that we see here well it's definitely an abnormal distribution at least
+
+530
+01:02:28,880 --> 01:02:37,600
+until we can dig deeper and find out what the what is exactly the logic behind a fair curve that falls
+
+531
+01:02:37,600 --> 01:02:44,560
+so sharply so this is broadly how you can apply patterns of insights and come up with
+
+532
+01:02:45,520 --> 01:02:52,400
+so this is broadly how you can apply patterns of insights and come up with different questions
+
+533
+01:02:52,400 --> 01:02:58,400
+and use those questions to drive our analysis we saw that we went through all the patterns of
+
+534
+01:02:58,400 --> 01:03:03,120
+insights we drafted a bunch of questions we did not solve all of them in fact you're welcome to
+
+535
+01:03:03,120 --> 01:03:08,320
+solve the remaining questions on your own and share them with us during one of our interactive
+
+536
+01:03:08,400 --> 01:03:16,000
+sessions that would make for a really good exercise and you see that just by following
+
+537
+01:03:16,000 --> 01:03:21,920
+this process rigorously we have at least two or three very solid things to say about the dataset
+
+538
+01:03:22,480 --> 01:03:28,400
+and that is kind of the point of patterns of insight if you rigorously follow those patterns
+
+539
+01:03:28,400 --> 01:03:34,320
+if you carefully frame your questions and actually chase the patterns down carefully you will have
+
+540
+01:03:34,320 --> 01:03:40,560
+at least a few very insightful things to say to your client to your audience and that is how they
+
+541
+01:03:40,560 --> 01:03:48,720
+are intended to be used so i hope you have fun with this all the best and i'll see you next time
+

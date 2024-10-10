@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:05,840
+Hello and welcome to this course on Data Analytics with Excel.
+
+2
+00:00:05,840 --> 00:00:12,560
+My name is Jaidev, Jaidev Deshpande and I am Associate Principal Data Scientist at Gramener
+
+3
+00:00:12,560 --> 00:00:15,320
+which is a data science company.
+
+4
+00:00:15,320 --> 00:00:20,680
+So you see we are collecting more and more data than ever before in history and there
+
+5
+00:00:20,680 --> 00:00:25,240
+is an entire industry around analyzing and interpreting bad data.
+
+6
+00:00:25,240 --> 00:00:29,400
+The objective of this course is to not only make you comfortable with the practice of
+
+7
+00:00:29,400 --> 00:00:34,960
+data analytics but also to make you significantly competent within this industry.
+
+8
+00:00:34,960 --> 00:00:38,600
+So far we have mostly been grasping at straws.
+
+9
+00:00:38,600 --> 00:00:42,400
+Analysis has not been able to keep up with the volume of data.
+
+10
+00:00:42,400 --> 00:00:46,280
+It seems like no matter how much money or energy we invest in analyzing data we cannot
+
+11
+00:00:46,280 --> 00:00:48,400
+keep up with the demand.
+
+12
+00:00:48,400 --> 00:00:53,000
+One of the major reasons why this happens is because data analysis as an industrial
+
+13
+00:00:53,000 --> 00:01:00,080
+discipline tends to be fairly ad-hoc in its approach to data that is.
+
+14
+00:01:00,080 --> 00:01:03,960
+One of the most important things that you are going to learn in this course is how to
+
+15
+00:01:03,960 --> 00:01:07,000
+take a structured approach towards analyzing data.
+
+16
+00:01:07,000 --> 00:01:13,200
+You will see that having a structure, a process makes you significantly more effective.
+
+17
+00:01:13,200 --> 00:01:16,240
+It brings more discipline and more rigor to the practice.
+
+18
+00:01:16,240 --> 00:01:22,040
+It helps you avoid wastage which is a wastage of analysis, a wastage of energy and ultimately
+
+19
+00:01:22,200 --> 00:01:25,160
+wastage of time and money as well.
+
+20
+00:01:25,160 --> 00:01:28,800
+So since it's a well defined, well structured process with some luck you should be able
+
+21
+00:01:28,800 --> 00:01:31,360
+to also automate this process.
+
+22
+00:01:31,360 --> 00:01:37,200
+The final aspect of this course is the tool that we will use which is spreadsheets.
+
+23
+00:01:37,200 --> 00:01:39,520
+Spreadsheets have quite simply changed the world.
+
+24
+00:01:39,520 --> 00:01:46,840
+If we as a species were to face extinction and had to preserve say our top five technologies
+
+25
+00:01:46,840 --> 00:01:49,840
+then spreadsheets would definitely be among them.
+
+26
+00:01:49,840 --> 00:01:56,200
+In fact, Fred Brooks said that spreadsheets are one of the biggest innovations in computer
+
+27
+00:01:56,200 --> 00:02:00,560
+science since databases and high level programming languages.
+
+28
+00:02:00,560 --> 00:02:06,560
+Excel is quite simply the single most versatile analytical tool anybody can use.
+
+29
+00:02:06,560 --> 00:02:11,360
+Dollar for dollar it far outweighs pretty much anything else.
+
+30
+00:02:11,360 --> 00:02:15,880
+Of course, note that whatever we do with Excel in this course should also be doable with
+
+31
+00:02:15,880 --> 00:02:21,320
+any other spreadsheet software like LibreOffice, KLC or Google Sheets.
+
+32
+00:02:21,320 --> 00:02:28,120
+Having said that, also note that we will only be using Excel as a vehicle for analytics
+
+33
+00:02:28,120 --> 00:02:30,680
+in the analytics industry.
+
+34
+00:02:30,680 --> 00:02:36,280
+The only thing as abundant as the data itself is opinions about which tool is the best.
+
+35
+00:02:36,280 --> 00:02:42,320
+And I believe that the sooner you try to lay this question to rest the better.
+
+36
+00:02:42,320 --> 00:02:46,560
+My current boss is S. Anand who is the CEO of Gramener and consistently ranked in the
+
+37
+00:02:46,560 --> 00:02:49,120
+top 10 data scientists in India.
+
+38
+00:02:49,120 --> 00:02:51,880
+He says that tools do not matter, technique does.
+
+39
+00:02:51,880 --> 00:02:56,720
+A good analyst is someone who is able to perform good analysis with any tool.
+
+40
+00:02:56,720 --> 00:03:00,600
+The best tool you have is between your ears.
+
+41
+00:03:00,600 --> 00:03:04,320
+So ultimately my job here is to teach you the process and the methods of data analysis
+
+42
+00:03:04,320 --> 00:03:07,200
+with Microsoft Excel just as a tool as a vehicle.
+
+43
+00:03:07,200 --> 00:03:10,960
+You should be able to replicate this process with any other tool that you are comfortable
+
+44
+00:03:10,960 --> 00:03:11,960
+with.
+
+45
+00:03:12,600 --> 00:03:16,560
+That would be a good test of how well you have understood the material.
+
+46
+00:03:16,560 --> 00:03:17,560
+So with that, let's begin.
+

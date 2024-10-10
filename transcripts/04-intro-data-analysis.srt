@@ -1,0 +1,2536 @@
+1
+00:00:00,000 --> 00:00:02,240
+Welcome back.
+
+2
+00:00:02,240 --> 00:00:06,300
+This is the part of the course where we start getting our hands dirty with the core concepts
+
+3
+00:00:06,300 --> 00:00:08,000
+of data analysis.
+
+4
+00:00:08,000 --> 00:00:12,320
+Now, keep in mind that data analysis is not an exact science.
+
+5
+00:00:12,320 --> 00:00:15,620
+In fact, you could also call it an art.
+
+6
+00:00:15,620 --> 00:00:20,240
+What we're going to go through is a process of performing data analysis.
+
+7
+00:00:20,240 --> 00:00:23,880
+Note that this is not the one and only process.
+
+8
+00:00:23,880 --> 00:00:28,400
+As you get more experience, you can come up with your own personal process which serves
+
+9
+00:00:28,400 --> 00:00:32,520
+your needs for a specific project or a specific application.
+
+10
+00:00:32,520 --> 00:00:38,360
+But as you might have realized by now, data analysis contains a lot of topics and concepts.
+
+11
+00:00:38,360 --> 00:00:43,760
+So understandably, it's difficult to come up with a one-size-fits-all solution.
+
+12
+00:00:43,760 --> 00:00:49,540
+Therefore, we are going to define a skeletal framework that helps us get started.
+
+13
+00:00:49,540 --> 00:00:54,040
+The particular framework that we're going to look at is a distillation of the experiences
+
+14
+00:00:54,040 --> 00:00:59,400
+of many data scientists and many organizations as well.
+
+15
+00:00:59,400 --> 00:01:04,720
+We broadly divide data analysis into three categories of analysis, namely univariate,
+
+16
+00:01:04,720 --> 00:01:08,480
+bivariate, and multivariate analysis.
+
+17
+00:01:08,480 --> 00:01:13,520
+Univariate analysis refers to analysis that we apply on a single variable.
+
+18
+00:01:13,520 --> 00:01:16,880
+That's what univariate means, it's a single variable.
+
+19
+00:01:16,880 --> 00:01:22,880
+Similarly, bivariate analysis refers to analysis of a pair of variables which are being analyzed
+
+20
+00:01:23,120 --> 00:01:24,120
+simultaneously.
+
+21
+00:01:24,120 --> 00:01:30,400
+And finally, multivariate analysis is analysis which is simultaneously performed on a larger
+
+22
+00:01:30,400 --> 00:01:31,960
+set of variables.
+
+23
+00:01:31,960 --> 00:01:36,480
+The advantage of having this framework is that it is incremental.
+
+24
+00:01:36,480 --> 00:01:42,560
+As in, once we know the range of possibilities of what can be done with a single variable,
+
+25
+00:01:42,560 --> 00:01:47,080
+we can generalize it to a pair of variables and then to multiple variables as well.
+
+26
+00:01:47,080 --> 00:01:51,680
+Now, I have used the word "variable" many times so far.
+
+27
+00:01:51,760 --> 00:01:56,120
+Technically, a variable is any quantity that varies.
+
+28
+00:01:56,120 --> 00:02:01,400
+More specifically, in the context of tabular data analysis, a variable is any column of
+
+29
+00:02:01,400 --> 00:02:04,800
+your data that has more than one unique value.
+
+30
+00:02:04,800 --> 00:02:09,640
+Because if a column has exactly one distinct value, then it's not a variable, it's a constant.
+
+31
+00:02:09,640 --> 00:02:13,860
+So again, to reiterate, a variable for us is just a column.
+
+32
+00:02:13,860 --> 00:02:18,020
+The same concept is referred to in different domains with different names.
+
+33
+00:02:18,020 --> 00:02:23,400
+In the context of, say, machine learning, you might say that a variable is a feature.
+
+34
+00:02:23,400 --> 00:02:27,820
+In the context of databases, you might call it a column or a dimension.
+
+35
+00:02:27,820 --> 00:02:33,340
+It's likely that we might use all of these terms: features, columns, variables, dimensions
+
+36
+00:02:33,340 --> 00:02:35,000
+interchangeably.
+
+37
+00:02:35,000 --> 00:02:41,620
+But whenever we use a new word, its meaning should be apparent from the context.
+
+38
+00:02:41,620 --> 00:02:44,440
+So let's start with univariate analysis.
+
+39
+00:02:44,440 --> 00:02:47,820
+As discussed, uni means one and variate means variable.
+
+40
+00:02:47,820 --> 00:02:52,260
+So univariate analysis is the analysis of a single variable.
+
+41
+00:02:52,260 --> 00:02:57,340
+To begin with, we must understand the different types of variables.
+
+42
+00:02:57,340 --> 00:03:02,940
+There are three major types of variables: numerical, ordinal, and categorical.
+
+43
+00:03:02,940 --> 00:03:05,900
+Let's begin by understanding what a numerical variable is.
+
+44
+00:03:05,900 --> 00:03:11,420
+Well, simply put, a numerical variable is any column that contains numbers.
+
+45
+00:03:11,420 --> 00:03:15,780
+But the catch is that these numbers have to have an inherent meaning.
+
+46
+00:03:15,780 --> 00:03:20,860
+That is, the values of the numbers should represent actual measurements of things.
+
+47
+00:03:20,860 --> 00:03:25,820
+For example, let's say we were trying to make a fintech application, which helps us determine
+
+48
+00:03:25,820 --> 00:03:28,660
+if an applicant is eligible for a loan.
+
+49
+00:03:28,660 --> 00:03:33,340
+Now one of the features we would want to measure is the annual income of the applicant in say
+
+50
+00:03:33,340 --> 00:03:34,980
+Indian rupees.
+
+51
+00:03:34,980 --> 00:03:43,020
+This could be a numerical variable since the values in the column have an inherent meaning.
+
+52
+00:03:43,020 --> 00:03:50,540
+In other words, the numbers directly represent whatever it is that we want to capture.
+
+53
+00:03:50,540 --> 00:04:00,380
+On the other hand, if we were to look at another column which would contain say the phone numbers
+
+54
+00:04:00,380 --> 00:04:05,180
+of the applicants, that variable represents the number of applications that we want to
+
+55
+00:04:05,180 --> 00:04:06,180
+capture.
+
+56
+00:04:06,380 --> 00:04:11,260
+On the other hand, if we were to look at another column which would contain say the phone numbers
+
+57
+00:04:11,260 --> 00:04:16,140
+of the applicants, that variable would not be a numerical variable even though it looks
+
+58
+00:04:16,140 --> 00:04:17,580
+like a number.
+
+59
+00:04:17,580 --> 00:04:20,860
+Because the numerical value of a phone number means absolutely nothing.
+
+60
+00:04:20,860 --> 00:04:22,540
+It's just a code.
+
+61
+00:04:22,540 --> 00:04:27,700
+So numerical variables can take any value along the number line.
+
+62
+00:04:27,700 --> 00:04:31,380
+That's also why they are called continuous variables.
+
+63
+00:04:31,580 --> 00:04:36,460
+Basically, if we were to plot a numerical variable on a graph, we'd see a continuous
+
+64
+00:04:36,460 --> 00:04:37,460
+line.
+
+65
+00:04:37,460 --> 00:04:43,060
+There would be no gaps because numerical variables can take on any value in a given range.
+
+66
+00:04:43,060 --> 00:04:47,260
+If there are gaps, that means that there exist some values which are impossible for that
+
+67
+00:04:47,260 --> 00:04:49,180
+particular variable to occupy.
+
+68
+00:04:49,180 --> 00:04:51,420
+These would not be continuous of course.
+
+69
+00:04:51,420 --> 00:04:56,420
+Finally, the most important characteristic of numerical variables is that they support
+
+70
+00:04:56,420 --> 00:04:58,180
+arithmetic operations.
+
+71
+00:04:58,180 --> 00:05:02,220
+Imagine that you're working for a cargo company and you have a data set that contains the
+
+72
+00:05:02,220 --> 00:05:06,540
+weights of the different packages that you're trying to deliver.
+
+73
+00:05:06,540 --> 00:05:11,540
+Now you can calculate the sum of these weights of all the packages, maybe to determine what
+
+74
+00:05:11,540 --> 00:05:14,260
+kind of vehicle you should use for delivery.
+
+75
+00:05:14,260 --> 00:05:16,260
+You can also take the average of the weights.
+
+76
+00:05:16,260 --> 00:05:21,060
+Now imagine that there's another column which lists the pin codes to which each package
+
+77
+00:05:21,060 --> 00:05:22,060
+must be delivered.
+
+78
+00:05:22,060 --> 00:05:24,060
+Here you cannot do any arithmetic.
+
+79
+00:05:24,060 --> 00:05:25,780
+Adding pin codes means nothing.
+
+80
+00:05:26,380 --> 00:05:28,860
+There is no such thing as an average pin code either.
+
+81
+00:05:28,860 --> 00:05:30,340
+So that's an important characteristic.
+
+82
+00:05:30,340 --> 00:05:35,540
+If you can do meaningful arithmetic on a column, then it's a numerical variable.
+
+83
+00:05:35,540 --> 00:05:38,260
+Before we move on, here's a question for you.
+
+84
+00:05:38,260 --> 00:05:40,820
+In the table shown here, which is the numeric column?
+
+85
+00:05:40,820 --> 00:05:47,300
+Feel free to pause the video right now and think about it.
+
+86
+00:05:47,300 --> 00:05:52,020
+So the numerical column is the first one, duration in seconds.
+
+87
+00:05:52,020 --> 00:05:56,540
+It is the only column which has numbers with an inherent meaning.
+
+88
+00:05:56,540 --> 00:06:03,140
+The age column, as you can see, also has numbers, but they are ranges of age, not the actual
+
+89
+00:06:03,140 --> 00:06:09,780
+age.
+
+90
+00:06:09,780 --> 00:06:13,940
+The next type of variable we need to consider is called an ordinal variable.
+
+91
+00:06:13,940 --> 00:06:18,500
+These variables are those that are not continuous, but they can be ordered.
+
+92
+00:06:18,500 --> 00:06:23,940
+That is, there exists an order relationship between the different values of the variable.
+
+93
+00:06:23,940 --> 00:06:29,220
+So just like numerical variables support the four fundamental arithmetic operations, ordinal
+
+94
+00:06:29,220 --> 00:06:34,540
+variables support order relationships like greater than, less than, equal to, less than
+
+95
+00:06:34,540 --> 00:06:37,380
+or equal to, or greater than or equal to.
+
+96
+00:06:37,380 --> 00:06:43,180
+Thus, it follows that all numerical variables are also ordinal variables, but not all ordinal
+
+97
+00:06:43,180 --> 00:06:46,020
+variables are numerical variables.
+
+98
+00:06:46,020 --> 00:06:53,220
+Sometimes, for specific order relationship may not be apparent and it has to be imposed
+
+99
+00:06:53,220 --> 00:06:54,220
+by the analyst.
+
+100
+00:06:54,220 --> 00:07:00,020
+For example, suppose we were performing sentiment analysis and we have multiple pieces of text
+
+101
+00:07:00,020 --> 00:07:05,780
+which we want to classify into three sentiments: positive, negative and neutral.
+
+102
+00:07:05,780 --> 00:07:11,700
+Now these three sentiments are just arbitrarily defined groups, but we can impose an ordinal
+
+103
+00:07:12,300 --> 00:07:16,020
+relationship on them, which is like saying that positive is greater than neutral and
+
+104
+00:07:16,020 --> 00:07:18,620
+neutral is greater than negative.
+
+105
+00:07:18,620 --> 00:07:22,940
+Defining this relationship is often up to the analyst depending on the application.
+
+106
+00:07:22,940 --> 00:07:29,100
+So here's a question again, in the data set shown here, which is the ordinal variable?
+
+107
+00:07:29,100 --> 00:07:31,820
+Pause again here to think about the answer.
+
+108
+00:07:31,820 --> 00:07:38,460
+Well, we have already decided that duration is a numerical variable in the previous slide
+
+109
+00:07:38,620 --> 00:07:44,180
+and therefore it is an ordinal variable, but which other variable is an ordinal variable?
+
+110
+00:07:44,180 --> 00:07:47,060
+Well, the answer is age.
+
+111
+00:07:47,060 --> 00:07:50,700
+We can see that age here is not a number, but a range of numbers.
+
+112
+00:07:50,700 --> 00:07:56,820
+What this figure means, 22 to 24, what that figure means is that this person's age lies
+
+113
+00:07:56,820 --> 00:08:01,100
+somewhere between 20 and 22 and 24 years of age.
+
+114
+00:08:01,100 --> 00:08:04,780
+Similarly, we have a bunch of other ranges.
+
+115
+00:08:04,780 --> 00:08:10,300
+These are not numbers in themselves, but they can be ordered.
+
+116
+00:08:10,300 --> 00:08:17,340
+The last type of variable we need to understand are categorical variables or nominal variables.
+
+117
+00:08:17,340 --> 00:08:20,660
+These are neither numbers nor orderable entities.
+
+118
+00:08:20,660 --> 00:08:25,180
+They are just independent groups.
+
+119
+00:08:25,180 --> 00:08:28,100
+These are also known as discrete variables.
+
+120
+00:08:28,100 --> 00:08:32,940
+In contrast with continuous variables, which we have seen before, categorical variables
+
+121
+00:08:33,100 --> 00:08:35,620
+cannot take just any value.
+
+122
+00:08:35,620 --> 00:08:40,980
+Their values must come from a predefined set of values like phone numbers or PIN codes.
+
+123
+00:08:40,980 --> 00:08:46,220
+Unlike numerical or ordinal variables, they support only two operations, that is equality
+
+124
+00:08:46,220 --> 00:08:48,500
+or inequality.
+
+125
+00:08:48,500 --> 00:08:53,460
+And the only thing you can do with them is count them or use them to group or filter
+
+126
+00:08:53,460 --> 00:08:55,740
+different rows in your table.
+
+127
+00:08:55,740 --> 00:09:00,460
+Given that, can we find out which are the categorical variables in this data set?
+
+128
+00:09:00,460 --> 00:09:04,100
+Pause the video now and think about the answer.
+
+129
+00:09:04,100 --> 00:09:07,900
+So the categorical variables here are gender and country.
+
+130
+00:09:07,900 --> 00:09:13,860
+Both these columns can take values which belong to a specific set of values.
+
+131
+00:09:13,860 --> 00:09:19,660
+They are not numbers and there doesn't exist any order relation among their values.
+
+132
+00:09:19,660 --> 00:09:24,260
+By the way, please do not make the mistake of assuming that gender is an ordinal variable.
+
+133
+00:09:24,260 --> 00:09:29,220
+So that concludes our discussion on the type of variables.
+
+134
+00:09:29,220 --> 00:09:34,300
+Figuring out the types of variables is a fundamental building block of data analysis
+
+135
+00:09:34,300 --> 00:09:35,300
+process.
+
+136
+00:09:35,300 --> 00:09:39,780
+Whenever you see a new data set, take a few minutes to go through your columns and determine
+
+137
+00:09:39,780 --> 00:09:44,060
+their types, because depending on these types, you will be able to figure out what operations
+
+138
+00:09:44,060 --> 00:09:49,620
+you can perform on the different columns of your data set.
+
+139
+00:09:49,620 --> 00:09:54,420
+Now that we know what kind of mathematical or logical operations we can perform on the
+
+140
+00:09:54,420 --> 00:09:58,500
+columns of our data set, let's take a look at what we can do with these operations to
+
+141
+00:09:58,500 --> 00:10:03,180
+get a very broad, general idea of the behavior of our data.
+
+142
+00:10:03,180 --> 00:10:07,500
+The question we are trying to answer is this for a given column or a feature in our data
+
+143
+00:10:07,500 --> 00:10:13,220
+set, can I quantify its behavior using a smaller set of numbers?
+
+144
+00:10:13,220 --> 00:10:18,100
+These numbers are essentially what are called summary or descriptive statistics.
+
+145
+00:10:18,100 --> 00:10:22,740
+To motivate summary statistics, imagine this scenario.
+
+146
+00:10:22,740 --> 00:10:28,660
+Let's say that you are an astronaut who is stranded on a strange planet and you are waiting
+
+147
+00:10:28,660 --> 00:10:32,060
+to be rescued.
+
+148
+00:10:32,060 --> 00:10:36,860
+Now your organization can mount a rescue mission for you, but in order to do that, they need
+
+149
+00:10:36,860 --> 00:10:37,860
+some information.
+
+150
+00:10:37,860 --> 00:10:41,300
+Specifically, they need to answer three questions.
+
+151
+00:10:41,300 --> 00:10:45,100
+What is the length of the day on the planet on which you are stranded?
+
+152
+00:10:45,100 --> 00:10:46,260
+How is the weather there?
+
+153
+00:10:46,260 --> 00:10:49,020
+Is it cloudy, hot or cold?
+
+154
+00:10:49,020 --> 00:10:50,540
+And what is your heart rate?
+
+155
+00:10:50,740 --> 00:10:54,860
+Well, that sounds easy enough, but here's the catch.
+
+156
+00:10:54,860 --> 00:10:56,620
+Your transmitter is broken.
+
+157
+00:10:56,620 --> 00:11:02,380
+It has a bandwidth of only 128 bits and you can use it only once a week.
+
+158
+00:11:02,380 --> 00:11:08,660
+In other words, you can only transmit 128 bits of information once a week.
+
+159
+00:11:08,660 --> 00:11:11,820
+So the problem you have to solve is as follows.
+
+160
+00:11:11,820 --> 00:11:17,420
+Which 128 bits of information would you transmit in order to effectively answer these three
+
+161
+00:11:17,420 --> 00:11:19,060
+questions?
+
+162
+00:11:19,060 --> 00:11:25,420
+For some context, note that it takes anywhere from 8 to 64 bits to transmit an integer and
+
+163
+00:11:25,420 --> 00:11:31,500
+anywhere from 32 to 128 bits to transmit a floating point number.
+
+164
+00:11:31,500 --> 00:11:38,140
+Do pause the video here and think about this problem for a while.
+
+165
+00:11:38,140 --> 00:11:42,940
+Well the very first thing you need to do in order to answer these questions is start collecting
+
+166
+00:11:42,940 --> 00:11:43,940
+data.
+
+167
+00:11:43,940 --> 00:11:45,380
+You are a data analyst after all.
+
+168
+00:11:45,380 --> 00:11:50,060
+So let's say that you have collected a week's worth of data because your frequency of transmission
+
+169
+00:11:50,060 --> 00:11:53,460
+is once per week, which looks like this.
+
+170
+00:11:53,460 --> 00:11:56,980
+So the data that you have collected looks something like what we've collected in this
+
+171
+00:11:56,980 --> 00:11:58,580
+table over here.
+
+172
+00:11:58,580 --> 00:12:04,780
+Every day you make a note of whether the weather is hot, cloudy or cold.
+
+173
+00:12:04,780 --> 00:12:09,260
+Every day you measure the length of the day in hours and you record it.
+
+174
+00:12:09,260 --> 00:12:13,300
+And then you also record your heartbeat at the end of every day.
+
+175
+00:12:16,180 --> 00:12:21,780
+So now your communication problem translates into this statistical problem.
+
+176
+00:12:21,780 --> 00:12:26,220
+How do you summarize this data so that you are least wrong?
+
+177
+00:12:26,220 --> 00:12:30,280
+How do you measure the error and how do you minimize that error?
+
+178
+00:12:30,280 --> 00:12:34,500
+So you see summary statistics is all about communication effectively.
+
+179
+00:12:34,500 --> 00:12:39,540
+How do we effectively compress a set of numbers into a single number or at least a small set
+
+180
+00:12:39,540 --> 00:12:46,620
+of numbers so that that number can act as a good proxy for the set of numbers that you're
+
+181
+00:12:46,620 --> 00:12:48,220
+trying to communicate.
+
+182
+00:12:48,220 --> 00:12:53,140
+And someone at the other end, when they receive this compressed set of numbers and use it
+
+183
+00:12:53,140 --> 00:12:57,700
+to make guesses about your data, they are least wrong.
+
+184
+00:12:57,700 --> 00:13:03,740
+So let's try and build our way towards a solution.
+
+185
+00:13:03,740 --> 00:13:08,940
+Let's say that every column here is being summarized by a single number, which we'll
+
+186
+00:13:08,940 --> 00:13:11,060
+call S sub i.
+
+187
+00:13:11,060 --> 00:13:14,740
+i here is the position indicator for a given column.
+
+188
+00:13:14,740 --> 00:13:21,180
+That is, since we are trying to summarize these three columns, i would go from say 1
+
+189
+00:13:21,180 --> 00:13:22,180
+to 3.
+
+190
+00:13:22,180 --> 00:13:28,140
+Therefore, we would have three summary numbers, S sub 1, S sub 2 and S sub 3.
+
+191
+00:13:28,140 --> 00:13:35,500
+Now for any column i, we say that S sub i is a good summary if the discrepancy between
+
+192
+00:13:35,500 --> 00:13:39,580
+S sub i and each value of the ith column is small.
+
+193
+00:13:39,580 --> 00:13:45,100
+Note that we are trying to summarize the whole column with a single number.
+
+194
+00:13:45,100 --> 00:13:51,180
+Therefore, each value in the column is going to produce its own discrepancy with the summary
+
+195
+00:13:51,180 --> 00:13:52,180
+number.
+
+196
+00:13:52,180 --> 00:13:58,540
+That means that every row is going to create some error with S sub i.
+
+197
+00:13:58,540 --> 00:14:03,860
+We then have to figure out a way of combining these errors over the whole column.
+
+198
+00:14:03,860 --> 00:14:08,540
+And if that aggregated error is small, then it means that we have a good summary statistics.
+
+199
+00:14:08,540 --> 00:14:15,660
+Otherwise, if the aggregated error is large, we have a bad summary statistic.
+
+200
+00:14:15,660 --> 00:14:20,940
+If we try to lay down this process with a little more mathematical formality, this is
+
+201
+00:14:20,940 --> 00:14:22,220
+what it looks like.
+
+202
+00:14:22,220 --> 00:14:26,540
+The purpose of this slide is just to gently introduce some mathematical notation.
+
+203
+00:14:26,540 --> 00:14:29,700
+It's perfectly fine if you don't understand this at first glance.
+
+204
+00:14:29,700 --> 00:14:33,140
+Rest assured that this will get clearer with time and practice.
+
+205
+00:14:33,140 --> 00:14:38,460
+So we have decided that i is the position indicator for a column and S sub i is the
+
+206
+00:14:38,460 --> 00:14:41,180
+summary indicator for the ith column.
+
+207
+00:14:41,180 --> 00:14:46,780
+Let's introduce another positional indicator j, which indicates the row position.
+
+208
+00:14:46,780 --> 00:14:53,340
+So now, each value in the table can be denoted as i sub x sub ij, that is the value at the
+
+209
+00:14:53,340 --> 00:14:56,940
+ith row and the jth column.
+
+210
+00:14:56,940 --> 00:15:03,340
+So now, for a given column i, we have a single summary statistics S sub i and the set of
+
+211
+00:15:03,340 --> 00:15:10,180
+values in that column x sub ij and each such value is going to create its own error against
+
+212
+00:15:10,180 --> 00:15:11,180
+x sub i.
+
+213
+00:15:11,180 --> 00:15:16,540
+And our intuition tells us that if any x sub ij is close enough to x sub i, then the error
+
+214
+00:15:16,540 --> 00:15:17,540
+must be low.
+
+215
+00:15:17,540 --> 00:15:21,580
+If it is very far away, either too less or too greater than s sub i, then our error must
+
+216
+00:15:21,580 --> 00:15:22,860
+be large.
+
+217
+00:15:22,860 --> 00:15:25,740
+So now the question boils down even further.
+
+218
+00:15:25,740 --> 00:15:31,460
+How do we measure the error if the absolute value of the difference between the x values
+
+219
+00:15:31,460 --> 00:15:33,460
+and the s values is greater than zero?
+
+220
+00:15:33,460 --> 00:15:37,620
+By the way, we are interested in absolute values because the sign of the error does
+
+221
+00:15:37,620 --> 00:15:38,780
+not matter.
+
+222
+00:15:38,780 --> 00:15:45,180
+Whether the error is positive or negative, it's still just as bad.
+
+223
+00:15:45,180 --> 00:15:50,740
+So here we are going to introduce three different strategies of defining errors.
+
+224
+00:15:50,740 --> 00:15:57,820
+In each of these graphs, our guess of the summary statistics is on the x-axis and the
+
+225
+00:15:57,820 --> 00:15:59,940
+error is on the y-axis.
+
+226
+00:15:59,940 --> 00:16:01,980
+Let's look at the first graph here.
+
+227
+00:16:01,980 --> 00:16:08,240
+Effectively, what we are saying is that no matter what your guess is, there will be exactly
+
+228
+00:16:08,240 --> 00:16:12,240
+one value for which the error is zero.
+
+229
+00:16:12,240 --> 00:16:15,600
+There will be exactly and only one correct value.
+
+230
+00:16:15,600 --> 00:16:18,480
+For all other values, the error is one.
+
+231
+00:16:18,480 --> 00:16:20,720
+Essentially, there are only two values of error.
+
+232
+00:16:20,720 --> 00:16:23,680
+That is one and zero.
+
+233
+00:16:23,680 --> 00:16:28,600
+And the value of zero can only be reached if you make the exact correct guess.
+
+234
+00:16:28,600 --> 00:16:33,200
+In the second graph, what we are trying to say is that as you move away from the correct
+
+235
+00:16:33,200 --> 00:16:39,200
+value, whether to the positive side or the negative side, the error increases in direct
+
+236
+00:16:39,200 --> 00:16:42,720
+proportion to how far away you are from the correct value.
+
+237
+00:16:42,720 --> 00:16:46,280
+The farther you guess, the more the error.
+
+238
+00:16:46,280 --> 00:16:50,640
+Then finally, in the third graph, we are saying that as you move away from the correct value,
+
+239
+00:16:50,640 --> 00:16:56,160
+either to the positive side or to the negative side, the error increases in proportion to
+
+240
+00:16:56,160 --> 00:17:00,840
+the square of the distance between your guess and the correct value.
+
+241
+00:17:01,080 --> 00:17:05,080
+Again, I should emphasize that these three are strategies for measuring error.
+
+242
+00:17:05,080 --> 00:17:08,600
+You can pick any one of them as and when you like.
+
+243
+00:17:08,600 --> 00:17:13,800
+But depending on these curves, these errors will have different behaviors.
+
+244
+00:17:13,800 --> 00:17:18,720
+In fact, the first graph corresponds to what is known as mode.
+
+245
+00:17:18,720 --> 00:17:23,720
+Simply put, the mode of a column is the most frequently occurring value in that column.
+
+246
+00:17:23,720 --> 00:17:29,320
+And essentially, what we are saying is that if we pick this strategy for defining errors,
+
+247
+00:17:29,320 --> 00:17:32,760
+then the errors will be minimized at the mode of the data set.
+
+248
+00:17:32,760 --> 00:17:39,240
+At exactly the value which corresponds to the mode, you will have the minimum error.
+
+249
+00:17:39,240 --> 00:17:44,640
+And for any other value, no matter how small or how large, we will have the same error.
+
+250
+00:17:44,640 --> 00:17:48,120
+So there is no notion of greater error or lesser error.
+
+251
+00:17:48,120 --> 00:17:49,840
+There are only two values of error.
+
+252
+00:17:49,840 --> 00:17:55,380
+One corresponding to the right summary and the other value to all the wrong summaries.
+
+253
+00:17:55,380 --> 00:18:00,500
+You can probably already guess which type of variable this corresponds to.
+
+254
+00:18:00,500 --> 00:18:03,300
+The next graph corresponds to the median.
+
+255
+00:18:03,300 --> 00:18:08,060
+If you arrange values in a given column in an increasing or a decreasing order, and then
+
+256
+00:18:08,060 --> 00:18:12,580
+the value which is found at the exact center of the sequence is called the median.
+
+257
+00:18:12,580 --> 00:18:17,020
+By picking the strategy, we are saying that the error will be minimized at the median
+
+258
+00:18:17,020 --> 00:18:19,580
+of these values.
+
+259
+00:18:19,580 --> 00:18:23,020
+And then the last graph corresponds to the mean or the average.
+
+260
+00:18:23,020 --> 00:18:27,060
+This is simply the sum of the values in a column divided by the length of that column.
+
+261
+00:18:27,060 --> 00:18:31,320
+And by picking the strategy, we are saying that the error will be minimized at the mean
+
+262
+00:18:31,320 --> 00:18:33,300
+of that particular column.
+
+263
+00:18:33,300 --> 00:18:39,700
+So we have three strategies of defining errors, which give us the mode, median, and the mean
+
+264
+00:18:39,700 --> 00:18:40,700
+respectively.
+
+265
+00:18:40,700 --> 00:18:46,180
+Together, these values are the most important univariate metrics.
+
+266
+00:18:47,140 --> 00:18:53,340
+To test your understanding of the mean, median, and mode, try to think about this question.
+
+267
+00:18:53,340 --> 00:18:56,180
+Which error applies to which column?
+
+268
+00:18:56,180 --> 00:19:02,060
+Note that whether it is a categorical variable, day length is a numerical variable, but it
+
+269
+00:19:02,060 --> 00:19:03,420
+changes very slowly.
+
+270
+00:19:03,420 --> 00:19:06,700
+You see that doesn't change very drastically.
+
+271
+00:19:06,700 --> 00:19:09,660
+Heartbeat is also numerical, but it may change very drastically.
+
+272
+00:19:09,660 --> 00:19:11,660
+Naturally, it's heartbeat.
+
+273
+00:19:11,660 --> 00:19:18,140
+Feel free to pause the video here and think about this.
+
+274
+00:19:18,140 --> 00:19:19,340
+So let's take a look.
+
+275
+00:19:19,340 --> 00:19:22,740
+The first column, weather, is a categorical variable.
+
+276
+00:19:22,740 --> 00:19:25,060
+So we are going to apply mode to this one.
+
+277
+00:19:25,060 --> 00:19:29,260
+Clearly, median and mean don't apply to this column because it has no concept of ordering
+
+278
+00:19:29,260 --> 00:19:31,420
+or difference between values.
+
+279
+00:19:31,420 --> 00:19:37,140
+Remember that categorical variables only support equality and inequality.
+
+280
+00:19:37,140 --> 00:19:39,200
+The next column is the day length.
+
+281
+00:19:39,200 --> 00:19:40,460
+It is numerical.
+
+282
+00:19:40,460 --> 00:19:43,900
+So we can apply either mean or median to this column.
+
+283
+00:19:43,900 --> 00:19:46,740
+But we have also noted that this is a slowly changing column.
+
+284
+00:19:46,740 --> 00:19:51,100
+That is, we have values that are very tightly grouped around its center.
+
+285
+00:19:51,100 --> 00:19:55,540
+For example, you are not likely to find that for a few days, the length of the day was
+
+286
+00:19:55,540 --> 00:20:00,180
+9 or 11 or 10 hours, but then suddenly jumped to 14 hours.
+
+287
+00:20:00,180 --> 00:20:04,500
+In other words, this is not a variable that is likely to have any outliers.
+
+288
+00:20:04,500 --> 00:20:09,860
+And as we've seen in the error graphs earlier, if we have outliers and we apply the mean,
+
+289
+00:20:09,860 --> 00:20:14,420
+we will see massive errors because the error corresponding to the mean changes by the square
+
+290
+00:20:14,420 --> 00:20:15,820
+of the difference.
+
+291
+00:20:15,820 --> 00:20:20,060
+So even for a small error, we are likely to get penalized a lot more.
+
+292
+00:20:20,060 --> 00:20:22,300
+Then the next column is heartbeat.
+
+293
+00:20:22,300 --> 00:20:23,300
+This is also numerical.
+
+294
+00:20:23,300 --> 00:20:26,220
+So we can apply either mean or median to this column.
+
+295
+00:20:26,220 --> 00:20:29,060
+But note that this can change very drastically.
+
+296
+00:20:29,060 --> 00:20:32,040
+In other words, we are more likely to find outliers here.
+
+297
+00:20:32,040 --> 00:20:35,700
+If we apply mean here, we will have really large errors.
+
+298
+00:20:35,700 --> 00:20:39,020
+Median on the other hand is robust against outliers.
+
+299
+00:20:39,020 --> 00:20:47,980
+That is, even when a variable has outliers, the median produces a reasonable summary statistic.
+
+300
+00:20:47,980 --> 00:20:52,820
+So now that we know the three fundamental summary statistics, let's go a step ahead
+
+301
+00:20:52,820 --> 00:20:54,460
+and look at the next two.
+
+302
+00:20:54,460 --> 00:20:57,060
+They are called variance and standard deviation.
+
+303
+00:20:57,060 --> 00:21:00,020
+Let's take a look.
+
+304
+00:21:00,020 --> 00:21:04,220
+The variance of a column is essentially a number which tells us how much a variable
+
+305
+00:21:04,220 --> 00:21:06,660
+spreads around its average value.
+
+306
+00:21:06,740 --> 00:21:10,020
+A high variance literally means high variability.
+
+307
+00:21:10,020 --> 00:21:11,820
+By itself, it doesn't mean much.
+
+308
+00:21:11,820 --> 00:21:14,740
+But it is very useful when comparing two different variables.
+
+309
+00:21:14,740 --> 00:21:18,420
+So we'll see examples of this later in bivariate analysis.
+
+310
+00:21:18,420 --> 00:21:19,420
+Here's an example.
+
+311
+00:21:19,420 --> 00:21:25,020
+We see here three different histograms denoted by these three colors.
+
+312
+00:21:25,020 --> 00:21:29,980
+They represent the length of the day on Earth during the months of May, June, and July over
+
+313
+00:21:29,980 --> 00:21:31,660
+the last three years.
+
+314
+00:21:31,660 --> 00:21:37,180
+So we can see that the orange histogram, which corresponds to May, has its center around
+
+315
+00:21:37,180 --> 00:21:43,780
+something like 12.75 hours, which means that the average length of day in May for the last
+
+316
+00:21:43,780 --> 00:21:47,700
+three years was around 12 hours and 45 minutes.
+
+317
+00:21:47,700 --> 00:21:53,140
+Similarly, if you look at July, it was around 12.85 hours.
+
+318
+00:21:53,140 --> 00:21:55,700
+And in June, it was around 13 hours.
+
+319
+00:21:55,700 --> 00:22:00,380
+So the days were, on average, longer in June, which is surprising.
+
+320
+00:22:00,380 --> 00:22:02,420
+June is when summer usually changes into monsoon.
+
+321
+00:22:02,420 --> 00:22:07,020
+So the peak of the length of day should come in May, not in June.
+
+322
+00:22:07,020 --> 00:22:12,620
+But anyway, if we look at the width of these histograms and say that this is the data corresponding
+
+323
+00:22:12,620 --> 00:22:14,580
+to May, it has a fairly large width.
+
+324
+00:22:14,580 --> 00:22:20,540
+Then there is this purple histogram corresponding to July, which has a very large width.
+
+325
+00:22:20,540 --> 00:22:25,060
+And then there is the small set that corresponds to June, which has a very small width.
+
+326
+00:22:25,060 --> 00:22:29,260
+So if you look at the width of these histograms, we get an idea of the variance of these values.
+
+327
+00:22:29,260 --> 00:22:31,860
+And here things get even more interesting.
+
+328
+00:22:31,860 --> 00:22:36,420
+There is a lot of variance in May and July, but in June, the length of the day is not
+
+329
+00:22:36,420 --> 00:22:40,260
+only higher on average, but it has much less variance.
+
+330
+00:22:40,260 --> 00:22:43,540
+This means that in May and July, you will see a lot of variation in the length of the
+
+331
+00:22:43,540 --> 00:22:45,920
+day, but not so much in June.
+
+332
+00:22:45,920 --> 00:22:52,500
+What we're doing here is looking at graphs and qualitatively commenting on what the histogram
+
+333
+00:22:52,500 --> 00:22:53,920
+tells us.
+
+334
+00:22:53,920 --> 00:22:58,420
+The mean and the variance are statistical univariate measures, which gives us a very
+
+335
+00:22:58,420 --> 00:23:03,420
+mathematical quantitative way of making the same assertions.
+
+336
+00:23:03,420 --> 00:23:08,300
+So if we were to take the means and variances of these variables and compare them, we would
+
+337
+00:23:08,300 --> 00:23:11,420
+have arrived at roughly the same conclusions.
+
+338
+00:23:11,420 --> 00:23:16,860
+Finally, for the sake of completeness, here's how you calculate the variance.
+
+339
+00:23:16,860 --> 00:23:20,500
+Let's say that we are talking of the i-th column, then what we do simply is take the
+
+340
+00:23:20,500 --> 00:23:23,620
+mean of that column, which is denoted with mu sub i.
+
+341
+00:23:23,700 --> 00:23:29,180
+We subtract that from the original data or the whole column, because ultimately remember
+
+342
+00:23:29,180 --> 00:23:34,620
+that the variance, the point of variance is to measure the spread of the data centered
+
+343
+00:23:34,620 --> 00:23:37,020
+around its own center or around its own mean.
+
+344
+00:23:37,020 --> 00:23:39,100
+So that's why you have to subtract the mean.
+
+345
+00:23:39,100 --> 00:23:41,860
+And then we square up the values and we average them.
+
+346
+00:23:41,860 --> 00:23:44,180
+So that's how broadly you calculate variance.
+
+347
+00:23:44,180 --> 00:23:47,080
+Don't worry about the math too much right now.
+
+348
+00:23:47,080 --> 00:23:51,440
+Most of these formulae are going to be pre-implemented in whatever tool we use next.
+
+349
+00:23:51,440 --> 00:23:59,840
+So we will have a much more direct implementation of how we can use them.
+
+350
+00:23:59,840 --> 00:24:04,560
+So the next univariate metric we consider is the standard deviation.
+
+351
+00:24:04,560 --> 00:24:06,880
+It is simply the square root of the variance.
+
+352
+00:24:06,880 --> 00:24:11,080
+Now you might ask if it's just the square root of some quantity we already know, then
+
+353
+00:24:11,080 --> 00:24:12,760
+what's the use of it?
+
+354
+00:24:12,760 --> 00:24:16,800
+Actually the standard deviation is useful because it has the same unit of measurement
+
+355
+00:24:16,800 --> 00:24:17,800
+as your variable.
+
+356
+00:24:18,280 --> 00:24:23,280
+Note that when we calculated the variance, we were performing a sum of squared values
+
+357
+00:24:23,280 --> 00:24:25,560
+as is shown here.
+
+358
+00:24:25,560 --> 00:24:29,720
+So in this case, say we are measuring the length of day in hours, then the variance
+
+359
+00:24:29,720 --> 00:24:35,320
+would have the unit of hours squared, whereas the standard deviation would still be in hours.
+
+360
+00:24:35,320 --> 00:24:40,160
+So that's a much more useful value to have when you are comparing with the original data.
+
+361
+00:24:40,160 --> 00:24:47,240
+Secondly, standard deviation is important when trying to quantitatively detect outliers.
+
+362
+00:24:47,240 --> 00:24:54,040
+Because the length of day data from the last three years for all months, the black line
+
+363
+00:24:54,040 --> 00:24:55,880
+is the mean of this data.
+
+364
+00:24:55,880 --> 00:25:00,960
+The blue lines are basically mean plus one standard deviation and mean minus one standard
+
+365
+00:25:00,960 --> 00:25:05,640
+deviation and the green lines are mean plus two standard deviations and mean minus two
+
+366
+00:25:05,640 --> 00:25:06,640
+standard deviation.
+
+367
+00:25:06,640 --> 00:25:11,720
+Now let's say that we are collecting more and more length of the day data and we want
+
+368
+00:25:11,720 --> 00:25:16,280
+to figure out if the behavior of the new data is as expected or are we seeing something
+
+369
+00:25:16,280 --> 00:25:17,280
+surprising?
+
+370
+00:25:17,280 --> 00:25:23,080
+Well, if the new values fall between the mean and the first standard deviation on either
+
+371
+00:25:23,080 --> 00:25:27,520
+side, then we conclude that there is nothing really surprising.
+
+372
+00:25:27,520 --> 00:25:32,680
+If they fall between the first and the second standard deviation like here or here on again
+
+373
+00:25:32,680 --> 00:25:38,040
+on either side, then we say that the values are moderately strange.
+
+374
+00:25:38,040 --> 00:25:42,920
+But if we say that they are more than two standard deviations away, that is either above
+
+375
+00:25:43,080 --> 00:25:48,760
+this green line or below this green line, then we say that they are definitely outliers.
+
+376
+00:25:48,760 --> 00:25:54,920
+So that's a quick and convenient way to judge whether some value is an outlier.
+
+377
+00:25:54,920 --> 00:26:03,320
+Now so far we have seen only mathematical ways of doing univariate analysis on our data.
+
+378
+00:26:03,320 --> 00:26:08,200
+We have a column, we apply some formula on that column and we get a single number out.
+
+379
+00:26:08,200 --> 00:26:13,680
+That number can be the mean, median, mode, variance or standard deviation.
+
+380
+00:26:13,680 --> 00:26:15,880
+But ultimately these are just numbers.
+
+381
+00:26:15,880 --> 00:26:20,320
+They do have a very strong mathematical quantitative meaning.
+
+382
+00:26:20,320 --> 00:26:25,720
+But even to the best trained analyst beyond a point, sustaining a purely quantitative
+
+383
+00:26:25,720 --> 00:26:29,160
+understanding of data becomes very difficult.
+
+384
+00:26:29,160 --> 00:26:33,200
+The alternative approach is to look at the data graphically.
+
+385
+00:26:33,200 --> 00:26:39,280
+So let's talk about the two most important graphical tools of univariate analysis, histograms
+
+386
+00:26:39,280 --> 00:26:42,400
+and bar charts.
+
+387
+00:26:42,400 --> 00:26:47,760
+So here we have four columns, we've already seen this data before, and we have corresponding
+
+388
+00:26:47,760 --> 00:26:50,840
+to these columns a histogram and a bar chart.
+
+389
+00:26:50,840 --> 00:26:53,320
+Let me start with a question right away.
+
+390
+00:26:53,320 --> 00:26:56,440
+Which is the histogram and which is the bar chart?
+
+391
+00:26:56,440 --> 00:27:00,360
+And once you've figured that out, try to think about which column the histogram corresponds
+
+392
+00:27:00,360 --> 00:27:03,280
+to and which column is represented by the bar chart.
+
+393
+00:27:03,280 --> 00:27:11,960
+Feel free to pause the video and think about this.
+
+394
+00:27:11,960 --> 00:27:15,760
+So the figure at the top is the histogram.
+
+395
+00:27:15,760 --> 00:27:21,440
+Histogram is essentially created by taking a column, in this case the duration column,
+
+396
+00:27:21,440 --> 00:27:25,640
+identifying its range, that is the maximum and the minimum values in it, dividing the
+
+397
+00:27:25,640 --> 00:27:30,880
+range equally into a number of bins and then counting how many values lie in each bin.
+
+398
+00:27:30,880 --> 00:27:31,880
+So that's what we have done here.
+
+399
+00:27:31,880 --> 00:27:36,040
+We have taken the minimum value which is zero and we have taken the maximum value which
+
+400
+00:27:36,040 --> 00:27:44,880
+is 165,000 or it's 16,500 and we have divided it equally in a bunch of bins and the length
+
+401
+00:27:44,880 --> 00:27:50,240
+of these bars or the height of these bars, it simply represents how many values fall
+
+402
+00:27:50,240 --> 00:27:52,200
+in that particular range.
+
+403
+00:27:52,200 --> 00:27:56,920
+And note that these bins are continuous, that is the end of each bin coincides with
+
+404
+00:27:56,920 --> 00:28:00,600
+the beginning of the next one.
+
+405
+00:28:00,600 --> 00:28:06,560
+So from this histogram we can tell that most of the values in this column lie in the second
+
+406
+00:28:06,560 --> 00:28:10,520
+bin and if you look carefully you can see the edges of this bin.
+
+407
+00:28:10,520 --> 00:28:16,520
+So basically what we are saying is that most durations of seconds lie between 660 seconds
+
+408
+00:28:16,520 --> 00:28:22,520
+and 1320 seconds which is 10 minutes and 20 minutes, 11 minutes and 22 minutes roughly.
+
+409
+00:28:22,520 --> 00:28:27,840
+A bar chart on the other hand is just a number of independent values which are plotted next
+
+410
+00:28:27,840 --> 00:28:28,840
+to each other.
+
+411
+00:28:28,840 --> 00:28:33,720
+There is no necessary relation between the different bars, they are just compared by
+
+412
+00:28:33,720 --> 00:28:34,720
+their lengths.
+
+413
+00:28:34,720 --> 00:28:39,240
+In this case the bar chart is this figure at the bottom and corresponds to the counts
+
+414
+00:28:39,240 --> 00:28:42,480
+of the values in the country column.
+
+415
+00:28:42,480 --> 00:28:47,600
+So for each unique country occurring in this column we create a bar and the length of that
+
+416
+00:28:47,600 --> 00:28:52,120
+bar corresponds to how often that country occurs in that column.
+
+417
+00:28:52,120 --> 00:28:57,740
+So we can see from this slice of this data set that France occurs twice, India occurs
+
+418
+00:28:57,740 --> 00:29:03,540
+thrice, Germany and Australia both occur only once and the United States also occurs twice.
+
+419
+00:29:03,540 --> 00:29:09,120
+So that we just carry on this process for all unique countries throughout the data set
+
+420
+00:29:09,240 --> 00:29:14,520
+and that's how we build a bar chart.
+
+421
+00:29:14,520 --> 00:29:19,880
+Broadly there are a lot of things that we can infer from histograms and bar charts.
+
+422
+00:29:19,880 --> 00:29:24,200
+For one we can simply see the shape of the data and this is important because it can
+
+423
+00:29:24,200 --> 00:29:29,360
+tell us at a glance whether the data peaks around a certain value or whether it peaks
+
+424
+00:29:29,360 --> 00:29:32,240
+at all, how much it spreads etc.
+
+425
+00:29:32,240 --> 00:29:35,100
+You can see the distribution in a lot more detail.
+
+426
+00:29:35,100 --> 00:29:40,180
+For example we can see from the histogram that there are a lot of values which are in
+
+427
+00:29:40,180 --> 00:29:45,220
+the early part of the graph but there are also some values, I am not sure if it is completely
+
+428
+00:29:45,220 --> 00:29:51,020
+visible but since the histogram stretched up to this point we can be sure that there
+
+429
+00:29:51,020 --> 00:29:56,140
+are also some values which are very few in number but they are there and of course we
+
+430
+00:29:56,140 --> 00:30:00,740
+can see outliers, we can see that these are some of the outliers or in this case these
+
+431
+00:30:00,740 --> 00:30:01,740
+are the outliers.
+
+432
+00:30:02,380 --> 00:30:08,680
+Note that histograms are used for continuous or numerical variables and bar charts are
+
+433
+00:30:08,680 --> 00:30:14,780
+used for discrete or categorical variables and with that we conclude our discussion on
+
+434
+00:30:14,780 --> 00:30:16,620
+univariate analysis.
+
+435
+00:30:16,620 --> 00:30:22,780
+We saw that we have a bunch of different statistical and graphical tools at our disposal when we
+
+436
+00:30:22,780 --> 00:30:29,540
+want to study one particular variable at a time.
+
+437
+00:30:29,540 --> 00:30:35,140
+Next let's try and generalize these approaches to two variables, this is nothing but bivariate
+
+438
+00:30:35,140 --> 00:30:36,140
+analysis.
+
+439
+00:30:36,140 --> 00:30:40,380
+We are simply going to take whatever we know already and apply it to two variables instead
+
+440
+00:30:40,380 --> 00:30:41,380
+of one.
+
+441
+00:30:41,380 --> 00:30:46,300
+However, there are multiple combinations of variable types we need to consider.
+
+442
+00:30:46,300 --> 00:30:50,980
+When doing univariate analysis we were able to figure out the type of variable and apply
+
+443
+00:30:50,980 --> 00:30:52,980
+certain methods accordingly.
+
+444
+00:30:52,980 --> 00:30:57,940
+Here we have to deal with combinations of two types, specifically or two combinations
+
+445
+00:30:57,940 --> 00:31:02,500
+or two variables could be both continuous or one of them could be continuous while the
+
+446
+00:31:02,500 --> 00:31:06,820
+other was discrete or it is also possible that both of them are discrete.
+
+447
+00:31:06,820 --> 00:31:11,300
+So let's take a look at what we can do.
+
+448
+00:31:11,300 --> 00:31:17,260
+When it comes to the first case of bivariate analysis where both variables are continuous,
+
+449
+00:31:17,260 --> 00:31:22,140
+one of the most powerful graphical tools we have is a scatter plot.
+
+450
+00:31:22,140 --> 00:31:28,180
+We simply plot one variable on the x-axis and one on the y-axis and each point, each
+
+451
+00:31:28,180 --> 00:31:33,540
+data point that is each row of your table is represented by a dot on the x-y plane.
+
+452
+00:31:33,540 --> 00:31:39,020
+So this particular chart that you see here is essentially a scatter plot of the heights
+
+453
+00:31:39,020 --> 00:31:42,900
+and weights of about a thousand individuals.
+
+454
+00:31:42,900 --> 00:31:48,940
+So every point on this particular graph represents an individual and they have a certain height
+
+455
+00:31:48,940 --> 00:31:52,580
+in inches and a certain weight in pounds.
+
+456
+00:31:52,580 --> 00:31:57,780
+So what we have here, and by the way the color represents gender, so you can probably guess
+
+457
+00:31:57,780 --> 00:32:00,380
+which one is male and which one is female.
+
+458
+00:32:00,380 --> 00:32:05,500
+The green line in this case, actually in both cases, is the best possible straight line
+
+459
+00:32:05,500 --> 00:32:09,500
+fit that we can draw through this data, we can ignore the green line column.
+
+460
+00:32:09,500 --> 00:32:14,100
+This is basically an example of what we would learn when we go over to regression.
+
+461
+00:32:14,100 --> 00:32:19,460
+What this means is that we have a data which contains a thousand rows and two columns.
+
+462
+00:32:19,460 --> 00:32:21,500
+One column is height, one column is width.
+
+463
+00:32:21,500 --> 00:32:26,700
+We simply take each row, find the height, find the width and use them as the x-y coordinates
+
+464
+00:32:26,700 --> 00:32:30,500
+of where that particular dot should lie on the graph paper.
+
+465
+00:32:30,500 --> 00:32:36,980
+That is broadly how we draw a scatter plot.
+
+466
+00:32:36,980 --> 00:32:42,300
+Similarly we have another scatter plot from a very well known data set that is used in
+
+467
+00:32:42,300 --> 00:32:45,500
+machine learning called the Boston housing prices data set.
+
+468
+00:32:45,500 --> 00:32:50,700
+It essentially contains the details of a bunch of different houses and their prices.
+
+469
+00:32:50,700 --> 00:32:52,020
+So it's a regression task.
+
+470
+00:32:52,020 --> 00:32:57,140
+The idea is given a bunch of different attributes of a particular house, can you predict its
+
+471
+00:32:57,140 --> 00:32:58,140
+price?
+
+472
+00:32:58,140 --> 00:33:01,900
+And one of the attributes that is included in that data set is the average number of
+
+473
+00:33:01,900 --> 00:33:02,900
+rooms.
+
+474
+00:33:02,900 --> 00:33:08,140
+So we can see that there are outliers of course, but in general there is an increasing trend
+
+475
+00:33:08,140 --> 00:33:11,020
+as the number of rooms grows, the price grows.
+
+476
+00:33:11,020 --> 00:33:13,220
+That makes sense.
+
+477
+00:33:13,220 --> 00:33:18,980
+You can see that scatter plots make it very obvious, at least graphically, whether there
+
+478
+00:33:18,980 --> 00:33:23,340
+is any linear trend or correlation in the data.
+
+479
+00:33:23,340 --> 00:33:29,180
+This is important because finding links between variables is one of the most important jobs
+
+480
+00:33:29,180 --> 00:33:31,300
+of a data analyst.
+
+481
+00:33:31,300 --> 00:33:36,020
+The commonest questions that we get are usually of the same format.
+
+482
+00:33:36,020 --> 00:33:37,700
+What explains sales?
+
+483
+00:33:37,700 --> 00:33:38,820
+What explains profit?
+
+484
+00:33:38,820 --> 00:33:39,820
+What explains loss?
+
+485
+00:33:39,820 --> 00:33:41,100
+What explains revenue?
+
+486
+00:33:41,100 --> 00:33:42,900
+What explains customer churn?
+
+487
+00:33:42,900 --> 00:33:44,740
+What explains the spread of a disease?
+
+488
+00:33:44,740 --> 00:33:45,740
+And so on.
+
+489
+00:33:45,740 --> 00:33:49,860
+If you're lucky, whatever you're trying to explain will have a linear trend with some
+
+490
+00:33:49,860 --> 00:33:51,340
+other variable.
+
+491
+00:33:51,340 --> 00:33:53,500
+And you can say that the other variable explains it.
+
+492
+00:33:53,500 --> 00:33:55,540
+So for example, what explains my weight?
+
+493
+00:33:55,540 --> 00:33:57,060
+Well, height could explain my weight.
+
+494
+00:33:57,060 --> 00:33:59,860
+As you grow taller, you grow heavier.
+
+495
+00:33:59,860 --> 00:34:00,860
+Or what explains price?
+
+496
+00:34:00,860 --> 00:34:02,940
+Well, the average number of rooms explain the price.
+
+497
+00:34:02,940 --> 00:34:04,880
+Why is a particular house more expensive?
+
+498
+00:34:04,880 --> 00:34:07,460
+Because it has more number of rooms.
+
+499
+00:34:07,460 --> 00:34:10,380
+Of course, in practice, it is rarely that easy.
+
+500
+00:34:10,380 --> 00:34:16,740
+But linear relationships, or basically correlation between variables, is a fundamental idea in
+
+501
+00:34:16,740 --> 00:34:18,380
+data analysis.
+
+502
+00:34:18,380 --> 00:34:23,980
+Scatter plots are an easy, qualitative, graphical way to see these relationships.
+
+503
+00:34:23,980 --> 00:34:31,780
+Now that we know what correlation graphically looks like, let's take a look at its mathematical
+
+504
+00:34:31,780 --> 00:34:34,380
+formulation, just again for the sake of completeness.
+
+505
+00:34:34,860 --> 00:34:39,780
+Note that none of the formulae we have seen so far are super important.
+
+506
+00:34:39,780 --> 00:34:45,500
+These metrics are already implemented in whichever tool we use, Excel, Python, Tableau, whatever.
+
+507
+00:34:45,500 --> 00:34:50,140
+So you may not have to use them every day, but it's always important to know what's happening
+
+508
+00:34:50,140 --> 00:34:51,860
+under the hood.
+
+509
+00:34:51,860 --> 00:34:56,340
+So correlation is basically a measure of statistical dependence.
+
+510
+00:34:56,340 --> 00:35:01,140
+It is defined for a pair of continuous variables.
+
+511
+00:35:01,140 --> 00:35:03,660
+And this is broadly how you calculate it.
+
+512
+00:35:03,660 --> 00:35:09,700
+Let's say that x and y are my two variables, or two columns in my table, then rho x, y
+
+513
+00:35:09,700 --> 00:35:14,300
+is basically the symbol that we use for correlation.
+
+514
+00:35:14,300 --> 00:35:16,380
+And this is how it's calculated.
+
+515
+00:35:16,380 --> 00:35:20,900
+Mu of x and mu of y are the means of the x and y columns.
+
+516
+00:35:20,900 --> 00:35:25,380
+I take the column x, and from each row of that column, or basically from the whole column,
+
+517
+00:35:25,380 --> 00:35:28,540
+I subtract the mean of that column.
+
+518
+00:35:28,540 --> 00:35:33,500
+From y, I subtract the mean of y, and then I multiply those two columns together.
+
+519
+00:35:33,500 --> 00:35:37,820
+For each, basically, it's what is called an element-wise multiplication.
+
+520
+00:35:37,820 --> 00:35:41,100
+Each row is multiplied with the other row.
+
+521
+00:35:41,100 --> 00:35:45,500
+And then we take the average of this product.
+
+522
+00:35:45,500 --> 00:35:48,780
+And here, in the denominator, you see sigma x and sigma y.
+
+523
+00:35:48,780 --> 00:35:51,420
+This is nothing but the standard deviation of x and y.
+
+524
+00:35:51,420 --> 00:35:56,540
+So we know x, we know y, we know how to calculate mu of x, we know how to calculate mu of y.
+
+525
+00:35:56,540 --> 00:35:59,940
+We also know how to calculate sigma of x and sigma of y.
+
+526
+00:35:59,940 --> 00:36:02,580
+And we also know how to do all this arithmetic.
+
+527
+00:36:02,580 --> 00:36:06,620
+And therefore, this E, by the way, stands for expectation, which is also another word
+
+528
+00:36:06,620 --> 00:36:07,740
+for average.
+
+529
+00:36:07,740 --> 00:36:09,420
+So we know how to calculate averages.
+
+530
+00:36:09,420 --> 00:36:13,900
+So that's why calculating correlation is straightforward.
+
+531
+00:36:13,900 --> 00:36:17,940
+Before we proceed, let's take a look at these four charts.
+
+532
+00:36:17,940 --> 00:36:20,500
+They are called the Anscomb quartet.
+
+533
+00:36:20,500 --> 00:36:27,540
+We have four different scatter plots corresponding to four pairs of continuous variables, x1,
+
+534
+00:36:27,540 --> 00:36:32,380
+y1, x2, y2, x3, y3, and x4, y4.
+
+535
+00:36:32,380 --> 00:36:38,140
+Now what is funny about these four pairs of variables is that even if their scatter plots
+
+536
+00:36:38,140 --> 00:36:43,800
+look drastically different, their correlations are actually exactly the same.
+
+537
+00:36:43,800 --> 00:36:47,660
+You can actually figure out the values, the axes are given, and you can do the math.
+
+538
+00:36:47,660 --> 00:36:51,340
+The scatter plots look very different, but if you calculate the correlation, they're
+
+539
+00:36:51,340 --> 00:36:53,500
+actually exactly the same.
+
+540
+00:36:53,500 --> 00:37:01,540
+The point here is that the quantitative value of correlation alone can be sometimes misleading.
+
+541
+00:37:01,540 --> 00:37:05,100
+So whenever possible, look at the plots as well.
+
+542
+00:37:05,100 --> 00:37:09,820
+And by the way, if you want to get a good feel of what correlation is like, play this
+
+543
+00:37:09,820 --> 00:37:10,820
+game.
+
+544
+00:37:10,820 --> 00:37:11,820
+It's called guessthecorrelation.com.
+
+545
+00:37:11,820 --> 00:37:13,560
+It's a fairly interesting game.
+
+546
+00:37:13,560 --> 00:37:16,540
+So maybe I could just show you a couple of things.
+
+547
+00:37:16,540 --> 00:37:20,780
+Let's mute this tab first because it's likely to make some noise.
+
+548
+00:37:20,780 --> 00:37:27,220
+So what we see here is an x-axis from 0 to 1 and a y-axis again from 0 to 1.
+
+549
+00:37:27,220 --> 00:37:29,820
+And there is a bunch of data which is randomly scattered.
+
+550
+00:37:29,820 --> 00:37:34,780
+I don't see any linear trend, I don't see anything that sort of dictates the relationship
+
+551
+00:37:34,780 --> 00:37:35,780
+between x and y.
+
+552
+00:37:35,780 --> 00:37:38,700
+So I'll say there's no correlation, so I'm just going to say 0.
+
+553
+00:37:38,700 --> 00:37:42,780
+And if I press Enter, it basically cost me a little bit.
+
+554
+00:37:42,780 --> 00:37:46,820
+The true correlation was 0.12 and I guessed 0.00.
+
+555
+00:37:46,820 --> 00:37:51,220
+So I was not very wrong, but just a little wrong.
+
+556
+00:37:51,220 --> 00:37:53,780
+Well, you can see that there is some correlation here.
+
+557
+00:37:53,780 --> 00:37:58,300
+So I would say something like 0.3 because you can see that maybe there is like an increasing
+
+558
+00:37:58,300 --> 00:38:01,300
+trend.
+
+559
+00:38:01,300 --> 00:38:03,100
+And yeah, that was better.
+
+560
+00:38:03,100 --> 00:38:05,620
+It's at least less error than last time.
+
+561
+00:38:05,620 --> 00:38:09,700
+The true R is 0.2 and I guessed a 0.3.
+
+562
+00:38:09,700 --> 00:38:10,700
+This is again similar.
+
+563
+00:38:10,980 --> 00:38:16,500
+It pretty much looks random to me, so I'm just going to say 0.05 or something.
+
+564
+00:38:16,500 --> 00:38:17,500
+I'm getting better at this.
+
+565
+00:38:17,500 --> 00:38:23,500
+You see, now the true R was 0.03 and my guessed R was 0.05 and the difference is 2.
+
+566
+00:38:23,500 --> 00:38:29,780
+So feel free to play around with this game and see where it lands you.
+
+567
+00:38:29,780 --> 00:38:30,780
+So let's continue.
+
+568
+00:38:30,780 --> 00:38:34,020
+I hope you enjoyed the game.
+
+569
+00:38:34,020 --> 00:38:39,740
+Now that we know how to do bivariate analysis when both R variables are continuous, let's
+
+570
+00:38:39,780 --> 00:38:44,860
+take a look at what we can do when one of our variables is a discrete or a categorical
+
+571
+00:38:44,860 --> 00:38:47,540
+variable and the other one is continuous.
+
+572
+00:38:47,540 --> 00:38:55,820
+The most common process to deal with this kind of a pair is grouping and aggregation.
+
+573
+00:38:55,820 --> 00:39:01,660
+The discrete variable that we have is called in this case a dimension and the continuous
+
+574
+00:39:01,660 --> 00:39:04,660
+variable in this case is called a metric.
+
+575
+00:39:04,660 --> 00:39:09,780
+So essentially what we do is we group values in the metric by every unique value found
+
+576
+00:39:09,780 --> 00:39:15,140
+in the dimension and then we apply some sort of operation on these groups.
+
+577
+00:39:15,140 --> 00:39:17,140
+This operation is called an aggregation.
+
+578
+00:39:17,140 --> 00:39:22,340
+Some common types of aggregations are the sum, the average, the minimum and the maximum
+
+579
+00:39:22,340 --> 00:39:23,780
+and many other things.
+
+580
+00:39:23,780 --> 00:39:29,660
+So here's an example of how grouping and aggregation works on the Fisher-IRS dataset.
+
+581
+00:39:29,660 --> 00:39:33,580
+As we have seen before, the dataset contains five variables or columns.
+
+582
+00:39:33,580 --> 00:39:40,540
+There are four columns which are sepal length, sepal width, petal length and petal width,
+
+583
+00:39:40,540 --> 00:39:45,500
+which are the four numerical columns and the fifth categorical column is the species which
+
+584
+00:39:45,500 --> 00:39:50,340
+contains three unique values which are virginica, versicle and setosa.
+
+585
+00:39:50,340 --> 00:39:57,360
+Those are the three individual species of IRS that are recorded in that particular dataset.
+
+586
+00:39:57,360 --> 00:40:03,560
+So then the species column becomes our dimension and we can pick any of the four numerical
+
+587
+00:40:03,560 --> 00:40:05,340
+columns as our metric.
+
+588
+00:40:05,340 --> 00:40:09,280
+So let's pick say petal length as an example.
+
+589
+00:40:09,280 --> 00:40:15,060
+We filter the petal length column in our data by each value which is present in our dimension.
+
+590
+00:40:15,060 --> 00:40:20,080
+So we have three groups of petal lengths, each corresponding to one unique value found
+
+591
+00:40:20,080 --> 00:40:21,280
+in our dimension.
+
+592
+00:40:21,280 --> 00:40:25,400
+So what we do is we select all the rows where the species is setosa and take out the petal
+
+593
+00:40:25,400 --> 00:40:26,400
+length column.
+
+594
+00:40:26,440 --> 00:40:32,040
+We select all the rows where the species is versicle and take out all the petal lengths
+
+595
+00:40:32,040 --> 00:40:35,440
+and then we do the same thing for virginica.
+
+596
+00:40:35,440 --> 00:40:39,220
+Then for each of these three groups, we simply average the petal length.
+
+597
+00:40:39,220 --> 00:40:42,320
+You can see the result over here.
+
+598
+00:40:42,320 --> 00:40:47,400
+What this means is that the average petal length for a setosa is much lower than that
+
+599
+00:40:47,400 --> 00:40:55,320
+of versicle and which itself is much lower than the average petal length of a virginica
+
+600
+00:40:55,320 --> 00:40:56,320
+flower.
+
+601
+00:40:56,320 --> 00:41:02,040
+Now you see the dimension we picked was the species, the metric we picked was petal length
+
+602
+00:41:02,040 --> 00:41:05,120
+and the aggregation we picked was the average.
+
+603
+00:41:05,120 --> 00:41:08,960
+You can pick any combination and see which combination reveals a pattern.
+
+604
+00:41:08,960 --> 00:41:13,740
+In fact, this is the same process that later generalizes into machine learning.
+
+605
+00:41:13,740 --> 00:41:18,560
+So the way we would use this sort of a heat map would be if say a record for a new flower
+
+606
+00:41:18,560 --> 00:41:23,720
+comes in, we basically say that okay, what's the petal length and depending on which average
+
+607
+00:41:23,760 --> 00:41:28,400
+it is the closest to, we can assign a particular label and of course we can do the same with
+
+608
+00:41:28,400 --> 00:41:33,440
+other things as well, all of the other dimensions of that flower.
+
+609
+00:41:33,440 --> 00:41:38,740
+So this is broadly how you deal with bivariate analysis when one of your variables is discrete
+
+610
+00:41:38,740 --> 00:41:41,760
+and the other is continuous.
+
+611
+00:41:41,760 --> 00:41:47,360
+The next question we will need to answer is what to do when both variables are discrete.
+
+612
+00:41:47,360 --> 00:41:50,400
+Well, unfortunately, there's not much we can do.
+
+613
+00:41:50,400 --> 00:41:53,360
+As you know, discrete variables only support counting.
+
+614
+00:41:53,360 --> 00:41:59,520
+So at best we can simply count how many times a unique pair occurs in our data set.
+
+615
+00:41:59,520 --> 00:42:04,800
+This is also known as cross tabulation and we will see this in a lot more detail in one
+
+616
+00:42:04,800 --> 00:42:07,840
+of our upcoming videos.
+
+617
+00:42:07,840 --> 00:42:14,580
+So that wraps up our discussion on bivariate analysis and as before, multivariate analysis
+
+618
+00:42:14,580 --> 00:42:20,540
+is simply a generalization of univariate and bivariate analysis to multiple variables.
+
+619
+00:42:20,540 --> 00:42:27,060
+There are many algorithms and processes that fall under the umbrella of multivariate analysis.
+
+620
+00:42:27,060 --> 00:42:32,220
+In the interest of gravity, we will not go into their algorithmic or mathematical detail,
+
+621
+00:42:32,220 --> 00:42:38,900
+but let me mention that regression and principal component analysis are the two most popular
+
+622
+00:42:38,900 --> 00:42:41,980
+multivariate analysis techniques.
+
+623
+00:42:41,980 --> 00:42:47,460
+In general, the field of data analysis is very loosely defined.
+
+624
+00:42:47,460 --> 00:42:53,940
+Employers, interviewers, colleagues can throw any algorithm at you and you may not necessarily
+
+625
+00:42:53,940 --> 00:42:58,900
+be able to say that a particular algorithm does not fall under data analysis.
+
+626
+00:42:58,900 --> 00:43:01,160
+So unfortunately, you cannot stop learning.
+
+627
+00:43:01,160 --> 00:43:05,260
+But what we have covered so far is the fundamental process of data analysis.
+
+628
+00:43:05,260 --> 00:43:10,540
+If this is done properly, you will not have to do much else.
+
+629
+00:43:10,540 --> 00:43:15,620
+And even if you do, you will still have a solid conceptual understanding of this process,
+
+630
+00:43:15,620 --> 00:43:18,940
+which you can recommend to your clients and your colleagues as well.
+
+631
+00:43:18,940 --> 00:43:21,940
+In the next video, we are going to get our hands dirty.
+
+632
+00:43:21,940 --> 00:43:26,940
+We are actually going to apply these processes to real data using real software and get some
+
+633
+00:43:26,940 --> 00:43:29,420
+real meaningful results.
+
+634
+00:43:29,420 --> 00:43:29,660
+Stay tuned.
+

@@ -1,0 +1,760 @@
+1
+00:00:00,000 --> 00:00:06,400
+Welcome back. We have already gone through a bunch of theory about univariate, bivariate
+
+2
+00:00:06,400 --> 00:00:11,000
+and multivariate analysis and now we have a good idea of how to deal with different
+
+3
+00:00:11,000 --> 00:00:15,460
+kinds of variables and what sort of inference we can draw from those variables. In this
+
+4
+00:00:15,460 --> 00:00:22,200
+video we are going to get started with Excel and how we can use all the univariate, bivariate
+
+5
+00:00:22,200 --> 00:00:26,880
+analysis techniques that we have studied so far within Excel. Specifically in this particular
+
+6
+00:00:26,880 --> 00:00:32,160
+video we are going to deal with how to do basic arithmetic using Excel and how we can
+
+7
+00:00:32,160 --> 00:00:37,800
+extend that same idea to come up with better statistics, more complicated insights and
+
+8
+00:00:37,800 --> 00:00:43,820
+so on. First of all this is a little small so we can just go to the view tab over here
+
+9
+00:00:43,820 --> 00:00:53,640
+and do a zoom to 100 percent so that our text looks fairly readable. So as you can see this
+
+10
+00:00:53,640 --> 00:00:58,760
+is the iris data set which you have seen a few times before. As we know we have four
+
+11
+00:00:58,760 --> 00:01:03,480
+numerical columns in this data set and we have one categorical column in this data set
+
+12
+00:01:03,480 --> 00:01:10,480
+which is the species of a given flower and every row is basically a sample of the flower
+
+13
+00:01:10,480 --> 00:01:15,760
+and every value over here is basically the measurement in centimeters of one specific
+
+14
+00:01:15,760 --> 00:01:20,520
+attribute of that flower. So basically for this particular row what this means is that
+
+15
+00:01:20,520 --> 00:01:24,960
+the sample length of this particular flower was 5.1 centimeters, the sample width was
+
+16
+00:01:24,960 --> 00:01:30,840
+3.5 centimeters, the petal length was 1.4 centimeters and the petal width was 0.2 centimeters
+
+17
+00:01:30,840 --> 00:01:38,520
+and this particularly was a setosa version of the iris. So let's see what we can do with
+
+18
+00:01:38,520 --> 00:01:43,720
+this sort of data. Let's try and get started with some basic univariate statistics. Before
+
+19
+00:01:43,720 --> 00:01:50,000
+we start we have to designate the first row of our data as the header. You see Excel yet
+
+20
+00:01:50,000 --> 00:01:53,520
+doesn't know that this is our header. Now in order to do that we can just go to the
+
+21
+00:01:53,520 --> 00:01:58,840
+view tab over here and we can click on freeze top row. So when that happens you see that
+
+22
+00:01:58,840 --> 00:02:04,660
+Excel has frozen the top row which means that no matter how much I scale I can always see
+
+23
+00:02:04,660 --> 00:02:10,680
+the top row no matter how much I scroll. So what that means is that Excel now knows that
+
+24
+00:02:10,680 --> 00:02:17,800
+this is the header of my file. Now one of the most important univariate statistics
+
+25
+00:02:17,800 --> 00:02:22,360
+that we have is the mean or the average. So let's try and calculate the average of the
+
+26
+00:02:22,360 --> 00:02:28,720
+sample length column. So in order to do that first what I'm going to do is need the sum
+
+27
+00:02:28,720 --> 00:02:36,320
+of all the values in this column. Now in order to do that we are going to use an Excel formula.
+
+28
+00:02:36,320 --> 00:02:40,480
+There is a special way to use an Excel formula. You see whenever you are in a particular cell
+
+29
+00:02:40,480 --> 00:02:52,560
+of Excel you can just start writing anything. So I can type this. This is basically just
+
+30
+00:02:52,560 --> 00:02:58,480
+me writing text in certain cells of the Excel sheet. But if I want to start writing a formula
+
+31
+00:02:58,480 --> 00:03:05,920
+I have to begin by pressing the equal to key. So basically this is now going to be interpreted
+
+32
+00:03:05,920 --> 00:03:12,800
+as my formula. So I can just write something like sum of A to A. What that means is that
+
+33
+00:03:12,800 --> 00:03:18,600
+take the sum of the entire A column. This is my A column and A to A what it means is
+
+34
+00:03:18,600 --> 00:03:23,400
+that take the whole column into consideration and then in order to execute that formula
+
+35
+00:03:23,400 --> 00:03:30,680
+we just press enter. So that's what we know. 805.6 is the sum of this particular column.
+
+36
+00:03:30,680 --> 00:03:34,640
+Of course if we also knew the exact length of the column, we know that the numerical
+
+37
+00:03:35,120 --> 00:03:41,840
+values start from row number 2 and go all the way up to row number 139. So I can also
+
+38
+00:03:42,480 --> 00:03:48,320
+have a specific range instead of the whole column. So for example I can have sum of A2
+
+39
+00:03:48,320 --> 00:03:54,400
+to A139 and you see that we get exactly the same value. But of course it's not always possible to
+
+40
+00:03:54,400 --> 00:04:00,400
+know the complete length of the column without scrolling down. So that's why we can just use
+
+41
+00:04:00,400 --> 00:04:05,360
+E colon A wherever it applies. Now that we know that this is the sum, so let's call it
+
+42
+00:04:05,360 --> 00:04:19,360
+as sum of simple length. Let's correct the typo. Now the next thing we need in order to find the
+
+43
+00:04:19,360 --> 00:04:24,320
+mean is basically the count of this particular column and that can easily be obtained by another
+
+44
+00:04:24,320 --> 00:04:33,680
+formula which is called simply count. Here again I give it an A colon A because again it just
+
+45
+00:04:33,680 --> 00:04:40,880
+helps me not, saves me the trouble of typing the exact coordinates of where the columns are.
+
+46
+00:04:40,880 --> 00:04:48,720
+So that's it. I know that I have a 138 rows in my column and then my mean, I can just call this the
+
+47
+00:04:48,720 --> 00:04:56,560
+count and let's make a little space so that the values and their names are readable. So this is
+
+48
+00:04:56,560 --> 00:05:02,800
+the sum of the simple length column, this is the count of the simple length column and then the
+
+49
+00:05:02,800 --> 00:05:12,640
+average of the simple length would be another excel formula which I can just say it's equal to
+
+50
+00:05:12,640 --> 00:05:21,360
+this value divided by this value. So what I did was I simply wrote an equal to sign and I clicked
+
+51
+00:05:21,360 --> 00:05:26,560
+on a particular value then I typed in the slash sign which indicates division and I clicked on
+
+52
+00:05:26,560 --> 00:05:32,960
+the other cell that actually was the divisor and then when I press enter that's it. That's
+
+53
+00:05:32,960 --> 00:05:43,200
+basically the mean of my particular column. Now let's try and continue this with the other
+
+54
+00:05:43,200 --> 00:05:47,680
+columns so let's say I want to do the same thing but for the simple width column so I'll just
+
+55
+00:05:47,680 --> 00:05:55,520
+basically do sum of b to b and then I would just do count of b to b well in this case obviously
+
+56
+00:05:55,520 --> 00:06:00,240
+it's not going to change. Oh that didn't work you see because I did not precede this with an equal
+
+57
+00:06:00,240 --> 00:06:06,880
+to sign and that's why excel could not interpret this as a formula so when I do that it gives me
+
+58
+00:06:06,880 --> 00:06:13,520
+138 and then again I simply say that this is a formula which divides the cell which is g5
+
+59
+00:06:14,160 --> 00:06:21,040
+divided by the cell which is h5 and then I just press enter and that's the average of the simple
+
+60
+00:06:21,040 --> 00:06:29,520
+width then again I can do the same with the petal length which is c to c then again I do a count
+
+61
+00:06:30,800 --> 00:06:38,000
+and made the same mistake again almost c to c and then I just say that this is a formula which is
+
+62
+00:06:38,000 --> 00:06:48,640
+g6 divided by h6. For the sake of completeness let's also finish this for the petal width column
+
+63
+00:06:48,640 --> 00:07:04,240
+which is d to d d to d and we have a count of d to d and then we simply have g7 divided by
+
+64
+00:07:05,040 --> 00:07:12,000
+h7 and there it is those are basically our average values of all the four columns now actually
+
+65
+00:07:12,000 --> 00:07:16,640
+instead of doing each of these steps manually there is a smarter way to do this let us write
+
+66
+00:07:16,640 --> 00:07:24,400
+down the names of our columns over here so let me just copy these names and let's say that we
+
+67
+00:07:24,400 --> 00:07:30,720
+type them down over here and let's say that here I want the sum so basically when I do
+
+68
+00:07:32,080 --> 00:07:39,600
+a sum of a to a that gives me my sum 805.86 now I don't really have to copy and paste the same
+
+69
+00:07:39,600 --> 00:07:45,120
+formula or you know everywhere else what I can do simply is drag this so when I drag this particular
+
+70
+00:07:45,120 --> 00:07:51,920
+formula you see that it automatically scales to figure out the correct formula substitution for
+
+71
+00:07:51,920 --> 00:07:56,160
+the rest of the columns and you can see when you click on this particular cell you can see the
+
+72
+00:07:56,160 --> 00:08:03,120
+formula here it's basically a colon a and when you click on this one you see that it's basically
+
+73
+00:08:03,120 --> 00:08:12,080
+sorry yeah when you change it you can see that it's b to b and then you see it it's c to c
+
+74
+00:08:12,080 --> 00:08:17,360
+and again sum of d to d so basically we didn't have to manually type down any of these formula
+
+75
+00:08:17,360 --> 00:08:22,320
+it's basically all of it is straight away present for us so we all you have to do is basically just
+
+76
+00:08:22,320 --> 00:08:27,120
+take this formula and drag it across so this is basically called a range selection in excel
+
+77
+00:08:27,120 --> 00:08:31,600
+and excel is smart enough to figure out what are the values over which you're trying to apply a
+
+78
+00:08:31,600 --> 00:08:37,360
+formula based on how far you're dragging it and what is the original what is the original
+
+79
+00:08:37,360 --> 00:08:42,800
+formula so it's pretty smart like that now let's say that I have all my sums ready in this particular
+
+80
+00:08:42,800 --> 00:08:48,240
+column then I can just do a count column or in this particular row that is then I can do a
+
+81
+00:08:48,240 --> 00:08:56,480
+count row which I can simply say as count of a to a and there it is and again as usual I just drag
+
+82
+00:08:56,480 --> 00:09:01,440
+this so basically it gives me the count for all columns and if you look at the formula at the top
+
+83
+00:09:01,440 --> 00:09:07,680
+left over here it's count of a to a then it's count of b to b then it's count of c to c and then
+
+84
+00:09:07,680 --> 00:09:14,640
+it's count of d to d and then finally when I come to the mean here I can basically just say this is
+
+85
+00:09:14,640 --> 00:09:21,200
+equal to this particular value divided by this particular value and that's it that's my mean
+
+86
+00:09:21,200 --> 00:09:27,040
+this also is draggable so when I do that it basically drags to give me the same values as here
+
+87
+00:09:27,120 --> 00:09:35,200
+so you see this is basically h12 divided by h13 this is i12 divided by i13 and this is j12 divided
+
+88
+00:09:35,200 --> 00:09:41,120
+by j13 so basically these are my means and I can very easily calculate them just by filling in one
+
+89
+00:09:41,120 --> 00:09:46,560
+formula and then expanding it to fill all the columns of interest now note that this is just
+
+90
+00:09:46,560 --> 00:09:51,280
+an example of how you can use excel to do basic arithmetic which is basically sum and division
+
+91
+00:09:51,920 --> 00:09:55,920
+multiplication and subtraction also works in a very similar way
+
+92
+00:09:55,920 --> 00:10:01,600
+and we are going to see examples of that very soon however we didn't even have to calculate the mean
+
+93
+00:10:04,400 --> 00:10:07,680
+manually by summing and dividing there is already a formula for v
+
+94
+00:10:07,680 --> 00:10:10,960
+as you might have guessed it's excel after all you can just say average
+
+95
+00:10:13,440 --> 00:10:19,600
+there it is and you can just drag this over as we know already and you see that we get
+
+96
+00:10:19,600 --> 00:10:26,800
+the direct values exactly so let's just call this the direct average right so that's our average
+
+97
+00:10:26,800 --> 00:10:37,440
+essentially let's continue and try to compute the variance also this time so as we know the variance
+
+98
+00:10:37,440 --> 00:10:44,240
+is basically you take the average of a particular column you subtract each value from the column
+
+99
+00:10:44,240 --> 00:10:49,120
+that average and then you square that value and take the average of that value so essentially
+
+100
+00:10:49,120 --> 00:10:56,240
+what this does is that I am basically going to take the sum of a particular column which is say
+
+101
+00:10:56,240 --> 00:11:03,040
+a to a or in this case I will give the explicit range which is a is to a 138 then I have to
+
+102
+00:11:03,040 --> 00:11:11,760
+basically sorry this should be a 138 and then I have to subtract essentially the mean and we know
+
+103
+00:11:11,760 --> 00:11:18,080
+that the mean is this I have to then square it so basically that carrot symbol means exponentiation
+
+104
+00:11:18,080 --> 00:11:24,400
+and then I square it to the second power and then finally I divide it by the count which is 138 so
+
+105
+00:11:24,400 --> 00:11:31,280
+that gives me the variance of the sepal length column and again I can just drag this to include
+
+106
+00:11:31,280 --> 00:11:37,600
+the variances for all the other columns and of course this was a variance that we calculated
+
+107
+00:11:37,600 --> 00:11:42,480
+by actually applying this particular formula let's take a look at the formula a little more
+
+108
+00:11:42,480 --> 00:11:47,680
+carefully we took a column we subtracted the mean of that column which was present here
+
+109
+00:11:47,680 --> 00:11:54,000
+and then we squared the column added it up and then divided it by the count of that particular
+
+110
+00:11:54,000 --> 00:12:00,480
+column so that's basically what gives us our mean sorry our variance obviously there is also a
+
+111
+00:12:00,480 --> 00:12:07,040
+direct formula for variance there are actually two formulas one is called a population variance
+
+112
+00:12:07,040 --> 00:12:13,920
+versus a sample variance so in this case we are talking about a sample variance so in this case
+
+113
+00:12:13,920 --> 00:12:20,480
+we can just do a to a and there it is it produces a sample variance of 0.69 looks like we were a
+
+114
+00:12:20,480 --> 00:12:26,000
+little off but that's because we might have considered the value the formula that we considered
+
+115
+00:12:26,000 --> 00:12:31,520
+could have been the formula for the population variance instead of the sample variance so let's
+
+116
+00:12:31,520 --> 00:12:36,880
+try and change this and see if we can actually replicate the same thing with the population
+
+117
+00:12:36,880 --> 00:12:44,000
+variance and yeah that's a much closer value and again I can just scale this up and that gives me
+
+118
+00:12:44,000 --> 00:12:49,840
+the variances the directly computed variances of all columns the last thing that we need to consider
+
+119
+00:12:49,840 --> 00:12:56,480
+is say the standard deviation so let's just call it std and that would just be the square root of
+
+120
+00:12:56,480 --> 00:13:03,280
+this which we have known since the previous video so we can just say another formula for
+
+121
+00:13:03,280 --> 00:13:08,080
+taking the square root which is sqrt and then you just click the value for which you want to
+
+122
+00:13:08,080 --> 00:13:14,240
+take the square root or essentially fill in its cell number and then you finish that so that's
+
+123
+00:13:14,240 --> 00:13:20,560
+basically the standard deviation as usual I can just drag that and there it is however as usual
+
+124
+00:13:20,560 --> 00:13:24,240
+as you might have expected so far there is also something called the standard deviation
+
+125
+00:13:24,240 --> 00:13:29,680
+a direct standard deviation so I can do something like std ev again since it was a population
+
+126
+00:13:29,680 --> 00:13:36,080
+variation we can population variance we can use the variance the standard deviation value
+
+127
+00:13:36,080 --> 00:13:41,040
+which corresponds to the population so that would simply mean a to a and that gives us
+
+128
+00:13:41,040 --> 00:13:47,600
+pretty much the same value and as you extend it there we are so that basically gives us most of
+
+129
+00:13:48,240 --> 00:13:55,440
+the univariate matrix which we can apply on continuous or numerical columns
+
+130
+00:13:59,520 --> 00:14:04,560
+so these are all the statistical mathematical movements and the
+
+131
+00:14:04,560 --> 00:14:09,920
+metrics that we can derive from our data we had also discussed some graphical ways of deriving
+
+132
+00:14:09,920 --> 00:14:16,400
+univariate analysis specifically for numerical columns those are histograms so let's see how we
+
+133
+00:14:16,400 --> 00:14:21,920
+can draw histograms well it's fairly simple in excel you just select a column and then you go
+
+134
+00:14:21,920 --> 00:14:27,520
+to the insert tab and say that you want to insert a chart so this is the area where you are going
+
+135
+00:14:27,520 --> 00:14:33,600
+to find all your charts now the chart that we are looking at is a statistical chart but let's also
+
+136
+00:14:33,600 --> 00:14:39,040
+take a look at what excel recommends so this is a button for recommended charts and you see that
+
+137
+00:14:39,040 --> 00:14:44,000
+it's basically going to give us bunch of scatter plots it's going to give us histograms it's going
+
+138
+00:14:44,000 --> 00:14:49,120
+to give us Pareto distributions so obviously we want histograms so let's click on histograms
+
+139
+00:14:49,120 --> 00:14:56,000
+and there it is that's basically the histogram of sepal length let's just move it a little
+
+140
+00:14:57,280 --> 00:15:02,960
+outside so that we can still see everything that's already there so there it is i can also click on
+
+141
+00:15:02,960 --> 00:15:10,080
+this particular button here to change you know the color of it so basically it's blue and let's say
+
+142
+00:15:10,080 --> 00:15:14,960
+i want it in green so i can click on this it becomes green and i can edit the chart title
+
+143
+00:15:15,600 --> 00:15:28,800
+i can say that this is basically the histogram of sepal length and there it is that's basically
+
+144
+00:15:28,800 --> 00:15:37,040
+how i can quickly draw histogram using excel if i want to do it for another column again i do the
+
+145
+00:15:37,040 --> 00:15:43,360
+same thing i go to the i select the column i go to the insert tab i look at either the recommended
+
+146
+00:15:43,360 --> 00:15:49,760
+charts and if the histogram doesn't show up in the recommended charts i simply go to the button
+
+147
+00:15:49,760 --> 00:15:55,280
+which corresponds to the statistical charts which is this one and i click there and i see that there
+
+148
+00:15:55,280 --> 00:16:01,040
+is an option here for a histogram and that essentially gives me my histogram for the petal
+
+149
+00:16:01,040 --> 00:16:07,520
+width column as well and again i can use a bunch of different styles with these charts so as you
+
+150
+00:16:07,520 --> 00:16:12,080
+see we can change the color but here we can also change the whole style so let's say i want something
+
+151
+00:16:12,080 --> 00:16:18,320
+like this with a black background and a slightly matte kind of a finish then this is what my chart
+
+152
+00:16:18,320 --> 00:16:24,080
+looks like remember that you can just choose any sort of a slide or style that you want and you can
+
+153
+00:16:24,080 --> 00:16:29,840
+use any sort of a color that you want you can also size these accordingly you can edit the markers
+
+154
+00:16:29,840 --> 00:16:34,960
+and the titles as and when you like so that is how you can get histograms out of excel
+
+155
+00:16:38,800 --> 00:16:44,080
+so that takes care of all the univariate analysis that we can do on continuous variables but we
+
+156
+00:16:44,080 --> 00:16:49,680
+haven't exactly thought of what we can do with categorical variables that is for example something
+
+157
+00:16:49,680 --> 00:16:56,800
+like the species column so let's see what we can do with them let's move this entire section of
+
+158
+00:16:56,800 --> 00:17:06,000
+work out of here so that we can basically make some room for our analysis for the categorical data
+
+159
+00:17:06,000 --> 00:17:10,160
+now as we know the only thing we can do with categorical data in this case is count it
+
+160
+00:17:10,160 --> 00:17:15,040
+it doesn't support any other operations now in order to count how many different values are present
+
+161
+00:17:15,040 --> 00:17:19,200
+and how frequently they occur the first thing i need to do is figure out what are the unique
+
+162
+00:17:19,200 --> 00:17:23,680
+values that are actually present in that so for example let's say i have this column e which is
+
+163
+00:17:23,680 --> 00:17:27,360
+the species column and i want to figure out how many different species are there
+
+164
+00:17:27,360 --> 00:17:33,600
+if i do a quick scroll i see that setto size there there's versicolor and there is also virginica
+
+165
+00:17:33,600 --> 00:17:39,760
+in some parts of the data set however i want to programmatically using excel find out which are
+
+166
+00:17:39,760 --> 00:17:46,960
+the unique values so what i can do then is go to the data tab and i can say that i want to do an
+
+167
+00:17:46,960 --> 00:17:52,960
+advanced filter when i click on the advanced filter you'll get this warning but that's okay
+
+168
+00:17:52,960 --> 00:17:58,480
+you'll see that you get this window which will let you specify what sort of a filtering you want
+
+169
+00:17:58,480 --> 00:18:02,880
+so let's say that i want don't want to filter the list in place but i want to copy the output to
+
+170
+00:18:02,880 --> 00:18:11,360
+some other location so basically let's do that and we say that the range is this and i only want
+
+171
+00:18:11,360 --> 00:18:17,920
+unique records and i want to copy to say a particular file which is say f115 and when i
+
+172
+00:18:17,920 --> 00:18:24,800
+click on okay that's what i get i get species setosa versicolor and virginica so now i have
+
+173
+00:18:24,800 --> 00:18:30,080
+the unique species ready under this particular column so i have species here and let's also
+
+174
+00:18:30,080 --> 00:18:36,400
+create something called a count so now i just want to count how many setosas are there how many
+
+175
+00:18:36,400 --> 00:18:42,080
+versiculars are there and how many virginicas are there simple way to do that is to use another
+
+176
+00:18:42,080 --> 00:18:49,200
+formula called the count if formula so basically what count if does is it counts values in a given
+
+177
+00:18:49,200 --> 00:18:55,760
+selection that is a range so let's say my range is basically the entire column which is e to e and
+
+178
+00:18:55,760 --> 00:19:00,640
+the criteria is basically what you want to match it with and the criteria i want to be setosa what
+
+179
+00:19:00,640 --> 00:19:11,280
+this means is that the criteria is setosa so what i mean by this is that count the whole column e to
+
+180
+00:19:11,280 --> 00:19:18,400
+e if any value matches setosa and then i can just press enter and so it tells me that it has 46
+
+181
+00:19:18,400 --> 00:19:25,040
+columns similarly i can just do a copy and paste it over the new columns and it gives me 46 so
+
+182
+00:19:25,040 --> 00:19:31,120
+basically here i'm saying that count all the values in species such that they are versicolor
+
+183
+00:19:31,120 --> 00:19:36,400
+count all the values in species such that they are virginica so that's how i get my count values
+
+184
+00:19:36,400 --> 00:19:42,960
+now one quick way to basically convert this also into a graphic is to select this data let's say
+
+185
+00:19:42,960 --> 00:19:47,600
+that these are my unique species and these are their counts of course in this particular case
+
+186
+00:19:47,600 --> 00:19:53,120
+it's a balanced data set so all species are equally probable and equally present and then
+
+187
+00:19:53,120 --> 00:19:58,480
+again i can go to insert and i can insert yet another chart so i can say that i want to create
+
+188
+00:19:58,480 --> 00:20:04,960
+a pie chart and there it is that's our chart we have setosa versicolor and virginica all occupying
+
+189
+00:20:04,960 --> 00:20:10,640
+exactly 33 percent of the pie chart and that's how we can simply do a counting of
+
+190
+00:20:11,280 --> 00:20:18,480
+the frequencies within a particular categorical column
+
